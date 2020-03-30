@@ -38,8 +38,7 @@
     <script src="<?= base_url('assets/js/editable/bootstrap-editable.js') ?>"></script>
     <script src="<?= base_url('assets/js/editable/xediable-active.js') ?>"></script>
     <!-- Inputan JS -->
-    <script src="<?= base_url('assets/js/custom/field.js') ?>"></script>
-    <script src="<?= base_url('assets/js/database/hewan.js') ?>"></script>
+    <script src="<?= base_url('assets/js/input/field.js') ?>"></script>
 
     <!-- notification JS -->
     <script src="<?= base_url('assets/js/notifications/Lobibox.js') ?>"></script>

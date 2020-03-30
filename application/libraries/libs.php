@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-class bo {
+class libs {
 
 	public function tittleMenu($judul, $menu, $icon) {
 		echo "	<div class='app-title'>
@@ -14,30 +14,18 @@ class bo {
 				  	</ul>
 				</div>";
 	}
-	public function rowOpen($judul) {
+	public function rowOpen($judul, $menu) {
 		echo 	"<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
-					<div class='sparkline12-list'>
-						<div class='sparkline12-hd'>
-							<div class='main-sparkline12-hd'>
-								<h1>$judul</h1>
-							</div>
-						</div>
-						<div class='sparkline12-graph'>
-							<div class='basic-login-form-ad'>
-								<div class='row'>
-									<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
-										<div class='all-form-element-inner'>";
+					<div class='product-status-wrap'>
+						<h4>$menu $judul</h4>
+						<div id='toolbar'> </div>";
 	}
 	public function rowClose() {
-		echo 	"						</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+		echo 	"	</div>
 				</div>";
 	}
 	public function inputOpen($nama, $field) {
+		$nama = ucwords($nama);
 		echo "<div class='form-group-inner'>
 				<div class='row'>
 					<div class='col-lg-3 col-md-3 col-sm-3 col-xs-12'>";
@@ -103,14 +91,14 @@ class bo {
 					<button type='button' id='btn-ubah' class='btn btn-custon-four btn-primary'><i class='fa fa-fw fa-lg fa-check'></i>Ubah</button>
 				</div>";
 	}
-	public function buttonSubmit($url) {
+	public function buttonSubmit($tabel) {
 		echo "	<div class='form-group-inner'>
 					<div class='login-btn-inner'>
 						<div class='row'>
 							<div class='col-lg-3'></div>
 							<div class='col-lg-9'>
 								<div class='login-horizental cancel-wp pull-left form-bc-ele'>
-									<a class='btn btn-custon-four btn-default' href='$url'><i class='fa fa-fw fa-lg fa-times-circle'></i>Kembali</a>
+									<a class='btn btn-custon-four btn-default' href='$tabel'><i class='fa fa-fw fa-lg fa-times-circle'></i>Kembali</a>
 									&nbsp;&nbsp;
 									<button type='submit' class='btn btn-custon-four btn-primary'><i class='fa fa-fw fa-lg fa-check-circle'></i>Simpan</button>
 								</div>
@@ -118,5 +106,8 @@ class bo {
 						</div>
 					</div>
 				</div>";
+	}
+	public function buttonAdd($url) {
+		echo "<a href='$url' id='btn-tambah' class='Primary mg-b-10'><i class='fa fa-plus' aria-hidden='true'></i> Tambah</a>";
 	}
 }

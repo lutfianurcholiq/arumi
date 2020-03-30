@@ -3,54 +3,54 @@
   <div class="left-sidebar-pro">
     <nav id="sidebar" class="">
       <div class="sidebar-header">
-        <a href="index.html"><img class="main-logo" src="<?= base_url('assets/img/logo/logo.png') ?>" alt="" /></a>
-        <strong><a href="index.html"><img src="<?= base_url('assets/img/logo/logosn.png') ?>" alt="" /></a></strong>
+        <a href=""><img class="main-logo" src="<?= base_url('assets/img/logo/logo.png') ?>" alt="" /></a>
+        <strong><a href=""><img src="<?= base_url('assets/img/logo/logosn.png') ?>" alt="" /></a></strong>
       </div>
       <div class="left-custom-menu-adp-wrap comment-scrollbar">
         <nav class="sidebar-nav left-sidebar-menu-pro">
           <ul class="metismenu" id="menu1">
             <li>
-              <a title="Landing Page" href="events.html" aria-expanded="false"><span class="educate-icon educate-home icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Beranda</span></a>
+              <a title="Landing Page" href="" aria-expanded="false"><span class="educate-icon educate-home icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Beranda</span></a>
             </li>
 
-            <?php if($this->session->userdata('level') == "Kepala Cabang" || $this->session->userdata('level') == "Karyawan"): ?>
+            <?php #if($this->session->userdata('level') == "Kepala Cabang" || $this->session->userdata('level') == "Karyawan"): ?>
             <li>
               <a class="has-arrow" href="">
                 <span class="educate-icon educate-course icon-wrap"></span>
                 <span class="mini-click-non">Master Data</span>
               </a>
               <ul class="submenu-angle" aria-expanded="true">
-                <?php if($this->session->userdata('level') == "Kepala Cabang"): ?>
-                  <li><a title="Akun" href=""><span class="mini-sub-pro">Akun</span></a></li>
-                  <li><a title="Barang" href=""><span class="mini-sub-pro">Barang</span></a></li>
-                <?php elseif($this->session->userdata('level') == "Karyawan"): ?>
+                <?php #if($this->session->userdata('level') == "Kepala Cabang"): ?>
+                  <li><a title="COA" href="<?php echo site_url('coa'); ?>"><span class="mini-sub-pro">COA</span></a></li>
+                  <li><a title="Bahan" href=""><span class="mini-sub-pro">Bahan</span></a></li>
+                <?php #elseif($this->session->userdata('level') == "Karyawan"): ?>
                   <li><a title="Pelanggan" href="<?php echo site_url('pelanggan'); ?>"><span class="mini-sub-pro">Pelanggan</span></a></li>
-                <?php endif; ?>
+                <?php #endif; ?>
               </ul>
             </li>
-            <?php endif; ?>
+            <?php #endif; ?>
 
-            <?php if($this->session->userdata('level') == "Kepala Cabang" || $this->session->userdata('level') == "Karyawan" || $this->session->userdata('level') == "Produksi"): ?>
+            <?php #if($this->session->userdata('level') == "Kepala Cabang" || $this->session->userdata('level') == "Karyawan" || $this->session->userdata('level') == "Produksi"): ?>
             <li>
-              <a class="has-arrow" href="index.html">
+              <a class="has-arrow" href="">
                 <span class="educate-icon educate-landing icon-wrap"></span>
                 <span class="mini-click-non">Transaksi</span>
               </a>
               <ul class="submenu-angle" aria-expanded="true">
-                <?php if($this->session->userdata('level') == "Kepala Cabang"): ?>
+                <?php #if($this->session->userdata('level') == "Kepala Cabang"): ?>
                   <li><a title="Pembelian" href=""><span class="mini-sub-pro">Pembelian</span></a></li>
-                <?php elseif($this->session->userdata('level') == "Produksi"): ?>
+                <?php #elseif($this->session->userdata('level') == "Produksi"): ?>
                   <li><a title="Pemesanan" href=""><span class="mini-sub-pro">Pemesanan</span></a></li>
-                <?php elseif($this->session->userdata('level') == "Karyawan"): ?>
+                <?php #elseif($this->session->userdata('level') == "Karyawan"): ?>
                   <li><a title="Penjualan" href=""><span class="mini-sub-pro">Penjualan</span></a></li>
-                <?php endif; ?>
+                <?php #endif; ?>
               </ul>
             </li>
-            <?php endif; ?>
+            <?php #endif; ?>
 
-            <?php if($this->session->userdata('level') == "Kepala Cabang" || $this->session->userdata('level') == "Produksi"): ?>
+            <?php #if($this->session->userdata('level') == "Kepala Cabang" || $this->session->userdata('level') == "Produksi"): ?>
             <li>
-              <a class="has-arrow" href="index.html">
+              <a class="has-arrow" href="">
                 <span class="educate-icon educate-event icon-wrap"></span>
                 <span class="mini-click-non">Laporan</span>
               </a>
@@ -60,7 +60,7 @@
                 <li><a title="Kartu Stok" href=""><span class="mini-sub-pro">Kartu Stok</span></a></li>
               </ul>
             </li>
-            <?php endif; ?>
+            <?php #endif; ?>
           </ul>
         </nav>
       </div>
@@ -73,7 +73,7 @@
       <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <div class="logo-pro">
-            <a href="index.html"><img class="main-logo" src="<?= base_url('assets/img/logo/logo.png') ?>" alt="" /></a>
+            <a href=""><img class="main-logo" src="<?= base_url('assets/img/logo/logo.png') ?>" alt="" /></a>
           </div>
         </div>
       </div>

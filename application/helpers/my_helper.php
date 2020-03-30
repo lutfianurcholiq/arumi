@@ -26,6 +26,22 @@
         }
     }
 
+    function noWa($inputan) {
+        $ambil = substr($inputan, 0);
+		$sisa  = substr($inputan, 1, 11);
+		$nol   = str_replace($ambil, "62", $inputan);
+        $wa    = $nol.$sisa;
+        return $wa;
+    }
+    function noHp($inputan) {
+        $ambil1 = substr($inputan, 0); # ambil 6
+        $ambil2 = substr($inputan, 1); # ambil 2
+		$sisa  = substr($inputan, 2, 11);
+		$nol   = str_replace($ambil1, "0", $inputan);
+        $hp    = $nol.$sisa;
+        return $hp;
+    }
+
 	function shortdate_indo($tgl) {
         $ubah		=	gmdate($tgl, time()+60*60*8);
         $pecah		=	explode("-",$ubah);
@@ -53,7 +69,7 @@
     }
 
     function bulan($bulan) {
-        $nama_bulan;
+        $nama_bulan = "";
         switch ($bulan) {
             case '01' :
             case 'January':

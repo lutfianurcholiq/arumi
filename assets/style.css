@@ -3650,7 +3650,7 @@ div#sparklinehome canvas {
     width: 100% !important;
 }
 .header-top-area {
-    background: #006DF0;
+    background: tomato;
 }
 .sidebar-nav .metismenu{
 	background: #fff;
@@ -3723,7 +3723,7 @@ div#sparklinehome canvas {
     background-color: #86bc42;
 }
 .footer-copyright-area {
-    background: #006DF0;
+    background: #ff6347;
 	padding: 20px 0px;
     text-align: center;
 }
@@ -4118,7 +4118,7 @@ div#sparklinehome canvas {
 	font-weight:300;
 }
 .menu-switcher-pro .btn-info:active, .menu-switcher-pro .btn-info:focus, .menu-switcher-pro .btn-info:hover, .menu-switcher-pro .btn-info:visited, .header-drl-controller-btn.btn-info:active:focus{
-	background: #006DF0;
+	background: #f05134;
 	outline:none;
 }
 .mini-navbar .single-review-st-text img {
