@@ -27,16 +27,17 @@ class pelanggan extends CI_Controller {
 
 		if($this->form_validation->run()) {
 			if ($action == 'save') {
-				$message = ucfirst('data berhasil disimpan');
+				$message = ucfirst('data pelanggan berhasil disimpan');
 			}
 			else {
-				$message = ucfirst('data berhasil diubah');
+				$message = ucfirst('data pelanggan berhasil diubah');
 			}
-			$this->session->set_flashdata('sukses', "<div id='pesan-sukses' class='alert alert-success'>
-														<button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-																<span aria-hidden='true'>&times;</span>
-															</button>
-														<strong>Sukses!</strong> $message.
+			$this->session->set_flashdata('sukses', "<div id='pesan-sukses' class='alert alert-success alert-success-style1 alert-success-stylenone'>
+														<button type='button' class='close  sucess-op' data-dismiss='alert' aria-label='Close'>
+															<span class='icon-sc-cl' aria-hidden='true'>&times;</span>
+														</button>
+														<i class='fa fa-check edu-checked-pro admin-check-sucess admin-check-pro-none' aria-hidden='true'></i>
+														<p class='message-alert-none'><strong>Sukses!</strong> $message.</p>
 													</div>");
 			return true;
 		}
