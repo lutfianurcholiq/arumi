@@ -58,6 +58,11 @@
     <script src="<?= base_url('assets/js/plugins.js') ?>"></script>
     <!-- main JS -->
     <script src="<?= base_url('assets/js/main.js') ?>"></script>
+    <script>
+        $(document).ready(function () {
+            $('#pesan-sukses').fadeIn().delay(4000).fadeOut()
+        })
+    </script>
 </body>
 
 </html>
