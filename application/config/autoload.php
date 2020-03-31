@@ -13,4 +13,4 @@ $autoload['config'] = array();
 
 $autoload['language'] = array();
 
-$autoload['model'] = array('modelKu', 'hewanModel', 'pelangganModel');
+$autoload['model'] = array('modelKu', 'pelangganModel', 'coaModel');
