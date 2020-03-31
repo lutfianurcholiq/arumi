@@ -19,13 +19,25 @@ class pelanggan extends CI_Controller {
 		$this->load->view('template/footer');	
 	}
 
-	public function validasi() {
+	public function validasi($action) {
 		$this->form_validation->set_rules('nama_pelanggan', 'Nama', 'required');
 		$this->form_validation->set_rules('no_wa', 'No WhatsApp', 'required|min_length[12]|max_length[12]');
 		$this->form_validation->set_rules('alamat', 'Alamat', 'required');
 		$this->form_validation->set_error_delimiters('<div><b class="text-danger">', '</b></div>');
 
 		if($this->form_validation->run()) {
+			if ($action == 'save') {
+				$message = ucfirst('data berhasil disimpan');
+			}
+			else {
+				$message = ucfirst('data berhasil diubah');
+			}
+			$this->session->set_flashdata('sukses', "<div id='pesan-sukses' class='alert alert-success'>
+														<button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+																<span aria-hidden='true'>&times;</span>
+															</button>
+														<strong>Sukses!</strong> $message.
+													</div>");
 			return true;
 		}
 		else {
@@ -34,7 +46,7 @@ class pelanggan extends CI_Controller {
 	}
 
 	public function create() {
-		if($this->validasi()) {
+		if($this->validasi('save')) {
 			$this->pelangganModel->save('pelanggan', 'id_pelanggan');
 			redirect('pelanggan');
 		}
@@ -51,7 +63,7 @@ class pelanggan extends CI_Controller {
 	
 	public function update() {
 		$id = $this->uri->segment(3);
-		if($this->validasi()) {
+		if($this->validasi('edit')) {
 			$this->pelangganModel->edit('pelanggan', $id);
 			redirect('pelanggan');
 		}

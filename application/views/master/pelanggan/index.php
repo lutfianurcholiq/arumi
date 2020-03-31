@@ -1,4 +1,8 @@
-<?php $this->libs->rowOpen($judul, $menu); ?>
+<?php 
+  echo $this->session->flashdata('sukses');
+  $this->libs->rowOpen($judul, $menu); 
+?>
+
   <div class="add-product">
     <?php $this->libs->buttonAdd($form); ?>
   </div>
