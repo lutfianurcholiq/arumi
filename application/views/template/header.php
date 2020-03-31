@@ -58,6 +58,8 @@
     <!-- notifications CSS  -->
     <link rel="stylesheet" href="<?= base_url('assets/css/notifications/Lobibox.min.css') ?>">
     <link rel="stylesheet" href="<?= base_url('assets/css/notifications/notifications.css') ?>">
+    <!-- alert CSS  -->
+    <link rel="stylesheet" href="<?= base_url('assets/css/alerts.css') ?>">
     <!-- style CSS -->
     <link rel="stylesheet" href="<?= base_url('assets/style.css') ?>">
     <!-- responsive CSS -->
