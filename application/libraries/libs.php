@@ -56,6 +56,14 @@ class libs {
 		echo "	<input class='form-control col-md-12' type='hidden' name='id' value='$id'>
 				<input class='form-control col-md-12' type='hidden' name='aksi' value='edit'>	";
 	}
+	public function notify($msg) {
+		echo "	<div class='alert alert-success'>
+					<button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+							<span aria-hidden='true'>&times;</span>
+						</button>
+					<strong>Sukses!</strong> $msg.
+				</div>";
+	}
 	public function modalOpen() {
 		echo "	<div id='form-modal' class='modal modal-edu-general default-popup-WarningModal fade' role='dialog'>
 					<div class='modal-dialog'>
