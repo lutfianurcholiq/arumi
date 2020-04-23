@@ -37,7 +37,7 @@
 	line-height:24px;
 }
 .nav-tabs.custom-menu-wrap li a:hover{
-	background:#006DF0;
+	background: palevioletred;
 	color:#fff;
 }
 .nav-tabs.custom-menu-wrap li a{
@@ -45,6 +45,7 @@
 }
 .nav-tabs.custom-menu-wrap li.active a{
 	color:#303030;
+	background: #FFB6C1;
 }
 .nav-tabs.custom-menu-wrap li.active a:hover{
 	color:#fff;

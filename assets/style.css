@@ -2335,7 +2335,7 @@ ul.two-part-sp li{
 .product-status-wrap h4 {
     font-size: 20px;
     color: #303030;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
 }
 .product-status-wrap table {
     width: 100%;
@@ -3650,7 +3650,7 @@ div#sparklinehome canvas {
     width: 100% !important;
 }
 .header-top-area {
-    background: tomato;
+    background: #db80ab;
 }
 .sidebar-nav .metismenu{
 	background: #fff;
@@ -3723,7 +3723,7 @@ div#sparklinehome canvas {
     background-color: #86bc42;
 }
 .footer-copyright-area {
-    background: #ff6347;
+    background: #db80ab;
 	padding: 20px 0px;
     text-align: center;
 }
@@ -3753,7 +3753,7 @@ div#sparklinehome canvas {
     color: #303030;
 }
 .edu-custon-design .panel-heading {
-    background: #006DF0;
+    background: palevioletred;
     color: #fff;
 }
 .panel-group.edu-custon-design .accordion-head a:hover, .panel-group.edu-custon-design .accordion-head a:focus, .panel-group.edu-custon-design .accordion-head a:active {
@@ -4118,7 +4118,7 @@ div#sparklinehome canvas {
 	font-weight:300;
 }
 .menu-switcher-pro .btn-info:active, .menu-switcher-pro .btn-info:focus, .menu-switcher-pro .btn-info:hover, .menu-switcher-pro .btn-info:visited, .header-drl-controller-btn.btn-info:active:focus{
-	background: #f05134;
+	background: #d2689f;
 	outline:none;
 }
 .mini-navbar .single-review-st-text img {

@@ -10,21 +10,26 @@
         <nav class="sidebar-nav left-sidebar-menu-pro">
           <ul class="metismenu" id="menu1">
             <li>
-              <a title="Landing Page" href="" aria-expanded="false"><span class="educate-icon educate-home icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Beranda</span></a>
+              <a title="Landing Page" href="" aria-expanded="false"><span class="fas fa-store-alt icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Beranda</span></a>
             </li>
 
             <?php #if($this->session->userdata('level') == "Kepala Cabang" || $this->session->userdata('level') == "Karyawan"): ?>
             <li>
               <a class="has-arrow" href="">
-                <span class="educate-icon educate-course icon-wrap"></span>
+                <span class="far fa-folder-open icon-wrap"></span>
                 <span class="mini-click-non">Master Data</span>
               </a>
               <ul class="submenu-angle" aria-expanded="true">
                 <?php #if($this->session->userdata('level') == "Kepala Cabang"): ?>
+                  <li><a title="Bahan" href="<?php echo site_url('bahan'); ?>"><span class="mini-sub-pro">Bahan</span></a></li>
                   <li><a title="COA" href="<?php echo site_url('coa'); ?>"><span class="mini-sub-pro">COA</span></a></li>
-                  <li><a title="Bahan" href=""><span class="mini-sub-pro">Bahan</span></a></li>
-                <?php #elseif($this->session->userdata('level') == "Karyawan"): ?>
-                  <li><a title="Pelanggan" href="<?php echo site_url('pelanggan'); ?>"><span class="mini-sub-pro">Pelanggan</span></a></li>
+                  <?php #elseif($this->session->userdata('level') == "Karyawan"): ?>
+                    <li><a title="Karyawan" href="<?php echo site_url('karyawan'); ?>"><span class="mini-sub-pro">Karyawan</span></a></li>
+                    <li><a title="Komunitas" href="<?php echo site_url('komunitas'); ?>"><span class="mini-sub-pro">Komunitas</span></a></li>
+                    <li><a title="Produk" href="<?php echo site_url('produk'); ?>"><span class="mini-sub-pro">Produk</span></a></li>
+                    <li><a title="Pelanggan" href="<?php echo site_url('pelanggan'); ?>"><span class="mini-sub-pro">Pelanggan</span></a></li>
+                    <li><a title="Kelompok Biaya" href="<?php echo site_url('biaya'); ?>"><span class="mini-sub-pro">Kelompok Biaya</span></a></li>
+                    <li><a title="Bill of Material" href="<?php echo site_url('bom'); ?>"><span class="mini-sub-pro">Bill of Material</span></a></li>
                 <?php #endif; ?>
               </ul>
             </li>
@@ -33,15 +38,16 @@
             <?php #if($this->session->userdata('level') == "Kepala Cabang" || $this->session->userdata('level') == "Karyawan" || $this->session->userdata('level') == "Produksi"): ?>
             <li>
               <a class="has-arrow" href="">
-                <span class="educate-icon educate-landing icon-wrap"></span>
+                <span class="far fa-handshake icon-wrap"></span>
                 <span class="mini-click-non">Transaksi</span>
               </a>
               <ul class="submenu-angle" aria-expanded="true">
                 <?php #if($this->session->userdata('level') == "Kepala Cabang"): ?>
                   <li><a title="Pembelian" href=""><span class="mini-sub-pro">Pembelian</span></a></li>
                 <?php #elseif($this->session->userdata('level') == "Produksi"): ?>
-                  <li><a title="Pemesanan" href=""><span class="mini-sub-pro">Pemesanan</span></a></li>
+                  <li><a title="Pesanan" href="<?php echo site_url('pesanan'); ?>"><span class="mini-sub-pro">Pesanan</span></a></li>
                 <?php #elseif($this->session->userdata('level') == "Karyawan"): ?>
+                  <li><a title="Jadwal Produksi" href="<?php echo site_url('produksi'); ?>"><span class="mini-sub-pro">Jadwal Produksi</span></a></li>
                   <li><a title="Penjualan" href=""><span class="mini-sub-pro">Penjualan</span></a></li>
                 <?php #endif; ?>
               </ul>
@@ -51,7 +57,7 @@
             <?php #if($this->session->userdata('level') == "Kepala Cabang" || $this->session->userdata('level') == "Produksi"): ?>
             <li>
               <a class="has-arrow" href="">
-                <span class="educate-icon educate-event icon-wrap"></span>
+                <span class="far fa-clipboard icon-wrap"></span>
                 <span class="mini-click-non">Laporan</span>
               </a>
               <ul class="submenu-angle" aria-expanded="true">
@@ -165,7 +171,7 @@
         <div class="row">
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="footer-copy-right">
-              <p>Copyright © <?php echo date('Y'); ?>. All rights reserved. Template by <a href="https://colorlib.com/wp/templates/">Colorlib</a></p>
+              <p>Arumi © <?php echo date('Y'); ?>. Template by <a href="https://www.instagram.com/haibilll/">Colorlib</a></p>
             </div>
           </div>
         </div>

@@ -52,10 +52,20 @@ class libs {
 					</div>
 				</div>";	
 	}
-	public function inputEdit($id) {
-		echo "	<input class='form-control col-md-12' type='hidden' name='id' value='$id'>
-				<input class='form-control col-md-12' type='hidden' name='aksi' value='edit'>	";
-	}
+	function thead($thead) {
+        $th = count($thead); 
+		echo "	<thead>
+					<tr>";
+        for ($i = 0; $i < $th; $i++) { 
+			if ($thead == 'no' || $thead == 'aksi') {
+				echo "<th style='width: 5%;'>".ucwords($thead[$i])."</th>";
+			} else {
+				echo "<th>".ucwords($thead[$i])."</th>";
+			}
+        }
+		echo "		</tr>
+				</thead>";
+    }
 	public function notify($msg) {
 		echo "	<div class='alert alert-success'>
 					<button type='button' class='close' data-dismiss='alert' aria-label='Close'>
@@ -75,14 +85,14 @@ class libs {
 								</div>
 							</div>";
 	}
-	public function modalOpenOther($judul) {
-		echo "	<div class='bs-component'>
-					<div class='modal' id='modal'>
-				    	<div class='modal-dialog modal-sm' role='document'>
-				    		<div class='modal-content'>
-				        		<div class='modal-header'>
-				          			<h5 class='modal-title'>$judul</h5>
-				        		</div>";
+	public function modalOpenOther($id_modal) {
+		idModal($id_modal);
+		echo "	<div id='$id_modal' class='modal modal-edu-general fullwidth-popup-InformationproModal PrimaryModal-bgcolor' fade role='dialog'>
+					<div class='modal-dialog'>
+						<div class='modal-content'>
+								<div class='modal-close-area modal-close-df'>
+									<a class='close' data-dismiss='modal' href='#'><i class='fa fa-close'></i></a>
+								</div>";
 	}
 	public function modalClose() {
 		echo 	"		</div>
@@ -91,10 +101,6 @@ class libs {
 	}
 	public function buttonModal() {
 		echo "	<div class='modal-footer'>
-					<div id='loading-simpan' class='pull-left'>
-                        <b>Sedang menyimpan...</b>
-                    </div>
-
 					<button type='button' id='btn-simpan' class='btn btn-custon-four btn-success'><i class='fa fa-fw fa-lg fa-check'></i>Simpan</button>
 					<button type='button' id='btn-ubah' class='btn btn-custon-four btn-primary'><i class='fa fa-fw fa-lg fa-check'></i>Ubah</button>
 				</div>";
@@ -106,9 +112,9 @@ class libs {
 							<div class='col-lg-3'></div>
 							<div class='col-lg-9'>
 								<div class='login-horizental cancel-wp pull-left form-bc-ele'>
-									<a class='btn btn-custon-four btn-default' href='$tabel'><i class='fa fa-fw fa-lg fa-times-circle'></i>Kembali</a>
+									<a class='btn btn-custon-four btn-default' href='$tabel' style='margin: 1px'><i class='fa fa-arrow-circle-left'></i> Kembali</a>
 									&nbsp;&nbsp;
-									<button type='submit' class='btn btn-custon-four btn-primary'><i class='fa fa-fw fa-lg fa-check-circle'></i>Simpan</button>
+									<button type='submit' class='btn btn-custon-four btn-primary'><i class='fa fa-check-circle'></i> Simpan</button>
 								</div>
 							</div>
 						</div>

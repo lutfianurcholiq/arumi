@@ -9,16 +9,10 @@
   <div class="sparkline13-graph">
     <div class="datatable-dashv1-list custom-datatable-overright">
       <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="false" data-show-refresh="false" data-key-events="false" data-show-toggle="false" data-resizable="true" data-cookie="false" data-cookie-id-table="saveId" data-show-export="false" data-click-to-select="true" data-toolbar="#toolbar">
-        <thead>
-          <tr>
-            <th>No</th>
-            <th>ID</th>
-            <th>Nama</th>
-            <th>WhatsApp</th>
-            <th>Alamat</th>
-            <th>Pilihan</th>
-          </tr>
-        </thead>
+        <?php
+          $thead = ["no", "id", "nama", "whatsapp", "alamat", "aksi"]; 
+          $this->libs->thead($thead);
+        ?>
         <tbody>
           <?php foreach ($hasil as $data) : ?>
             <tr>

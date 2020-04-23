@@ -1,8 +1,8 @@
 <?php
 
 	function udahLogin() {
-        $koran = get_instance();
-        if ($koran->session->userdata('username') || $koran->uri->segment(2) == '_login') {
+        $ci = get_instance();
+        if ($ci->session->userdata('username') || $ci->uri->segment(2) == '_login') {
             redirect('beranda');
         }
     }
@@ -26,6 +26,14 @@
         }
     }
 
+    function flashdata($message) {
+        $ci    = get_instance();
+        $notif =  $ci->session->set_flashdata('sukses', "<div id='pesan-sukses' class='alert alert-success alert-st-one' role='alert'>
+                                                            <p class='message-mg-rt message-alert-none'><strong>Sukses!</strong> $message.</p>
+                                                        </div>");
+        return $notif;
+    }
+
     function noWa($inputan) {
         $ambil = substr($inputan, 0);
 		$sisa  = substr($inputan, 1, 11);
@@ -33,6 +41,7 @@
         $wa    = $nol.$sisa;
         return $wa;
     }
+
     function noHp($inputan) {
         $ambil1 = substr($inputan, 0); # ambil 6
         $ambil2 = substr($inputan, 1); # ambil 2
@@ -40,6 +49,17 @@
 		$nol   = str_replace($ambil1, "0", $inputan);
         $hp    = $nol.$sisa;
         return $hp;
+    }
+
+    function idModal($id_modal) {
+        switch ($id_modal) {
+			case 'modal-selesai':
+				return $id_modal = 'modal-selesai';
+			break;
+			default:
+				# code...
+			break;
+		}
     }
 
 	function shortdate_indo($tgl) {
@@ -50,6 +70,7 @@
         $tahun		=	$pecah[0];
         return $tanggal.'-'.$bulan.'-'.$tahun;
     }
+    
 
     function short_bulan($bln) {
         switch ($bln) {

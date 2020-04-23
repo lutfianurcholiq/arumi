@@ -20,25 +20,19 @@ class pelanggan extends CI_Controller {
 	}
 
 	public function validasi($action) {
-		$this->form_validation->set_rules('nama_pelanggan', 'Nama', 'required');
-		$this->form_validation->set_rules('no_wa', 'No WhatsApp', 'required|min_length[12]|max_length[12]');
-		$this->form_validation->set_rules('alamat', 'Alamat', 'required');
+		if ($action == 'save') {
+			$message = ucfirst('data pelanggan berhasil disimpan');
+		}
+		else {
+			$message = ucfirst('data pelanggan berhasil diubah');
+		}
+		$this->form_validation->set_rules('nama_pelanggan', ucwords('nama'), 'required');
+		$this->form_validation->set_rules('no_wa', ucwords('no whatsapp'), 'required|min_length[12]|max_length[12]');
+		$this->form_validation->set_rules('alamat', ucwords('alamat'), 'required');
 		$this->form_validation->set_error_delimiters('<div><b class="text-danger">', '</b></div>');
 
 		if($this->form_validation->run()) {
-			if ($action == 'save') {
-				$message = ucfirst('data pelanggan berhasil disimpan');
-			}
-			else {
-				$message = ucfirst('data pelanggan berhasil diubah');
-			}
-			$this->session->set_flashdata('sukses', "<div id='pesan-sukses' class='alert alert-success alert-success-style1 alert-success-stylenone'>
-														<button type='button' class='close  sucess-op' data-dismiss='alert' aria-label='Close'>
-															<span class='icon-sc-cl' aria-hidden='true'>&times;</span>
-														</button>
-														<i class='fa fa-check edu-checked-pro admin-check-sucess admin-check-pro-none' aria-hidden='true'></i>
-														<p class='message-alert-none'><strong>Sukses!</strong> $message.</p>
-													</div>");
+			flashdata($message);
 			return true;
 		}
 		else {
@@ -48,7 +42,7 @@ class pelanggan extends CI_Controller {
 
 	public function create() {
 		if($this->validasi('save')) {
-			$this->pelangganModel->save('pelanggan', 'id_pelanggan');
+			$this->pelangganModel->database('pelanggan', 'id_pelanggan', 'save');
 			redirect('pelanggan');
 		}
 		else {
@@ -65,7 +59,7 @@ class pelanggan extends CI_Controller {
 	public function update() {
 		$id = $this->uri->segment(3);
 		if($this->validasi('edit')) {
-			$this->pelangganModel->edit('pelanggan', $id);
+			$this->pelangganModel->database('pelanggan', $id, 'edit');
 			redirect('pelanggan');
 		}
 		else {

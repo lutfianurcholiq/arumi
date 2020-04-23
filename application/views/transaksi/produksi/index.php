@@ -1,27 +1,32 @@
 <?php 
-  $this->koran->tittleMenu($judul, $menu, $icon); 
-  echo $this->session->flashdata('pesan');
-  $this->koran->rowOpen(12); 
+  echo $this->session->flashdata('sukses');
+  $this->libs->rowOpen($judul, $menu); 
 ?>
-<div class="tile-body text-primary">
-  <table class="table table-hover table-bordered" id="sampleTable">
-    <thead>
-      <tr>
-        <th>Produk</th>
-        <th style="text-align: center;">Produksi</th>
-      </tr>
-    </thead>
-    <tbody>
-      <?php
-        foreach ($hasil as $data) {
-          echo "<tr>
-                  <td>".$data['kode']."-".jumlahAngka($data['kode_produk'])." ".$data['nama']."</td>";
-      ?>
-                  <td align="center">
-                    <a href="<?= site_url('produksi/hitung/'.$data['kode_produk']); ?>" class="btn btn-sm btn-outline-success" >&nbsp;&nbsp;<i class="icon fa fa-fw fa-plus"></i></a>
-                </tr>
-      <?php } ?>
-    </tbody>
-  </table>
-</div>
-<?= $this->koran->rowClose();  ?>
+  <div class="sparkline13-graph">
+    <div class="datatable-dashv1-list custom-datatable-overright">
+      <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="false" data-show-refresh="false" data-key-events="false" data-show-toggle="false" data-resizable="true" data-cookie="false" data-cookie-id-table="saveId" data-show-export="false" data-click-to-select="true" data-toolbar="#toolbar">
+        <?php
+          $thead = ["no", "kode produksi", "kode pesanan", "pelanggan", "mulai", "selesai", "aksi"]; 
+          $this->libs->thead($thead);
+        ?>
+        <tbody>
+          <?php foreach ($hasil as $data) : ?>
+            <tr>
+              <td><?php echo $data['id_produksi']; ?></td>
+              <td><?php echo $data['kode_produksi']. "-". jumlahAngka($data['id_produksi']); ?></td>
+              <td><?php echo $data['kode_pesanan']. "-". jumlahAngka($data['id_pesanan']); ?></td>
+              <td><?php echo $data['kode_pelanggan']. "-". jumlahAngka($data['id_pelanggan']). " " .$data['nama_pelanggan']; ?></td>
+              <td><?php echo shortdate_indo($data['mulai']); ?></td>
+              <td><?php echo shortdate_indo($data['selesai']); ?></td>
+              <td>
+                <button type="button" class="btn btn-default" onclick="window.location.href='<?= site_url('produksi/beli/'.$data['id_produksi']); ?>'">
+                  <i class="fa fa-calendar-check" aria-hidden="true"></i>
+								</button>
+              </td>
+            </tr>
+          <?php endforeach; ?>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<?php $this->libs->rowClose(); ?>
