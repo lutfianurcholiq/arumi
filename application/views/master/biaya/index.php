@@ -14,9 +14,9 @@
           $this->libs->thead($thead);
         ?>
         <tbody>
-          <?php foreach ($hasil as $data) : ?>
+          <?php $no = 1; foreach ($hasil as $data) : ?>
             <tr>
-              <td><?php echo $data['id_biaya']; ?></td>
+              <td><?php echo $no++; ?></td>
               <td><?php echo $data['kode_coa']. " ". $data['nama_coa']; ?></td>
               <td><?php echo $data['nama_biaya']; ?></td>
               <td><?php echo $data['keterangan']; ?></td>

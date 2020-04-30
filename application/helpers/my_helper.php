@@ -55,6 +55,9 @@
         switch ($id_modal) {
 			case 'modal-selesai':
 				return $id_modal = 'modal-selesai';
+            break;
+            case 'modal-btkl':
+				return $id_modal = 'modal-btkl';
 			break;
 			default:
 				# code...

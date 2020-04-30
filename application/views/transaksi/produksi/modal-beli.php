@@ -4,8 +4,19 @@
         <h2>Information!</h2>
         <p>Yakin nih mau beli ?</p>
     </div>
+    <?php
+        $this->db->where('id_produksi', $this->uri->segment(3));
+        $id_pesanan = $this->db->get('produksi')->row()->pesanan_id;
+
+        $this->db->where('pesanan_id', $id_pesanan);
+        $bom = $this->db->get('bom')->result_array();
+        $total = 0;
+        foreach ($bom as $b) :
+            $total += $b['subtotal'];
+        endforeach;
+    ?>
     <div class="modal-footer footer-modal-admin info-md">
-        <a href="<?php echo site_url() ?>">Kembali</a>
-        <a href="<?php echo site_url() ?>">Ya, yakin</a>
+        <a href="<?php echo site_url('produksi') ?>">Kembali</a>
+        <a href="<?php echo site_url('produksi/stepOne/'.$this->uri->segment(3).'/'.$total) ?>">Ya, yakin</a>
     </div>
 <?php $this->libs->modalClose(); ?>

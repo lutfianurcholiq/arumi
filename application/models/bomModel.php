@@ -24,7 +24,7 @@ class bomModel extends CI_Model {
 	}
 
 	public function showBom($id) {
-		$this->db->select('c.bahan_id, d.nama_bahan, c.jumlah, c.harga, c.subtotal, c.produk_id');
+		$this->db->select('c.bahan_id, d.nama_bahan, c.jumlah, c.harga, c.subtotal, c.produk_id, b.jumlah qty');
         $this->db->from('pesanan a');
         $this->db->join('detail_pesanan b', 'a.id_pesanan = b.pesanan_id');
         $this->db->join('detail_bb c', 'b.produk_id = c.produk_id');
@@ -38,23 +38,34 @@ class bomModel extends CI_Model {
 		return $this->db->get('bahan')->row()->harga;
 	}
 
-	public function database($tabel, $id, $id_bahan) {
+	public function database($tabel, $id, $no) {
 		$harga = $this->getHarga($_POST['id_bahan']);
 		$this->db->set('jumlah', $_POST['jumlah']); 
 		$this->db->set('harga', $harga); 
 		$this->db->set('subtotal', $harga * $_POST['jumlah']); 
         
-        if ($id_bahan == 'no_id_bahan') {
+        if ($no == 'no_id_bahan') {
 			$this->db->set('no', $this->modelKu->uuid($tabel, 'no'));
             $this->db->set('produk_id', $id);
             $this->db->set('bahan_id', $_POST['id_bahan']);
             $this->db->insert($tabel);
 		}
 		else {
-            $this->db->where('produk_id', $id); 
-            $this->db->where('bahan_id', $id_bahan); 
+			$this->db->where('no', $no); 
             $this->db->update($tabel);
 		}
+	}
+	
+	public function getOne($no) { 
+        $this->db->select('*');
+        $this->db->from('bahan a');
+        $this->db->join('detail_bb b', 'a.id_bahan = b.bahan_id');
+        $this->db->where('no', $no);
+        return $this->db->get()->row_array();
     }
-    
+
+    public function truncate($tabel, $no) { 
+        $this->db->where('no', $no);
+        $this->db->delete($tabel);
+    }
 }

@@ -10,25 +10,35 @@ class pemesananModel extends CI_Model {
 				   AND pesanan_id = 0 ";
 		return $this->db->query($sql)->num_rows();
 	}
+
 	public function show($tabel) { 
 		return $this->db->get($tabel)->result_array();
 	}
+
 	public function showProduk() {
 		$id_pelanggan = $this->session->userdata('pelanggan_id');
 		$query = "	SELECT id_produk, kode_produk, nama_produk, harga, foto, pesanan_id 
 					FROM ( 
 						SELECT id_produk, kode_produk, nama_produk, harga, foto,
 							(SELECT b.pesanan_id FROM detail_pesanan b 
-							WHERE a.id_produk = b.produk_id AND pesanan_id = 0
+							WHERE a.id_produk = b.produk_id AND pesanan_id = 0 AND b.pelanggan_id = '$id_pelanggan'
 							) AS pesanan_id 
 						FROM produk a 
 					) A";
 		return $this->db->query($query)->result_array();
 	}
+
+	public function showPesanan($tabel) {
+		$id_pelanggan = $this->session->userdata('pelanggan_id');
+		$this->db->where('pelanggan_id', $id_pelanggan);
+		return $this->db->get($tabel)->result_array();
+	}
+
 	public function getHarga() {
 		$this->db->where('id_produk', $_POST['produk_id']);
 		return $this->db->get('produk')->row()->harga;
 	}
+
 	public function database($tabel, $action) {
 		$id_pelanggan = $this->session->userdata('pelanggan_id');
 		$harga = $this->getHarga();
@@ -47,7 +57,8 @@ class pemesananModel extends CI_Model {
 			$this->db->where('pelanggan_id', $id_pelanggan);
 			$this->db->update($tabel);
 		}
-	} 
+	}
+
 	public function getOne($id) {
 		$this->db->select('id_produk, kode_produk, nama_produk, a.harga, foto, deskripsi, min, max, jumlah');
         $this->db->from('produk a');
@@ -55,14 +66,15 @@ class pemesananModel extends CI_Model {
 		$this->db->where('produk_id', $id);
 		return $this->db->get()->row_array();
 	}
+
 	public function delete($id_produk, $id_pelanggan) {
 		$this->db->where('pesanan_id', 0);
 		$this->db->where('produk_id', $id_produk);
 		$this->db->where('pelanggan_id', $id_pelanggan);
 		$this->db->delete('detail_pesanan');
 	}
-	public function finish($tabel, $id, $total, $id_pelanggan) {
-		$id_pesanan = $this->modelKu->uuid($tabel, $id);
+
+	public function finish($tabel, $id_pesanan, $total, $id_pelanggan) {
 		$this->db->set('id_pesanan', $id_pesanan);
 		$this->db->set('kode_pesanan', 'PSN');
 		$this->db->set('pelanggan_id', $id_pelanggan);

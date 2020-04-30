@@ -1,0 +1,9 @@
+data di tabel apa aja yg harus dihapus ?? (sesuai id yaa..)
+1. pesanan
+2. detail pesanan
+3. produksi
+4. bom
+5. detail_btkl
+6. detail_bop
+7. jurnal
+8. biaya_produksi

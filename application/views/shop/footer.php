@@ -28,10 +28,18 @@
     <script src="<?php echo base_url("shop-assets/js/jquery/jquery-2.2.4.min.js"); ?>"></script>
     <script src="<?php echo base_url("shop-assets/js/popper.min.js"); ?>"></script>
     <script src="<?php echo base_url("shop-assets/js/bootstrap.min.js"); ?>"></script>
+    <!-- dataTable JS  -->
+    <script src="<?= base_url('shop-assets/js/dataTables/jquery.dataTables.js'); ?>"></script>
+    <script src="<?= base_url('shop-assets/js/dataTables/dataTables.bootstrap4.js'); ?>"></script>
     <!-- select2 JS  -->
     <script src="<?php echo base_url("shop-assets/js/plugins.js"); ?>"></script>
     <script src="<?php echo base_url("shop-assets/js/classy-nav.min.js"); ?>"></script>
     <script src="<?php echo base_url("shop-assets/js/active.js"); ?>"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.dataTables').DataTable();
+        })
+    </script> 
     
 </body>
 

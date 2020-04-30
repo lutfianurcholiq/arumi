@@ -5,6 +5,7 @@ class pelangganModel extends CI_Model {
 	public function show($tabel) { 
 		return $this->db->get($tabel)->result_array();
 	}
+
 	public function database($tabel, $id, $action) {
 		$this->db->set('nama_pelanggan', $_POST['nama_pelanggan']);
 		$this->db->set('no_wa', noWa($_POST['no_wa']));
@@ -22,6 +23,7 @@ class pelangganModel extends CI_Model {
 			$this->db->update($tabel);
 		}
 	} 
+	
 	public function getOne($tabel, $id) { 
 		return $this->db->get_where($tabel, ['id_pelanggan' => $id])->row_array();
 	}

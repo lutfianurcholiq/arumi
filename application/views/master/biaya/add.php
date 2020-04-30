@@ -17,7 +17,9 @@
                     <option selected="" disabled="">Contoh: 511 Iklan</option>
                     <?php 
                         foreach ($coa as $data) {
-                            echo "<option value = ".$data['kode_coa'].">".$data['kode_coa']." ".$data['nama_coa']."</option>";
+                            if($data['id_biaya'] == NULL) {
+                                echo "<option value = ".$data['kode_coa'].">".$data['kode_coa']." ".$data['nama_coa']."</option>";
+                            }
                         }
                     ?>
                 </select>

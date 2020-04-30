@@ -45,7 +45,8 @@ class pesananModel extends CI_Model {
 
     public function database($tabel, $id, $id_pesanan, $action) {
         if ($action == 'own') {
-            $this->db->set('id_produksi', $this->modelKu->uuid($tabel, $id));
+            $id_produksi = $this->modelKu->uuid($tabel, $id);
+            $this->db->set('id_produksi', $id_produksi);
             $this->db->set('kode_produksi', 'Produksi');
             $this->db->set('pesanan_id', $_POST['pesanan_id']);
             $this->db->set('pelanggan_id', $_POST['pelanggan_id']);
@@ -61,6 +62,7 @@ class pesananModel extends CI_Model {
                 $no = $this->modelKu->uuid('bom', 'no');
                 $this->db->set('no', $no);
                 $this->db->set('pesanan_id', $_POST['pesanan_id']);
+                $this->db->set('produksi_id', $id_produksi);
                 $this->db->set('produk_id', "".$_POST['produk_id'][$i]."");
                 $this->db->set('bahan_id', "".$_POST['bahan_id'][$i]."");
                 $this->db->set('jumlah', "".$_POST['jumlah'][$i]."");

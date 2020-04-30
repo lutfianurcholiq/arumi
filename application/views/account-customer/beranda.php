@@ -1,4 +1,4 @@
-<section class="new_arrivals_area section-padding-80 clearfix">
+<section class="new_arrivals_area section-padding-80 clearfix"><br>
     <div class="container">
         <div class="row">
             <div class="col-12">

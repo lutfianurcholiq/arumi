@@ -13,7 +13,7 @@
                             <td><?php echo $data['id_produk']; ?></td>
                             <td><?php echo $data['nama_produk']; ?></td>
                             <td>
-                                <button type="button" class="btn btn-default" onclick="window.location.href='<?= site_url('bom/addBahanBaku/'.$data['id_produk']); ?>'">
+                                <button type="button" class="btn btn-default" onclick="window.location.href='<?= site_url('bom/create/'.$data['id_produk']); ?>'">
                                     <i class="fa fa-plus" aria-hidden="true"></i>
                                 </button>
                                 &nbsp;&nbsp;

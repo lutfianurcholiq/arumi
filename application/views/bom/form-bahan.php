@@ -7,7 +7,7 @@
             <?php
             foreach ($bahan as $data) {
                 if ($data['produk_id'] == NULL) {
-                echo "<option value = " . $data['id_bahan'] . ">" . $data['nama_bahan'] . "</option>";
+                    echo "<option value = " . $data['id_bahan'] . ">" . $data['nama_bahan'] . "</option>";
                 }
             }
             ?>
@@ -20,7 +20,7 @@
             <?php echo form_error('jumlah'); ?>
         <?php $this->libs->inputClose(); ?>
 
-        <?php $this->libs->buttonSubmit($tabel); ?>
+        <?php $this->libs->buttonSubmit01($tabel); ?>
         </form>
     </div>
 <?php $this->libs->rowClose(); ?>

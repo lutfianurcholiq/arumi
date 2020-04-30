@@ -19,9 +19,23 @@
               <td><?php echo shortdate_indo($data['mulai']); ?></td>
               <td><?php echo shortdate_indo($data['selesai']); ?></td>
               <td>
-                <button type="button" class="btn btn-default" onclick="window.location.href='<?= site_url('produksi/beli/'.$data['id_produksi']); ?>'">
-                  <i class="fa fa-calendar-check" aria-hidden="true"></i>
-								</button>
+                <?php if ($data['status'] == 'Belum Dibeli') : ?>
+                  <button type="button" class="btn btn-default" onclick="window.location.href='<?= site_url('produksi/bbb/'.$data['id_produksi']); ?>'">
+                    <i class="fa fa-calendar-check" aria-hidden="true"></i>
+                  </button>
+                <?php elseif ($data['status'] == 'Sudah Dibeli') : ?>
+                  <button type="button" class="btn btn-default" onclick="window.location.href='<?= site_url('produksi/btkl/'.$data['id_produksi']); ?>'">
+                    <i class="fa fa-users" aria-hidden="true"></i>
+                  </button>
+                <?php elseif ($data['status'] == 'Sudah Milih Karyawan') : ?>
+                  <button type="button" class="btn btn-default" onclick="window.location.href='<?= site_url('produksi/bop/'.$data['id_produksi']); ?>'">
+                    <i class="fa fa-cubes" aria-hidden="true"></i>
+                  </button>
+                <?php elseif ($data['status'] == 'Sudah Jadi') : ?>
+                  <button type="button" class="btn btn-default" onclick="window.location.href='<?= site_url('produksi/bop/'.$data['id_produksi']); ?>'">
+                    <i class="fa fa-receipt" aria-hidden="true"></i>
+                  </button>
+                <?php endif; ?>
               </td>
             </tr>
           <?php endforeach; ?>

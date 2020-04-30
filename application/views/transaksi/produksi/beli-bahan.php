@@ -1,19 +1,17 @@
-<?php $this->libs->rowOpen($judul, $menu); ?>
+<?php 
+    $this->libs->rowOpen($judul, ucwords('tahap pertama')); 
+    if ($produksi['status'] == 'Belum Dibeli') :
+?>
     <div class="add-product">
 		<a href="#InformationproModalftblack" class='Primary mg-b-10' data-toggle="modal"><i class='fa fa-hand-paper-o' aria-hidden='true'></i> Klik</a>
     </div>
+    <?php elseif($produksi['status'] == 'Sudah Dibeli') : ?>
+    <div class="add-product">
+		<a href="<?= site_url('produksi/btkl/'.$this->uri->segment(3)); ?>" class='Primary mg-b-10' data-toggle="modal"><i class='fa fa-users' aria-hidden='true'></i> BTKL</a>
+    </div>
     <?php
-        $id_produksi = $this->uri->segment(3);
-        $this->db->select('nama_produk, c.bahan_id, c.produk_id');
-        $this->db->from('produksi a');
-        $this->db->join('pesanan b', 'a.pesanan_id = b.id_pesanan');
-        $this->db->join('bom c', 'b.id_pesanan = c.pesanan_id');
-        $this->db->join('produk d', 'c.produk_id = d.id_produk');
-        $this->db->where('id_produksi', $id_produksi);
-        $this->db->group_by('c.produk_id');
-        $produk = $this->db->get()->result_array();
-
-        $this->db->where('id_produksi', $id_produksi);
+        endif;
+        $this->db->where('id_produksi', $this->uri->segment(3));
         $id_pesanan = $this->db->get('produksi')->row()->pesanan_id;
         
         foreach ($produk as $p) :
@@ -39,7 +37,7 @@
                            WHERE e.pesanan_id = '$id_pesanan' 
                              AND id_produk = '$id_produk' 
                              AND a.id_produk = e.produk_id";
-                    $bahan = $this->db->query($sql)->result_array()
+                    $bahan = $this->db->query($sql)->result_array();
                 ?>
                 <tbody>
                     <?php 
@@ -57,9 +55,7 @@
                         <td><?php echo rp($b['harga']) ?></td>
                         <td><?php echo rp($b['subtotal']) ?></td>
                     </tr>
-                    <?php 
-                        endforeach; 
-                    ?>
+                    <?php endforeach; ?>
                     <tr>
                         <td colspan="6"><b><?php echo "Total ".$p['nama_produk'] ?></b></td>
                         <td><b><?php echo rp($total) ?></b></td>

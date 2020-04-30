@@ -101,8 +101,8 @@ class libs {
 	}
 	public function buttonModal() {
 		echo "	<div class='modal-footer'>
-					<button type='button' id='btn-simpan' class='btn btn-custon-four btn-success'><i class='fa fa-fw fa-lg fa-check'></i>Simpan</button>
-					<button type='button' id='btn-ubah' class='btn btn-custon-four btn-primary'><i class='fa fa-fw fa-lg fa-check'></i>Ubah</button>
+					<button type='button' class='btn btn-custon-four btn-success'><i class='fa fa-fw fa-lg fa-check'></i>Simpan</button>
+					<button type='button' class='btn btn-custon-four btn-primary'><i class='fa fa-fw fa-lg fa-check'></i>Ubah</button>
 				</div>";
 	}
 	public function buttonSubmit($tabel) {
@@ -115,6 +115,22 @@ class libs {
 									<a class='btn btn-custon-four btn-default' href='$tabel' style='margin: 1px'><i class='fa fa-arrow-circle-left'></i> Kembali</a>
 									&nbsp;&nbsp;
 									<button type='submit' class='btn btn-custon-four btn-primary'><i class='fa fa-check-circle'></i> Simpan</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>";
+	}
+	public function buttonSubmit01($tabel) {
+		echo "	<div class='form-group-inner'>
+					<div class='login-btn-inner'>
+						<div class='row'>
+							<div class='col-lg-3'></div>
+							<div class='col-lg-9'>
+								<div class='login-horizental cancel-wp pull-left form-bc-ele'>
+									<a class='btn btn-custon-four btn-default' href='$tabel' style='margin: 1px'><i class='fa fa-arrow-circle-left'></i> Kembali</a>
+									&nbsp;&nbsp;
+									<button type='submit' class='btn btn-custon-four btn-primary'><i class='fa fa-plus-circle'></i> Tambah</button>
 								</div>
 							</div>
 						</div>

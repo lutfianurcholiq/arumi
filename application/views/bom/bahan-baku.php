@@ -17,13 +17,13 @@
               <td><?php echo $data['nama_bahan']; ?></td>
               <td><?php echo $data['jumlah']." ".$data['satuan']; ?></td>
               <td>
-                <button type="button" class="btn btn-default btn-sm" onclick="window.location.href='<?= site_url('bom/updateBahanBaku/'.$data['no']); ?>'" >
+                <button type="button" class="btn btn-default btn-sm" onclick="window.location.href='<?= site_url('bom/update/'.$this->uri->segment(3).'/'.$data['no']); ?>'" >
                   <i class="fa fa-pencil" aria-hidden="true"></i>
                 </button>
                 &nbsp;
-                <button type="button" class="btn btn-danger btn-sm" onclick="window.location.href='<?= site_url('bom/delete/'.$data['no']); ?>'">
+                <button type="button" class="btn btn-danger btn-sm" onclick="window.location.href='<?= site_url('bom/delete/'.$this->uri->segment(3).'/'.$data['no']); ?>'">
                   <i class="fa fa-close" aria-hidden="true"></i>
-			    </button>
+			          </button>
               </td>
             </tr>
           <?php endforeach; ?>

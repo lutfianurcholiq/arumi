@@ -42,13 +42,11 @@
                 <span class="mini-click-non">Transaksi</span>
               </a>
               <ul class="submenu-angle" aria-expanded="true">
-                <?php #if($this->session->userdata('level') == "Kepala Cabang"): ?>
-                  <li><a title="Pembelian" href=""><span class="mini-sub-pro">Pembelian</span></a></li>
-                <?php #elseif($this->session->userdata('level') == "Produksi"): ?>
+                <?php #if($this->session->userdata('level') == "Produksi"): ?>
                   <li><a title="Pesanan" href="<?php echo site_url('pesanan'); ?>"><span class="mini-sub-pro">Pesanan</span></a></li>
                 <?php #elseif($this->session->userdata('level') == "Karyawan"): ?>
                   <li><a title="Jadwal Produksi" href="<?php echo site_url('produksi'); ?>"><span class="mini-sub-pro">Jadwal Produksi</span></a></li>
-                  <li><a title="Penjualan" href=""><span class="mini-sub-pro">Penjualan</span></a></li>
+                  <li><a title="Operasional" href="<?php echo site_url('addOperasional'); ?>"><span class="mini-sub-pro">Operasional</span></a></li>
                 <?php #endif; ?>
               </ul>
             </li>
@@ -63,7 +61,7 @@
               <ul class="submenu-angle" aria-expanded="true">
                 <li><a title="Jurnal Umum" href=""><span class="mini-sub-pro">Jurnal Umum</span></a></li>
                 <li><a title="Buku Besar" href=""><span class="mini-sub-pro">Buku Besar</span></a></li>
-                <li><a title="Kartu Stok" href=""><span class="mini-sub-pro">Kartu Stok</span></a></li>
+                <li><a title="Laba Rugi" href=""><span class="mini-sub-pro">Laba Rugi</span></a></li>
               </ul>
             </li>
             <?php #endif; ?>

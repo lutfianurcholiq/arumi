@@ -43,7 +43,6 @@ class produk extends CI_Controller {
 	public function create() {
 		if($this->validasi('save')) {
 			$this->produkModel->database('produk', 'id_produk', 'save');
-			$this->produkModel->addStock('stok_produk', 'id_produk');
 			redirect('produk');
 		}
 		else {

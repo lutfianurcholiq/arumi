@@ -9,7 +9,7 @@
                 <div class="classy-menu">
                     <div class="classycloseIcon">
                         <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
-                    </div>
+                    </div> <br>
                     <div class="classynav">
                         <ul>
                             <li><a href="<?php echo site_url('welcome/index/pelanggan');?>">Login</a></li>
