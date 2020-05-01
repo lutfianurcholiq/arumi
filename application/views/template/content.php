@@ -47,6 +47,8 @@
                 <?php #elseif($this->session->userdata('level') == "Karyawan"): ?>
                   <li><a title="Jadwal Produksi" href="<?php echo site_url('produksi'); ?>"><span class="mini-sub-pro">Jadwal Produksi</span></a></li>
                   <li><a title="Operasional" href="<?php echo site_url('addOperasional'); ?>"><span class="mini-sub-pro">Operasional</span></a></li>
+                  <li><a title="Setoran Modal" href="<?php echo site_url(''); ?>"><span class="mini-sub-pro">Setoran Modal</span></a></li>
+                  <li><a title="Prive" href="<?php echo site_url(''); ?>"><span class="mini-sub-pro">Prive</span></a></li>
                 <?php #endif; ?>
               </ul>
             </li>
