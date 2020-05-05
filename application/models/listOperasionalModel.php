@@ -20,7 +20,10 @@ class listOperasionalModel extends CI_Model {
 								 WHERE a.kode_coa = b.coa_id  AND b.operasional_id = '$id'
 						) AS operasional_id 
 				        FROM coa a
-				 WHERE a.header_coa = 5
+                        JOIN biaya c 
+                          ON a.kode_coa = c.kode_coa
+                       WHERE a.header_coa = 5 
+                         AND c.nama_biaya != 'Biaya Produksi'
 				) A";
 		return $this->db->query($sql)->result_array();
     }
