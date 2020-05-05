@@ -65,6 +65,11 @@
 		}
     }
 
+    function space($text) { # untuk spasi di jurnal
+        $spasi = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+        return $spasi.$text;
+    }
+
 	function shortdate_indo($tgl) {
         $ubah		=	gmdate($tgl, time()+60*60*8);
         $pecah		=	explode("-",$ubah);
