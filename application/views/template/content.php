@@ -46,6 +46,7 @@
                   <li><a title="Pesanan" href="<?php echo site_url('pesanan'); ?>"><span class="mini-sub-pro">Pesanan</span></a></li>
                 <?php #elseif($this->session->userdata('level') == "Karyawan"): ?>
                   <li><a title="Jadwal Produksi" href="<?php echo site_url('produksi'); ?>"><span class="mini-sub-pro">Jadwal Produksi</span></a></li>
+                  <li><a title="Harga Pokok Penjualan" href="<?php echo site_url(''); ?>"><span class="mini-sub-pro">Harga Pokok Penjualan</span></a></li>
                   <li><a title="Operasional" href="<?php echo site_url('addOperasional'); ?>"><span class="mini-sub-pro">Operasional</span></a></li>
                   <li><a title="Setoran Modal" href="<?php echo site_url(''); ?>"><span class="mini-sub-pro">Setoran Modal</span></a></li>
                   <li><a title="Prive" href="<?php echo site_url(''); ?>"><span class="mini-sub-pro">Prive</span></a></li>
@@ -61,8 +62,8 @@
                 <span class="mini-click-non">Laporan</span>
               </a>
               <ul class="submenu-angle" aria-expanded="true">
-                <li><a title="Jurnal Umum" href=""><span class="mini-sub-pro">Jurnal Umum</span></a></li>
-                <li><a title="Buku Besar" href=""><span class="mini-sub-pro">Buku Besar</span></a></li>
+                <li><a title="Jurnal Umum" href="<?php echo site_url('jurnal'); ?>"><span class="mini-sub-pro">Jurnal Umum</span></a></li>
+                <li><a title="Buku Besar" href="<?php echo site_url('buku'); ?>"><span class="mini-sub-pro">Buku Besar</span></a></li>
                 <li><a title="Laba Rugi" href=""><span class="mini-sub-pro">Laba Rugi</span></a></li>
               </ul>
             </li>
