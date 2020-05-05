@@ -51,8 +51,8 @@ class pemesanan extends CI_Controller {
     public function checkout() {
         $id_pesanan  = $this->modelKu->uuid('pesanan', 'id_pesanan');
         $nominal     = $this->uri->segment(3);
-        $this->jurnalModel->generateJurnal('111', $id_pesanan, 'Debit', $nominal);
-        $this->jurnalModel->generateJurnal('411', $id_pesanan, 'Kredit', $nominal);
+        $this->jurnalModel->generateJurnal('111', $id_pesanan, 'Debit', $nominal, 'lutfi');
+        $this->jurnalModel->generateJurnal('411', $id_pesanan, 'Kredit', $nominal, 'lutfi');
         $this->pemesananModel->finish('pesanan', $id_pesanan, $this->uri->segment(3), $this->session->userdata('pelanggan_id'));
 		redirect('pelangganBeranda');
     }
