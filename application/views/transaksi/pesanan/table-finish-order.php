@@ -16,8 +16,8 @@
             <td><?php echo shortdate_indo($data['tanggal']); ?></td>
             <td>
               <?php
-              if ($data['status'] == 'Belum Dikirim') {
-                echo "Belum Diolah";
+              if ($data['status'] == 'Sudah Jadi') {
+                echo "Siap Antar";
               }
               ?>
             </td>
