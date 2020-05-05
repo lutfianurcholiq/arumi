@@ -50,12 +50,12 @@ class produksi extends CI_Controller {
         $this->load->view('template/footer');	
     }
 
-    public function stepOne() {
+    public function stepOne() { #jurnal BBB belum
         $id_produksi = $this->uri->segment(3); 
         $nominal     = $this->uri->segment(4);
         $this->produksiModel->chanceStatus($id_produksi, 'bbb');
-        $this->jurnalModel->generateJurnal('113', $id_produksi, 'Debit', $nominal);
-        $this->jurnalModel->generateJurnal('111', $id_produksi, 'Kredit', $nominal);
+        $this->jurnalModel->generateJurnal('113', $id_produksi, 'Debit', $nominal, 'adel');
+        $this->jurnalModel->generateJurnal('111', $id_produksi, 'Kredit', $nominal, 'adel');
         redirect('produksi/btkl/'.$id_produksi);
     }
 
@@ -88,8 +88,8 @@ class produksi extends CI_Controller {
         $id_produksi = $this->uri->segment(3); 
         $nominal     = $this->uri->segment(4);
         $this->produksiModel->chanceStatus($id_produksi, 'btkl');
-        $this->jurnalModel->generateJurnal('531', $id_produksi, 'Debit', $nominal);
-        $this->jurnalModel->generateJurnal('515', $id_produksi, 'Kredit', $nominal);
+        $this->jurnalModel->generateJurnal('532', $id_produksi, 'Debit', $nominal, 'adel');
+        $this->jurnalModel->generateJurnal('515', $id_produksi, 'Kredit', $nominal, 'adel');
         redirect('produksi/bop/'.$id_produksi);
     }
 
@@ -122,8 +122,8 @@ class produksi extends CI_Controller {
         $id_produksi = $this->uri->segment(3); 
         $nominal     = $this->uri->segment(4);
         $this->produksiModel->chanceStatus($id_produksi, 'bop');
-        $this->jurnalModel->generateJurnal('532', $id_produksi, 'Debit', $nominal);
-        $this->jurnalModel->generateJurnal('51', $id_produksi, 'Kredit', $nominal);
+        $this->jurnalModel->generateJurnal('532', $id_produksi, 'Debit', $nominal, 'adel');
+        $this->jurnalModel->generateJurnal('51', $id_produksi, 'Kredit', $nominal, 'adel');
         redirect('produksi');
     }
 }
