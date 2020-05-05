@@ -84,8 +84,8 @@ class listOperasional extends CI_Controller {
 		$this->listOperasionalModel->finish('operasional', $_POST['id_operasional']);
 
 		for ($i = 0; $i < $_POST['no']; $i++) { 
-			$this->jurnalModel->generateJurnal("".$_POST['id_coa'][$i]."", $_POST['id_operasional'], 'Debit', "".$_POST['nominal'][$i]."");
-			$this->jurnalModel->generateJurnal('111', $_POST['id_operasional'], 'Kredit', "".$_POST['nominal'][$i]."");
+			$this->jurnalModel->generateJurnal("".$_POST['id_coa'][$i]."", $_POST['id_operasional'], 'Debit', "".$_POST['nominal'][$i]."", 'rina');
+			$this->jurnalModel->generateJurnal('111', $_POST['id_operasional'], 'Kredit', "".$_POST['nominal'][$i]."", 'rina');
 		}
 		redirect('addOperasional');
 	}
