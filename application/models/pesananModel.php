@@ -15,7 +15,7 @@ class pesananModel extends CI_Model {
         $this->db->from('pelanggan a');
         $this->db->join('pesanan b', 'a.id_pelanggan = b.pelanggan_id');
         $this->db->where('status !=', 'Belum Dikirim');
-        $this->db->where('status !=', 'Selesai');
+        $this->db->where('status !=', 'Sudah Jadi');
 		return $this->db->get()->result_array();
     }
 
@@ -23,7 +23,7 @@ class pesananModel extends CI_Model {
         $this->db->select('id_pesanan, kode_pesanan, total, tanggal, status, id_pelanggan, nama_pelanggan');
         $this->db->from('pelanggan a');
         $this->db->join('pesanan b', 'a.id_pelanggan = b.pelanggan_id');
-        $this->db->where('status', 'Selesai');
+        $this->db->where('status', 'Sudah Jadi');
 		return $this->db->get()->result_array();
     }
 
