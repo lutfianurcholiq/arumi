@@ -10,52 +10,55 @@
         <nav class="sidebar-nav left-sidebar-menu-pro">
           <ul class="metismenu" id="menu1">
             <li>
-              <a title="Landing Page" href="" aria-expanded="false"><span class="fas fa-store-alt icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Beranda</span></a>
+              <a title="Landing Page" href="<?php echo site_url('beranda') ?>" aria-expanded="false"><span class="fas fa-store-alt icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Beranda</span></a>
             </li>
 
-            <?php #if($this->session->userdata('level') == "Kepala Cabang" || $this->session->userdata('level') == "Karyawan"): ?>
+            <?php if($this->session->userdata('level') == "Owner" OR $this->session->userdata('level') == "Produksi" OR $this->session->userdata('level') == "Karyawan"): ?>
             <li>
               <a class="has-arrow" href="">
                 <span class="far fa-folder-open icon-wrap"></span>
                 <span class="mini-click-non">Master Data</span>
               </a>
               <ul class="submenu-angle" aria-expanded="true">
-                <?php #if($this->session->userdata('level') == "Kepala Cabang"): ?>
-                  <li><a title="Bahan" href="<?php echo site_url('bahan'); ?>"><span class="mini-sub-pro">Bahan</span></a></li>
-                  <li><a title="COA" href="<?php echo site_url('coa'); ?>"><span class="mini-sub-pro">COA</span></a></li>
-                  <?php #elseif($this->session->userdata('level') == "Karyawan"): ?>
+                <li><a title="COA" href="<?php echo site_url('coa'); ?>"><span class="mini-sub-pro">COA</span></a></li>
+                  <?php if($this->session->userdata('level') == "Owner"): ?>
+                    <li><a title="Kelompok Biaya" href="<?php echo site_url('biaya'); ?>"><span class="mini-sub-pro">Kelompok Biaya</span></a></li>
+                  <?php elseif($this->session->userdata('level') == "Produksi"): ?>
+                    <li><a title="Bahan" href="<?php echo site_url('bahan'); ?>"><span class="mini-sub-pro">Bahan</span></a></li>
                     <li><a title="Karyawan" href="<?php echo site_url('karyawan'); ?>"><span class="mini-sub-pro">Karyawan</span></a></li>
                     <li><a title="Komunitas" href="<?php echo site_url('komunitas'); ?>"><span class="mini-sub-pro">Komunitas</span></a></li>
+                    <li><a title="Bill of Material" href="<?php echo site_url('bom'); ?>"><span class="mini-sub-pro">Bill of Material</span></a></li>
+                  <?php elseif($this->session->userdata('level') == "Karyawan"): ?>
                     <li><a title="Produk" href="<?php echo site_url('produk'); ?>"><span class="mini-sub-pro">Produk</span></a></li>
                     <li><a title="Pelanggan" href="<?php echo site_url('pelanggan'); ?>"><span class="mini-sub-pro">Pelanggan</span></a></li>
-                    <li><a title="Kelompok Biaya" href="<?php echo site_url('biaya'); ?>"><span class="mini-sub-pro">Kelompok Biaya</span></a></li>
-                    <li><a title="Bill of Material" href="<?php echo site_url('bom'); ?>"><span class="mini-sub-pro">Bill of Material</span></a></li>
-                <?php #endif; ?>
+                  <?php endif; ?>
               </ul>
             </li>
-            <?php #endif; ?>
+            <?php endif; ?>
 
-            <?php #if($this->session->userdata('level') == "Kepala Cabang" || $this->session->userdata('level') == "Karyawan" || $this->session->userdata('level') == "Produksi"): ?>
+            <?php if($this->session->userdata('level') == "Owner" OR $this->session->userdata('level') == "Produksi" OR $this->session->userdata('level') == "Karyawan"): ?>
             <li>
               <a class="has-arrow" href="">
                 <span class="far fa-handshake icon-wrap"></span>
                 <span class="mini-click-non">Transaksi</span>
               </a>
               <ul class="submenu-angle" aria-expanded="true">
-                <?php #if($this->session->userdata('level') == "Produksi"): ?>
+                <?php if($this->session->userdata('level') == "Produksi" OR $this->session->userdata('level') == "Karyawan"): ?>
                   <li><a title="Pesanan" href="<?php echo site_url('pesanan'); ?>"><span class="mini-sub-pro">Pesanan</span></a></li>
-                <?php #elseif($this->session->userdata('level') == "Karyawan"): ?>
-                  <li><a title="Jadwal Produksi" href="<?php echo site_url('produksi'); ?>"><span class="mini-sub-pro">Jadwal Produksi</span></a></li>
-                  <li><a title="Harga Pokok Penjualan" href="<?php echo site_url(''); ?>"><span class="mini-sub-pro">Harga Pokok Penjualan</span></a></li>
+                  <?php if($this->session->userdata('level') == "Produksi"): ?>
+                    <li><a title="Jadwal Produksi" href="<?php echo site_url('produksi'); ?>"><span class="mini-sub-pro">Jadwal Produksi</span></a></li>
+                  <?php endif; ?>
+                <?php elseif($this->session->userdata('level') == "Owner"): ?>
+                  <li><a title="Setoran Modal" href="<?php echo site_url('modal'); ?>"><span class="mini-sub-pro">Setoran Modal</span></a></li>
+                  <li><a title="HPPenjualan" href="<?php echo site_url(''); ?>"><span class="mini-sub-pro">HPPenjualan</span></a></li>
+                  <li><a title="Prive" href="<?php echo site_url('prive'); ?>"><span class="mini-sub-pro">Prive</span></a></li>
                   <li><a title="Operasional" href="<?php echo site_url('addOperasional'); ?>"><span class="mini-sub-pro">Operasional</span></a></li>
-                  <li><a title="Setoran Modal" href="<?php echo site_url(''); ?>"><span class="mini-sub-pro">Setoran Modal</span></a></li>
-                  <li><a title="Prive" href="<?php echo site_url(''); ?>"><span class="mini-sub-pro">Prive</span></a></li>
-                <?php #endif; ?>
+                <?php endif; ?>
               </ul>
             </li>
-            <?php #endif; ?>
+            <?php endif; ?>
 
-            <?php #if($this->session->userdata('level') == "Kepala Cabang" || $this->session->userdata('level') == "Produksi"): ?>
+            <?php if($this->session->userdata('level') == "Owner" OR $this->session->userdata('level') == "Produksi" OR $this->session->userdata('level') == "Karyawan"): ?>
             <li>
               <a class="has-arrow" href="">
                 <span class="far fa-clipboard icon-wrap"></span>
@@ -64,10 +67,18 @@
               <ul class="submenu-angle" aria-expanded="true">
                 <li><a title="Jurnal Umum" href="<?php echo site_url('jurnal'); ?>"><span class="mini-sub-pro">Jurnal Umum</span></a></li>
                 <li><a title="Buku Besar" href="<?php echo site_url('buku'); ?>"><span class="mini-sub-pro">Buku Besar</span></a></li>
-                <li><a title="Laba Rugi" href=""><span class="mini-sub-pro">Laba Rugi</span></a></li>
+                <?php if($this->session->userdata('level') == "Karyawan"): ?>
+                  <li><a title="Penjualan" href="<?php echo site_url(''); ?>"><span class="mini-sub-pro">Penjualan</span></a></li>
+                <?php elseif($this->session->userdata('level') == "Produksi"): ?>
+                  <li><a title="Biaya Produksi" href="<?php echo site_url(''); ?>"><span class="mini-sub-pro">Biaya Produksi</span></a></li>
+                <?php elseif($this->session->userdata('level') == "Owner"): ?>
+                  <li><a title="Laba Rugi" href="<?php echo site_url('labaRugi'); ?>"><span class="mini-sub-pro">Laba Rugi</span></a></li>
+                  <li><a title="Perubahan Modal" href=""><span class="mini-sub-pro">Perubahan Modal</span></a></li>
+                  <li><a title="Arus Kas" href=""><span class="mini-sub-pro">Arus Kas</span></a></li>
+                <?php endif; ?>
               </ul>
             </li>
-            <?php #endif; ?>
+            <?php endif; ?>
           </ul>
         </nav>
       </div>
@@ -126,37 +137,7 @@
           </div>
         </div>
       </div>
-
-      <div class="breadcome-area">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-              <div class="breadcome-list single-page-breadcome">
-                <div class="row">
-                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <div class="breadcome-heading">
-
-                    </div>
-                  </div>
-                  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <ul class="breadcome-menu">
-                      <li>
-                        <a href="#">Beranda</a> <span class="bread-slash">/</span>
-                      </li>
-                      <li>
-                        <?php echo $menu; ?> <span class="bread-slash">/</span>
-                      </li>
-                      <li>
-                        <span class="bread-blod"><?php echo $judul; ?></span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <?php $this->libs->tittleMenu($judul, $menu); ?>
     </div>
     <!-- Contents Start -->
     <div class="data-table-area mg-b-15">

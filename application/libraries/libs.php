@@ -2,19 +2,45 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class libs {
 
-	public function tittleMenu($judul, $menu, $icon) {
-		echo "	<div class='app-title'>
-					<div>
-				    	<h1><i class='fa $icon'></i> $judul</h1>
-				  	</div>
-				  	<ul class='app-breadcrumb breadcrumb side'>
-				    	<li class='breadcrumb-item'><i class='fa fa-home fa-lg'></i></li>
-				    	<li class='breadcrumb-item'>$menu</li>
-				    	<li class='breadcrumb-item active'><a href='#'>$judul</a></li>
-				  	</ul>
+	public function tittleMenu($judul, $menu) {
+		if ($judul != ucwords('beranda')) {
+			$a  = "<li> $menu <span class='bread-slash'>/</span> </li>";
+			$b = "<li> <span class='bread-blod'>$judul </span> </li>";
+		} else {
+			$a = "";
+			$b = "";
+		}
+		echo "	<div class='breadcome-area'>
+					<div class='container-fluid'>
+						<div class='row'>
+							<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+							<div class='breadcome-list single-page-breadcome'>
+								<div class='row'>
+								<div class='col-lg-6 col-md-6 col-sm-6 col-xs-12'>
+									<div class='breadcome-heading'>
+									</div>
+								</div>
+								<div class='col-lg-6 col-md-6 col-sm-6 col-xs-12'>
+									<ul class='breadcome-menu'>
+									<li>
+										<a href='#'>Beranda</a> <span class='bread-slash'>/</span>
+									</li>
+									$a
+									$b
+									</ul>
+								</div>
+								</div>
+							</div>
+							</div>
+						</div>
+					</div>
 				</div>";
 	}
 	public function rowOpen($judul, $menu) {
+		if ($judul == ucwords('beranda')) {
+			$menu  = '';
+			$judul = '';
+		}
 		echo 	"<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 					<div class='product-status-wrap'>
 						<h4>$menu $judul</h4>

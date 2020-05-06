@@ -60,7 +60,7 @@
 				return $id_modal = 'modal-btkl';
 			break;
 			default:
-				# code...
+				return $id_modal;
 			break;
 		}
     }
@@ -82,18 +82,18 @@
 
     function short_bulan($bln) {
         switch ($bln) {
-            case 1: return "01"; break;
-            case 2: return "02"; break;
-            case 3: return "03"; break;
-            case 4: return "04"; break;
-            case 5: return "05"; break;
-            case 6: return "06"; break;
-            case 7: return "07"; break;
-            case 8: return "08"; break;
-            case 9: return "09"; break;
-            case 10: return "10"; break;
-            case 11: return "11"; break;
-            case 12: return "12"; break;
+            case 1: return $bln = "01"; break;
+            case 2: return $bln = "02"; break;
+            case 3: return $bln = "03"; break;
+            case 4: return $bln = "04"; break;
+            case 5: return $bln = "05"; break;
+            case 6: return $bln = "06"; break;
+            case 7: return $bln = "07"; break;
+            case 8: return $bln = "08"; break;
+            case 9: return $bln = "09"; break;
+            case 10: return $bln = "10"; break;
+            case 11: return $bln = "11"; break;
+            case 12: return $bln = "12"; break;
         }
     }
 

@@ -72,7 +72,7 @@
             </div>
             <div class="cart-amount-summary">
                 <?php if($pesanan == 0 || $pesanan == NULL) : ?>
-                    <h2>Kamu belum memesan apa-apa hari ini.</h2>
+                    <h2>Yuk pesan kue biar keranjangmu ga kosong.</h2>
                 <?php else : ?>
                     <h2>Pesanan yang pending</h2>
                     <ul class="summary-table">

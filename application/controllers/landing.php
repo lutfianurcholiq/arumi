@@ -29,7 +29,7 @@ class landing extends CI_Controller {
     public function register() {
         if($this->validasi()) {
 			$this->pelangganModel->database('pelanggan', 'id_pelanggan', 'save');
-			redirect('landing');
+			redirect('welcome/index/pelanggan');
 		}
 		else {
             $data['judul'] = ucwords('selamat datang');

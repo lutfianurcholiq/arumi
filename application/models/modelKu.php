@@ -15,7 +15,7 @@ class modelKu extends CI_Model {
 	    return $kode;  
 	  }
 
-	  public function buatKodeTransaksi() {
+	public function buatKodeTransaksi() {
 		$str = "";
 	    $characters = array_merge(range('0','9'));
 	    $max = count($characters) - 1;
@@ -24,5 +24,11 @@ class modelKu extends CI_Model {
 	        $str  .= $characters[$rand];
 	    }
 	    return $str;
+	}
+
+	public function getYear($tabel) {
+		$this->db->select('YEAR(tanggal) tahun');
+		$this->db->group_by('tahun');
+		return $this->db->get($tabel)->result_array();
 	}
 }

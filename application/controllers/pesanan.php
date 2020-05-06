@@ -2,12 +2,12 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class pesanan extends CI_Controller {
 
-    // public function __construct() {
-    //     parent:: __construct();
-    //     if (!$this->session->userdata('')) {
-    // 	    redirect('welcome/blok');
-    // 	} 
-    // }
+    public function __construct() {
+        parent:: __construct();
+        if ($this->session->userdata('level') != 'Produksi' AND $this->session->userdata('level') != 'Karyawan') {
+    	    redirect('welcome/blok');
+    	} 
+    }
 
     public function index() {
         $data['judul']   = ucwords('pesanan');

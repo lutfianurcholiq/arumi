@@ -34,6 +34,16 @@ class pemesananModel extends CI_Model {
 		return $this->db->get($tabel)->result_array();
 	}
 
+	public function showInvoice($id_pesanan) {
+		$id_pelanggan = $this->session->userdata('pelanggan_id');
+		$this->db->select('id_produk, kode_produk, nama_produk, satuan, b.harga, jumlah, subtotal');
+		$this->db->from('produk a');
+		$this->db->join('detail_pesanan b', 'a.id_produk = b.produk_id');
+		$this->db->where('pesanan_id', $id_pesanan);
+		$this->db->where('pelanggan_id', $id_pelanggan);
+		return $this->db->get()->result_array();
+	}
+
 	public function getHarga() {
 		$this->db->where('id_produk', $_POST['produk_id']);
 		return $this->db->get('produk')->row()->harga;
@@ -64,6 +74,13 @@ class pemesananModel extends CI_Model {
         $this->db->from('produk a');
 		$this->db->join('detail_pesanan b', 'a.id_produk = b.produk_id');
 		$this->db->where('produk_id', $id);
+		return $this->db->get()->row_array();
+	}
+
+	public function getPesanan($id_pesanan) {
+        $this->db->from('pesanan a');
+		$this->db->join('pelanggan b', 'a.pelanggan_id = b.id_pelanggan');
+		$this->db->where('id_pesanan', $id_pesanan);
 		return $this->db->get()->row_array();
 	}
 

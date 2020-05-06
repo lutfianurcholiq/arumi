@@ -2,17 +2,16 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class jurnal extends CI_Controller {
 	
-	// public function __construct() {
-	// 	parent:: __construct();
-	// 	if ($this->session->userdata('level') != '') {
-	// 		redirect('welcome/blok');
-	// 	} 
-	// }
+	public function __construct() {
+		parent:: __construct();
+		if ($this->session->userdata('level') != 'Owner') {
+			redirect('welcome/blok');
+		} 
+	}
 	
 	public function index() {
 		$data['judul']  =   ucwords('jurnal umum');
 		$data['menu']   =   ucwords('laporan');
-		$data['icon']   =   "fa fa-users";
         $data['form']   =   site_url('jurnal/index');
 		if($this->validasi() == FALSE) {
             $data['awal']   = date('Y-m-d');

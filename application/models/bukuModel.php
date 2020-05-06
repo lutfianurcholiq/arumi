@@ -14,12 +14,6 @@ class bukuModel extends CI_Model {
 		return $this->db->query($query)->result_array();
     }
 
-    public function getYear($tabel) {
-		$this->db->select('YEAR(tanggal) tahun');
-		$this->db->group_by('tahun');
-		return $this->db->get($tabel)->result_array();
-	}
-
     public function getOne($kode, $tabel) {
         $this->db->where('kode_coa', $kode);
 		return $this->db->get($tabel)->row_array();
