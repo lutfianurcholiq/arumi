@@ -29,6 +29,7 @@
     <script src="<?php echo base_url("shop-assets/js/jquery/jquery-2.2.4.min.js"); ?>"></script>
     <script src="<?php echo base_url("shop-assets/js/popper.min.js"); ?>"></script>
     <script src="<?php echo base_url("shop-assets/js/bootstrap.min.js"); ?>"></script>
+    <script src="<?php echo base_url("shop-assets/js/e-search.js"); ?>"></script>
     <!-- dataTable JS  -->
     <script src="<?= base_url('shop-assets/js/dataTables/jquery.dataTables.js'); ?>"></script>
     <script src="<?= base_url('shop-assets/js/dataTables/dataTables.bootstrap4.js'); ?>"></script>
@@ -40,8 +41,9 @@
         $(document).ready(function() {
             $('.dataTables').DataTable();
         })
-    </script> 
-    
+        $('input.form-control.search-product').search(function(){
+        });
+    </script>
 </body>
 
 </html>

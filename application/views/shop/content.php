@@ -29,7 +29,7 @@
                     </form>
                 </div> -->
                 <div class="user-login-info">
-                    <a href="<?php echo site_url('welcome/logout'); ?>"><img src="<?php echo base_url('shop-assets/img/core-img/user.svg') ?>" alt=""></a>
+                    <a href="<?php echo site_url('welcome/logout'); ?>"><img src="<?php echo base_url('shop-assets/img/core-img/on-off-button.svg') ?>" alt=""></a>
                 </div>
                 <!-- Cart Area if uri segment 3 pelangganBeranda == index -->
                 <div class="cart-area">
@@ -72,6 +72,7 @@
             </div>
             <div class="cart-amount-summary">
                 <?php if($pesanan == 0 || $pesanan == NULL) : ?>
+                    <img src="<?php echo base_url('shop-assets/img/shop.gif') ?>">
                     <h2>Yuk pesan kue biar keranjangmu ga kosong.</h2>
                 <?php else : ?>
                     <h2>Pesanan yang pending</h2>
