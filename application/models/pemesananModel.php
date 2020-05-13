@@ -97,7 +97,7 @@ class pemesananModel extends CI_Model {
 		$this->db->set('pelanggan_id', $id_pelanggan);
 		$this->db->set('tanggal', date('Y-m-d'));
 		$this->db->set('total', $total);
-		$this->db->set('status', 'Belum Dikirim');
+		$this->db->set('status', 'Belum Bayar');
 		$this->db->insert($tabel);
 
 		$this->db->where('pesanan_id', 0);

@@ -42,6 +42,9 @@
     <!-- notification JS -->
     <script src="<?= base_url('assets/js/notifications/Lobibox.js') ?>"></script>
     <script src="<?= base_url('assets/js/notifications/notification-active.js') ?>"></script>
+    <!-- datapicker JS  -->
+    <script src="<?= base_url('assets/js/datapicker/bootstrap-datepicker.js') ?>"></script>
+    <script src="<?= base_url('assets/js/datapicker/datepicker-active.js') ?>"></script>
     <!-- chosen JS -->
     <script src="<?= base_url('assets/js/chosen/chosen.jquery.js') ?>"></script>
     <script src="<?= base_url('assets/js/chosen/chosen-active.js') ?>"></script>
@@ -60,6 +63,15 @@
     <script>
         $(document).ready(function () {
             $('#pesan-sukses').fadeIn().delay(4000).fadeOut()
+
+            var date = new Date();
+            date.setDate(date.getDate());
+
+            $('#calendar').datepicker({ 
+                format: "yyyy/mm/dd",
+                startDate: date,
+                minDate: 0,
+            });
         })
     </script>
 </body>

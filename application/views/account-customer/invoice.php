@@ -1,15 +1,16 @@
 <section class="new_arrivals_area section-padding-80 clearfix">
-    <br>
-    <br>
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="section-heading text-center">
-                    <h3><?php echo strtoupper($judul); ?></h3>
+    <div class="breadcumb_area bg-img" style="background-image: url(shop-assets/img/bg-img/breadcumb.jpg) ">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="page-title text-center">
+                        <h2>invoice</h2>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <br>
     <div class="container">
         <?php $this->load->view('account-customer/table-info') ?>
         <table class="table table-bordered dataTables">

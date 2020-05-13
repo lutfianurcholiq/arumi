@@ -5,15 +5,15 @@
 ?>
     <div class="add-product">
         <a href="#InformationproModalftblack" class='Primary mg-b-10' data-toggle="modal"><i class="fa fa-hand-paper-o"></i> Klik</a>
-    </div><br>
+    </div><br><br>
     <?php endif; ?>
     
     <div class="sparkline13-graph">
         <div class="datatable-dashv1-list custom-datatable-overright">
         <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="false" data-show-refresh="false" data-key-events="false" data-show-toggle="false" data-resizable="true" data-cookie="false" data-cookie-id-table="saveId" data-show-export="false" data-click-to-select="true" data-toolbar="#toolbar">
             <?php
-            $thead = ["no", "karyawan", "jumlah hari masuk", "gaji", 'total gaji', 'aksi']; 
-            $this->libs->thead($thead);
+                $thead = ["no", "karyawan", "jumlah hari masuk", "gaji", 'total gaji', 'aksi']; 
+                $this->libs->thead($thead);
             ?>
             <tbody>
             <?php $no = 0; foreach ($hasil as $data) : $no++; ?>

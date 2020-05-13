@@ -4,13 +4,13 @@
                 <div class="col-12 col-md-6">
                     <div class="single_widget_area">
                         <div class="footer_social_area">
-                            <a href="#" data-toggle="tooltip" data-placement="top" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i> Amrina Rosada</a>
+                            <a href="https://www.instagram.com/_rinyus/" data-toggle="tooltip" data-placement="top" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i> Amrina Rosada</a>
                         </div>
                         <div class="footer_social_area">
-                            <a href="#" data-toggle="tooltip" data-placement="top" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i> Fitriani Adela</a>
+                            <a href="https://www.instagram.com/fitrianiadela1/" data-toggle="tooltip" data-placement="top" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i> Fitriani Adela</a>
                         </div>
                         <div class="footer_social_area">
-                            <a href="#" data-toggle="tooltip" data-placement="top" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i> Lutfian Nurcholiq</a>
+                            <a href="https://www.instagram.com/lutfian.n/" data-toggle="tooltip" data-placement="top" title="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i> Lutfian Nurcholiq</a>
                         </div>
                     </div>
                 </div>

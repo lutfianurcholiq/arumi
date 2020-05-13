@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class bomModel extends CI_Model {
 
 	public function show($id) {
-		$this->db->select('*');
+		$this->db->select('*, a.satuan satuan_bahan ');
         $this->db->from('bahan a');
         $this->db->join('detail_bb b', 'a.id_bahan = b.bahan_id');
         $this->db->join('produk c', 'b.produk_id = c.id_produk');

@@ -72,6 +72,7 @@ class pesanan extends CI_Controller {
             $data['menu']       = ucwords('transaksi');
             $data['pesanan']    = $this->pesananModel->showPesanan($id);
             $data['hasil']      = $this->pesananModel->showDetail($id);
+            $data['total']      = $this->pesananModel->getTotal('detail_pesanan', $id);
             $data['bom']        = $this->bomModel->showBom($id);
             $data['komunitas']  = $this->komunitasModel->show('komunitas');
             $data['url']        = site_url('pesanan/throwing/'.$id);    

@@ -1,19 +1,20 @@
 <section class="new_arrivals_area section-padding-80 clearfix">
-    <br>
-    <br>
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="section-heading text-center">
-                    <h3><?php echo $judul; ?></h3>
+    <div class="breadcumb_area bg-img" style="background-image: url(shop-assets/img/bg-img/breadcumb.jpg);">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="page-title text-center">
+                        <h3><?php echo strtoupper($judul); ?></h3>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <br>
     <div class="container">
         <table class="table table-bordered dataTables">
             <?php
-                $thead = ["no", "pesanan", "tanggal", "total", "status", "invoice"];
+                $thead = ["no", "pesanan", "tanggal", "total", "status", "aksi"];
                 $this->libs->thead($thead);
             ?>
             <tbody>
@@ -24,18 +25,26 @@
                         <td><?php echo shortdate_indo($data['tanggal']); ?></td>
                         <td align="right"><?php echo rp($data['total']); ?></td>
                         <td>
-                            <?php if ($data['status'] == 'Belum Dikirim') : ?>
-                                Menunggu acc pihak Arumi cake
-                            <?php elseif ($data['status'] == 'Sudah Dibeli') : ?>
-                                <button type="button" class="btn btn-default" >
-                                    <i class="fa fa-users" aria-hidden="true"></i>
-                                </button>
-                            <?php endif; ?>
+                            <?php 
+                                if ($data['status'] == 'Belum Dikirim') : 
+                                    echo "Menunggu approval pihak Arumi cake";
+                                elseif ($data['status'] == 'Diproduksi') : 
+                                    echo "Sedang Diproduksi";
+                                else : 
+                                        echo $data['status'];
+                                endif; 
+                            ?>
                         </td>
                         <td align="center">
-                            <button type="button" class="btn btn-xs btn-info" onclick="window.location.href='<?= site_url('riwayat/invoice/'.$data['id_pesanan']); ?>'">
-                                <i class="fa fa-info" aria-hidden="true"></i> 
-                            </button>
+                            <?php if ($data['status'] == 'Belum Bayar') : ?>
+                                <button type="button" class="btn btn-xs btn-success" onclick="window.location.href='<?= site_url('bayar/index/'.$data['id_pesanan']); ?>'">
+                                    <i class="fa fa-credit-card" aria-hidden="true"></i> 
+                                </button>
+                            <?php else : ?>
+                                <button type="button" class="btn btn-xs btn-info" onclick="window.location.href='<?= site_url('riwayat/invoice/'.$data['id_pesanan']); ?>'">
+                                    <i class="fa fa-info" aria-hidden="true"></i> 
+                                </button>
+                            <?php endif; ?>
                         </td>
                     </tr>
                 <?php endforeach; ?>

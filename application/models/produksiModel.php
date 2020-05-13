@@ -37,7 +37,7 @@ class produksiModel extends CI_Model {
         $query = "	SELECT id_bahan, kode_bahan, nama_bahan, produksi_id 
 					FROM ( 
 						SELECT id_bahan, kode_bahan, nama_bahan, 
-							(SELECT b.produksi_id FROM detail_bop b WHERE a.id_bahan = b.bahan_id AND b.produksi_id = '$id' 
+							(SELECT b.produksi_id FROM detail_bp b WHERE a.id_bahan = b.bahan_id AND b.produksi_id = '$id' 
 							) AS produksi_id 
 						FROM bahan a
 						WHERE keterangan = 'Bahan Penolong' 
@@ -53,10 +53,10 @@ class produksiModel extends CI_Model {
 		return $this->db->get()->result_array();
     }
     
-    public function showBop($id) {
+    public function showBp($id) {
 		$this->db->select('*, b.harga harga_bahan');
         $this->db->from('bahan a');
-        $this->db->join('detail_bop b', 'a.id_bahan = b.bahan_id');
+        $this->db->join('detail_bp b', 'a.id_bahan = b.bahan_id');
         $this->db->where('b.produksi_id', $id);
         $this->db->where('keterangan', 'Bahan Penolong');
 		return $this->db->get()->result_array();

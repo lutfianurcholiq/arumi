@@ -28,7 +28,7 @@
                     <i class="fa fa-users" aria-hidden="true"></i>
                   </button>
                 <?php elseif ($data['status'] == 'Sudah Milih Karyawan') : ?>
-                  <button type="button" class="btn btn-default" onclick="window.location.href='<?= site_url('produksi/bop/'.$data['id_produksi']); ?>'">
+                  <button type="button" class="btn btn-default" onclick="window.location.href='<?= site_url('produksi/bp/'.$data['id_produksi']); ?>'">
                     <i class="fa fa-cubes" aria-hidden="true"></i>
                   </button>
                 <?php elseif ($data['status'] == 'Sudah Jadi') : ?>

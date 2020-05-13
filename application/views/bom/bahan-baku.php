@@ -15,7 +15,7 @@
             <tr>
               <td><?php echo $no; ?></td>
               <td><?php echo $data['nama_bahan']; ?></td>
-              <td><?php echo $data['jumlah']." ".$data['satuan']; ?></td>
+              <td><?php echo $data['jumlah']." ".$data['satuan_bahan']; ?></td>
               <td>
                 <button type="button" class="btn btn-default btn-sm" onclick="window.location.href='<?= site_url('bom/update/'.$this->uri->segment(3).'/'.$data['no']); ?>'" >
                   <i class="fa fa-pencil" aria-hidden="true"></i>

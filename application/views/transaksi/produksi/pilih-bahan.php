@@ -1,5 +1,5 @@
 <?php 
-    $this->load->view('transaksi/produksi/form-bop');
+    $this->load->view('transaksi/produksi/form-bp');
     $this->libs->rowOpen('', ''); 
 ?>
     <div class="add-product">
@@ -10,8 +10,8 @@
         <div class="datatable-dashv1-list custom-datatable-overright">
         <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="false" data-show-refresh="false" data-key-events="false" data-show-toggle="false" data-resizable="true" data-cookie="false" data-cookie-id-table="saveId" data-show-export="false" data-click-to-select="true" data-toolbar="#toolbar">
             <?php
-            $thead = ["no", "bahan", "kebutuhan", "harga", 'subtotal', 'aksi']; 
-            $this->libs->thead($thead);
+                $thead = ["no", "bahan", "kebutuhan", "harga", 'subtotal', 'aksi']; 
+                $this->libs->thead($thead);
             ?>
             <tbody>
             <?php $no = 0; foreach ($hasil as $data) : $no++; ?>

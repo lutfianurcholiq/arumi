@@ -1,6 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-class produksi extends CI_Controller {
+class produksi extends CI_Controller { 
+    // harus nginputin nominal dari setiap step ke tabel produksi kolom bahan_baku,
+    // tenaga_kerja, bahan_penolong, oh
 
     public function __construct() {
         parent:: __construct();
@@ -50,12 +52,16 @@ class produksi extends CI_Controller {
         $this->load->view('template/footer');	
     }
 
-    public function stepOne() { #jurnal BBB belum
+    public function stepOne() { 
         $id_produksi = $this->uri->segment(3); 
         $nominal     = $this->uri->segment(4);
         $this->produksiModel->chanceStatus($id_produksi, 'bbb');
+        # jurnal pembelian bahan baku
         $this->jurnalModel->generateJurnal('113', $id_produksi, 'Debit', $nominal, 'adel');
         $this->jurnalModel->generateJurnal('111', $id_produksi, 'Kredit', $nominal, 'adel');
+        # jurnal pemakaian bahan baku
+        $this->jurnalModel->generateJurnal('531', $id_produksi, 'Debit', $nominal, 'adel');
+        $this->jurnalModel->generateJurnal('113', $id_produksi, 'Kredit', $nominal, 'adel');
         redirect('produksi/btkl/'.$id_produksi);
     }
 
@@ -88,42 +94,47 @@ class produksi extends CI_Controller {
         $id_produksi = $this->uri->segment(3); 
         $nominal     = $this->uri->segment(4);
         $this->produksiModel->chanceStatus($id_produksi, 'btkl');
+        # jurnal biaya tenaga kerja
         $this->jurnalModel->generateJurnal('532', $id_produksi, 'Debit', $nominal, 'adel');
         $this->jurnalModel->generateJurnal('515', $id_produksi, 'Kredit', $nominal, 'adel');
-        redirect('produksi/bop/'.$id_produksi);
+        redirect('produksi/bp/'.$id_produksi);
     }
 
-    public function bop() {
+    public function bp() {
         $id_produksi = $this->uri->segment(3);
-        if($this->validasi('bop')) {
-			$this->produksiModel->selectBahan('detail_bop', 'insert', $id_produksi);
-			redirect('produksi/bop/'.$id_produksi);
+        if($this->validasi('bp')) {
+			$this->produksiModel->selectBahan('detail_bp', 'insert', $id_produksi);
+			redirect('produksi/bp/'.$id_produksi);
 		}
-        $data['judul'] = ucwords('biaya overhead pabrik');
+        $data['judul'] = ucwords('biaya bahan penolong');
         $data['menu']  = ucwords('transaksi');
-        $data['url']   = site_url('produksi/bop/'.$id_produksi);
+        $data['url']   = site_url('produksi/bp/'.$id_produksi);
         $data['tabel'] = site_url('produksi');
-        $data['hasil'] = $this->produksiModel->showBop($id_produksi);
+        $data['hasil'] = $this->produksiModel->showBp($id_produksi);
         $data['bahan'] = $this->produksiModel->showBahan($id_produksi);
         $this->load->view('template/header', $data);
         $this->template->load('template/content', 'transaksi/produksi/pilih-bahan', $data);	
-        $this->load->view('transaksi/produksi/modal-bop', $data);	
+        $this->load->view('transaksi/produksi/modal-bp', $data);	
         $this->load->view('template/footer');
     }
 
     public function deleteBop() {
         $id_produksi = $this->uri->segment(3);
         $no          = $this->uri->segment(4);
-		$this->produksiModel->truncateBop('detail_bop', $no);
-		redirect('produksi/bop/'.$id_produksi);
+		$this->produksiModel->truncateBop('detail_bp', $no);
+		redirect('produksi/bp/'.$id_produksi);
     }
 
     public function stepThree() {
         $id_produksi = $this->uri->segment(3); 
         $nominal     = $this->uri->segment(4);
-        $this->produksiModel->chanceStatus($id_produksi, 'bop');
-        $this->jurnalModel->generateJurnal('532', $id_produksi, 'Debit', $nominal, 'adel');
-        $this->jurnalModel->generateJurnal('51', $id_produksi, 'Kredit', $nominal, 'adel');
+        $this->produksiModel->chanceStatus($id_produksi, 'bp');
+        # jurnal pembelian bahan penolong
+        $this->jurnalModel->generateJurnal('114', $id_produksi, 'Debit', $nominal, 'adel');
+        $this->jurnalModel->generateJurnal('111', $id_produksi, 'Kredit', $nominal, 'adel');
+        # jurnal pemakaian bahan penolong
+        $this->jurnalModel->generateJurnal('533', $id_produksi, 'Debit', $nominal, 'adel');
+        $this->jurnalModel->generateJurnal('516', $id_produksi, 'Kredit', $nominal, 'adel');
         redirect('produksi');
     }
 }

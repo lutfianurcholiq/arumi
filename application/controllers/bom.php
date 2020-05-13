@@ -66,7 +66,7 @@ class bom extends CI_Controller {
 			redirect('bom/create/'.$id);
 		}
 		else {
-			$data['judul']  = ucwords('ubah operasional');
+			$data['judul']  = ucwords('bahan baku');
 			$data['menu']   = ucwords('transaksi');
 			$data['url']    = site_url('bom/update/'.$id.'/'.$no);
 			$data['tabel']  = site_url('bom/create/'.$id);

@@ -35,6 +35,8 @@ class welcome extends CI_Controller {
 									'pelanggan_id' =>	$user['id_pelanggan'],
 									'nama'		   =>	$user['nama_pelanggan'],
 									'username'	   =>	$user['username'],
+									'no_wa'	   	   =>	$user['no_wa'],
+									'alamat'	   =>	$user['alamat'],
 								];
 					$this->session->set_userdata($data);
 					redirect('pelangganBeranda');

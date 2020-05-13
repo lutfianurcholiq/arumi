@@ -29,6 +29,18 @@
                                         </select>
                                         <?php echo form_error('komunitas_id'); ?>
                                     <?php $this->libs->inputClose(); ?>
+
+                                    <?php $this->libs->inputOpen('harga pesanan', ''); ?>
+                                        <input class="form-control" type="text" value="<?php echo rp($total['subtotal']); ?>" readonly>
+                                    <?php $this->libs->inputClose(); ?>
+
+                                    <?php $this->libs->inputOpen('10%', ''); ?>
+                                        <input class="form-control" type="text" value="<?php echo rp(potongan($total['subtotal'])); ?>" readonly>
+                                    <?php $this->libs->inputClose(); ?>
+
+                                    <?php $this->libs->inputOpen('harga komunitas', ''); ?>
+                                        <input class="form-control" type="text" value="<?php echo rp(total($total['subtotal'])); ?>" readonly>
+                                    <?php $this->libs->inputClose(); ?>
                                     
                                     <input class="form-control" type="hidden" name="pesanan_id" value="<?php echo $pesanan['id_pesanan'] ?>" readonly>
                                     <input class="form-control" type="hidden" name="pelanggan_id" value="<?php echo $pesanan['pelanggan_id'] ?>" readonly>

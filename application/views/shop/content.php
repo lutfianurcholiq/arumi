@@ -12,26 +12,19 @@
                     </div> <br>
                     <div class="classynav">
                         <ul>
-                            <li><a style="color: cornflowerblue"><?php echo "Hai ".$this->session->userdata('nama'); ?></a></li>
+                            <li><a style="color: cornflowerblue"><?php echo "Hai ".$this->session->userdata('nama').".." ?></a></li>
                         </ul>
                         <ul>
-                            <li><a href="<?php echo site_url('riwayat') ?>">Riwayat Pesanan</a></li>
+                            <li><a href="<?php echo site_url('riwayat') ?>">Pesanan</a></li>
                         </ul>
                     </div>
                 </div>
             </nav>
 
             <div class="header-meta d-flex clearfix justify-content-end">
-                <!-- <div class="search-area">
-                    <form action="<?php echo site_url('pelanggan/cariProduk') ?>" method="post">
-                        <input type="text" name="search" id="headerSearch" placeholder="Cari kue...">
-                        <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-                    </form>
-                </div> -->
                 <div class="user-login-info">
                     <a href="<?php echo site_url('welcome/logout'); ?>"><img src="<?php echo base_url('shop-assets/img/core-img/on-off-button.svg') ?>" alt=""></a>
                 </div>
-                <!-- Cart Area if uri segment 3 pelangganBeranda == index -->
                 <div class="cart-area">
                     <a href="#" id="essenceCartBtn"><img src="<?php echo base_url('shop-assets/img/core-img/bag.svg') ?>" alt=""> <span><?php echo $pesanan ?></span></a>
                 </div>
@@ -75,13 +68,13 @@
                     <img src="<?php echo base_url('shop-assets/img/shop.gif') ?>">
                     <h2>Yuk pesan kue biar keranjangmu ga kosong.</h2>
                 <?php else : ?>
-                    <h2>Pesanan yang pending</h2>
+                    <h2>Pesanan mu</h2>
                     <ul class="summary-table">
                         <li><span>pemesan:</span> <span><?php echo $this->session->userdata('nama') ?></span></li>
                         <li><span>total:</span> <span><?php echo rp($total) ?></span></li>
                     </ul>
                     <div class="checkout-btn mt-100">
-                        <a href="<?php echo site_url('pemesanan/checkout/'.$total) ?>" class="btn essence-btn">Bayar Sekarang</a>
+                        <a href="<?php echo site_url('pemesanan/checkout/'.$total) ?>" class="btn essence-btn">Pesan Sekarang</a>
                     </div>
                 <?php endif; ?>
             </div>

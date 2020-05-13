@@ -79,4 +79,10 @@ class pesananModel extends CI_Model {
             $this->db->update('pesanan');
         }
     }
+
+    public function getTotal($tabel, $id) {
+        $this->db->select_sum('subtotal');
+        $this->db->where('pesanan_id', $id);
+        return $this->db->get($tabel)->row_array();
+    }
 }

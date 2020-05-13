@@ -46,6 +46,8 @@
     <!-- calendar CSS -->
     <link rel="stylesheet" href="<?= base_url('assets/css/calendar/fullcalendar.min.css') ?>">
     <link rel="stylesheet" href="<?= base_url('assets/css/calendar/fullcalendar.print.min.css') ?>">
+    <!-- datapicker CSS  -->
+    <link rel="stylesheet" href="<?= base_url('assets/css/datapicker/datepicker3.css') ?>">
     <!-- accordions CSS  -->
     <link rel="stylesheet" href="<?= base_url('assets/css/accordions.css') ?>">
     <!-- x-editor CSS -->

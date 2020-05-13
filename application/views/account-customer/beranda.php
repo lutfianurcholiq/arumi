@@ -1,4 +1,4 @@
-<section class="new_arrivals_area section-padding-80 clearfix"><br>
+<section class="new_arrivals_area section-padding-80 clearfix">
     <div class="breadcumb_area bg-img" style="background-image: url(shop-assets/img/bg-img/breadcumb.jpg);">
         <div class="container h-100">
             <div class="row h-100 align-items-center">

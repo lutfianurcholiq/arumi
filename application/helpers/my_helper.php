@@ -79,6 +79,15 @@
         return $tanggal.'-'.$bulan.'-'.$tahun;
     }
     
+    function potongan($nominal) {
+        $potongan = 0.1;
+        return $nominal * $potongan;
+    }
+
+    function total($nominal) {
+        $potongan = $nominal * 0.1;
+        return $nominal - $potongan;
+    }
 
     function short_bulan($bln) {
         switch ($bln) {
