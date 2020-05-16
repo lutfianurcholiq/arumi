@@ -16,6 +16,7 @@ class bahan extends CI_Controller {
 		$data['hasil'] = $this->bahanModel->show('bahan');
 		$this->load->view('template/header', $data);
 		$this->template->load('template/content', 'master/bahan/index', $data);
+		$this->load->view('master/bahan/modal-delete');	
 		$this->load->view('template/footer');	
 	}
 
@@ -73,5 +74,13 @@ class bahan extends CI_Controller {
 			$this->template->load('template/content', 'master/bahan/edit');
 			$this->load->view('template/footer');
 		}
+	}
+
+	public function delete() {
+		$id_bahan = $this->uri->segment(3);
+		$this->bahanModel->delete('bahan', $id_bahan);
+		$message = ucfirst('data bahan berhasil dihapus');
+		flashdata($message);
+		redirect('bahan');
 	}
 }

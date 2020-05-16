@@ -5,6 +5,7 @@ class bahanModel extends CI_Model {
 	public function show($tabel) { 
 		return $this->db->get($tabel)->result_array();
 	}
+
 	public function database($tabel, $id, $action) {
 		$this->db->set('nama_bahan', $_POST['nama_bahan']);
 		$this->db->set('satuan', $_POST['satuan']);
@@ -21,7 +22,13 @@ class bahanModel extends CI_Model {
 			$this->db->update($tabel);
 		}
 	} 
+
 	public function getOne($tabel, $id) { 
 		return $this->db->get_where($tabel, ['id_bahan' => $id])->row_array();
+	}
+
+	public function delete($tabel, $id) {
+		$this->db->where('id_bahan', $id);
+		$this->db->delete($tabel);
 	}
 }
