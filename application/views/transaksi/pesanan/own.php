@@ -19,7 +19,7 @@
                             <div class="panel-body admin-panel-content">
                                 <form action="<?php echo $url ?>" method="POST">
                                     <?php $this->libs->inputOpen('mulai produksi', 'required'); ?>
-                                        <input class="form-control" id="calendar" type="text" name="mulai_produksi" data-provide="datepicker">
+                                        <input class="form-control" id="calendar" type="text" name="mulai_produksi" data-provide="datepicker" placeholder="Pilih tanggal produksi">
                                         <?php echo form_error('mulai_produksi'); ?>
                                     <?php $this->libs->inputClose(); ?>
                                     <input class="form-control" type="hidden" name="pesanan_id" value="<?php echo $pesanan['id_pesanan'] ?>" readonly>

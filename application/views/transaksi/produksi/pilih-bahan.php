@@ -22,11 +22,11 @@
                     <td><?php echo rp($data['harga_bahan']); ?></td>
                     <td><?php echo rp($data['subtotal']); ?></td>
                     <td>
-                        <button type="button" class="btn btn-default btn-sm" onclick="window.location.href='<?= site_url('produksi/updateBop/'.$data['no']); ?>'" >
+                        <button type="button" class="btn btn-default btn-sm" onclick="window.location.href='<?= site_url('produksi/updateBp/'.$data['no']); ?>'" >
                             <i class="fa fa-pencil" aria-hidden="true"></i>
                         </button>
                         &nbsp;
-                        <button type="button" class="btn btn-danger btn-sm" onclick="window.location.href='<?= site_url('produksi/deleteBop/'.$this->uri->segment(3).'/'.$data['no']); ?>'">
+                        <button type="button" class="btn btn-danger btn-sm" onclick="window.location.href='<?= site_url('produksi/deleteBp/'.$this->uri->segment(3).'/'.$data['no']); ?>'">
                             <i class="fa fa-close" aria-hidden="true"></i>
                         </button>
                     </td>

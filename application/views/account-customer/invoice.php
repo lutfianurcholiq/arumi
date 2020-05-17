@@ -4,7 +4,7 @@
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="page-title text-center">
-                        <h2>invoice</h2>
+                        <h3>INVOICE</h3>
                     </div>
                 </div>
             </div>

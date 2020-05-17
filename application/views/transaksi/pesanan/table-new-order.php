@@ -13,13 +13,7 @@
             <td><?php echo $data['nama_pelanggan']; ?></td>
             <td><?php echo rp($data['total']); ?></td>
             <td><?php echo shortdate_indo($data['tanggal']); ?></td>
-            <td>
-              <?php
-              if ($data['status'] == 'Belum Dikirim') {
-                echo "Belum Diolah";
-              }
-              ?>
-            </td>
+            <td><?php echo $data['status']; ?></td>
             <td>
               <button type="button" class="btn btn-default" data-toggle="modal" data-target="#InformationproModalftblack<?php echo $data['id_pesanan'] ?>">
                 <i class="fa fa-hand-paper-o" aria-hidden="true"></i>

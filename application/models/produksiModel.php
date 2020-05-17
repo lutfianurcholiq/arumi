@@ -71,12 +71,13 @@ class produksiModel extends CI_Model {
 		return $this->db->get('produksi')->row()->pesanan_id;
 	}
 
-    public function chanceStatus($id, $action) {
+    public function chanceStatus($id, $nominal, $action) {
         $id_pesanan = $this->getID($id);
 
         $this->db->where('id_produksi', $id);
         if ($action == 'bbb') {
             $this->db->set('status', 'Sudah Dibeli');
+            $this->db->set('bahan_baku', $nominal);
             $this->db->update('produksi');
     
             $this->db->where('produksi_id', $id);
@@ -85,11 +86,13 @@ class produksiModel extends CI_Model {
         }
         elseif ($action == 'btkl') {
             $this->db->set('status', 'Sudah Milih Karyawan');
+            $this->db->set('tenaga_kerja', $nominal);
             $this->db->update('produksi');
         }
-        elseif ($action == 'bop') {
+        elseif ($action == 'bp') {
             $this->db->set('status', 'Sudah Jadi');
             $this->db->set('selesai', date('Y-m-d'));
+            $this->db->set('bahan_penolong', $nominal);
             $this->db->update('produksi');
     
             $this->db->where('id_pesanan', $id_pesanan);

@@ -14,6 +14,13 @@ class bayarModel extends CI_Model {
     public function getOne($tabel, $id) { 
 		return $this->db->get_where($tabel, ['id_pesanan' => $id, 'status' => ucwords('belum bayar')])->row_array();
     }
+
+    public function payment($tabel, $id_pesanan, $gambar) {
+        $this->db->where('id_pesanan', $id_pesanan);
+		$this->db->set('foto', $gambar);
+		$this->db->set('status','Menunggu');
+		$this->db->update($tabel);
+    }
     
     public function finish($tabel, $id_pesanan, $id_pelanggan) {
         $this->db->where('id_pesanan', $id_pesanan);

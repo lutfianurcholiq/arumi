@@ -32,7 +32,6 @@ class produksi extends CI_Controller {
 		$this->form_validation->set_error_delimiters('<div><b class="text-danger">', '</b></div>');
 
 		if($this->form_validation->run()) {
-			// flashdata($message);
 			return true;
 		}
 		else {
@@ -55,7 +54,7 @@ class produksi extends CI_Controller {
     public function stepOne() { 
         $id_produksi = $this->uri->segment(3); 
         $nominal     = $this->uri->segment(4);
-        $this->produksiModel->chanceStatus($id_produksi, 'bbb');
+        $this->produksiModel->chanceStatus($id_produksi, $nominal, 'bbb');
         # jurnal pembelian bahan baku
         $this->jurnalModel->generateJurnal('113', $id_produksi, 'Debit', $nominal, 'adel');
         $this->jurnalModel->generateJurnal('111', $id_produksi, 'Kredit', $nominal, 'adel');
@@ -93,7 +92,7 @@ class produksi extends CI_Controller {
     public function stepTwo() {
         $id_produksi = $this->uri->segment(3); 
         $nominal     = $this->uri->segment(4);
-        $this->produksiModel->chanceStatus($id_produksi, 'btkl');
+        $this->produksiModel->chanceStatus($id_produksi, $nominal, 'btkl');
         # jurnal biaya tenaga kerja
         $this->jurnalModel->generateJurnal('532', $id_produksi, 'Debit', $nominal, 'adel');
         $this->jurnalModel->generateJurnal('515', $id_produksi, 'Kredit', $nominal, 'adel');
@@ -118,7 +117,7 @@ class produksi extends CI_Controller {
         $this->load->view('template/footer');
     }
 
-    public function deleteBop() {
+    public function deleteBp() {
         $id_produksi = $this->uri->segment(3);
         $no          = $this->uri->segment(4);
 		$this->produksiModel->truncateBop('detail_bp', $no);
@@ -128,7 +127,7 @@ class produksi extends CI_Controller {
     public function stepThree() {
         $id_produksi = $this->uri->segment(3); 
         $nominal     = $this->uri->segment(4);
-        $this->produksiModel->chanceStatus($id_produksi, 'bp');
+        $this->produksiModel->chanceStatus($id_produksi, $nominal, 'bp');
         # jurnal pembelian bahan penolong
         $this->jurnalModel->generateJurnal('114', $id_produksi, 'Debit', $nominal, 'adel');
         $this->jurnalModel->generateJurnal('111', $id_produksi, 'Kredit', $nominal, 'adel');

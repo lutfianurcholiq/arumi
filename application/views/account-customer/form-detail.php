@@ -23,6 +23,15 @@
                             }
                         ?>
                     </select>
+                    <b>Rasa</b>
+                    <select class="js-example-basic-single" name="jumlah" style="width: 50%">
+                        <option value="">Pilih rasa</option>
+                        <?php
+                            for ($qty= $hasil['min'] ; $qty <= $hasil['max'] ; $qty++) { 
+                                echo " <option value='$qty'>Belum</option>";
+                            }
+                        ?>
+                    </select>
                     <input type="hidden" name="produk_id" value="<?php echo $this->uri->segment(3) ?>" readonly>
                 </div>
             </div>

@@ -10,10 +10,11 @@
             </div>
         </div>
     </div>
-    
+    <br>
     <!-- <div class="checkout_area section-padding-80"> -->
         <div class="container">
             <div class="row">
+                <?php if ($order['status'] == "Belum Bayar") : ?>
                 <div class="col-12 col-md-6">
                     <div class="checkout_details_area mt-50 clearfix">
                         <div class="cart-page-heading mb-30">
@@ -37,44 +38,13 @@
                         </form>
                     </div>
                 </div>
-                <div class="col-12 col-md-6 col-lg-5 ml-lg-auto">
-                    <div class="order-details-confirmation">
-
-                        <div class="cart-page-heading">
-                            <h5>Pesanan <?php echo $order['kode_pesanan']."-".jumlahAngka($order['id_pesanan']) ?></h5>
-                            <p>Detail Pesanan</p>
-                        </div>
-
-                        <table class="table table-hover" style="font-size: 13px;">
-                            <?php
-                                $thead = ["produk", "jumlah", "harga", "subtotal"];
-                                $this->libs->thead($thead);
-                            ?>
-                            <tbody>
-                                <?php  
-                                    $total = 0;
-                                    foreach ($hasil as $data) {
-                                        echo "
-                                            <tr>
-                                                <td>".$data['nama_produk']."</td>
-                                                <td>".$data['jumlah']." ".$data['satuan']."</td>
-                                                <td align='right'>".rp($data['harga'])."</td>
-                                                <td align='right'>".rp($data['subtotal'])."</td>
-                                            </tr>";
-                                        $total += $data['subtotal'];
-                                    }
-                                ?>
-                                <tr>
-                                    <td align="center" colspan="3"><b>Total</b></td>
-                                    <td align="right"><b><?php echo rp($total) ?></b></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <br>
-                        <a href="<?php echo site_url('bayar/pay/'.$order['id_pesanan'].'/'.$order['total']) ?>" class="btn essence-btn">Bayar</a>
-                        <p>Bayar sekarang kemudian pesanan anda akan ditangani<br>oleh bagian produksi Arumi Cake.</p>
-                    </div>
-                </div>
+                
+                <?php
+                        $this->load->view('account-customer/form-bayar'); 
+                    else : 
+                        echo "Sudah bayar";
+                    endif;
+                ?>
             </div>
         </div>
     <!-- </div> -->

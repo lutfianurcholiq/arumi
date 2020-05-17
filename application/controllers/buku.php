@@ -12,7 +12,7 @@ class buku extends CI_Controller {
 	public function index() {
 		$data['judul']  = ucwords('buku besar');
 		$data['menu']   = ucwords('laporan');
-        $data['form']   = site_url('buku/index');
+        $data['url']    = site_url('buku/index');
 		$data['coa']	= $this->coaModel->show('coa');
 		$data['tahun']	= $this->modelKu->getYear('jurnal');
 		if($this->validasi() == FALSE) {

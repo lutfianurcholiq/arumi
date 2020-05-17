@@ -49,8 +49,9 @@
                     <li><a title="Jadwal Produksi" href="<?php echo site_url('produksi'); ?>"><span class="mini-sub-pro">Jadwal Produksi</span></a></li>
                   <?php endif; ?>
                 <?php elseif($this->session->userdata('level') == "Owner"): ?>
+                  <li><a title="Pembayaran" href="<?php echo site_url('pembayaran'); ?>"><span class="mini-sub-pro">Pembayaran</span></a></li>
                   <li><a title="Setoran Modal" href="<?php echo site_url('modal'); ?>"><span class="mini-sub-pro">Setoran Modal</span></a></li>
-                  <li><a title="HPPenjualan" href="<?php echo site_url(''); ?>"><span class="mini-sub-pro">HPPenjualan</span></a></li>
+                  <li><a title="HPPenjualan" href="<?php echo site_url('hpp'); ?>"><span class="mini-sub-pro">HPPenjualan</span></a></li>
                   <li><a title="Prive" href="<?php echo site_url('prive'); ?>"><span class="mini-sub-pro">Prive</span></a></li>
                   <li><a title="Operasional" href="<?php echo site_url('addOperasional'); ?>"><span class="mini-sub-pro">Operasional</span></a></li>
                 <?php endif; ?>
@@ -70,7 +71,7 @@
                 <?php if($this->session->userdata('level') == "Karyawan"): ?>
                   <li><a title="Penjualan" href="<?php echo site_url(''); ?>"><span class="mini-sub-pro">Penjualan</span></a></li>
                 <?php elseif($this->session->userdata('level') == "Produksi"): ?>
-                  <li><a title="Biaya Produksi" href="<?php echo site_url(''); ?>"><span class="mini-sub-pro">Biaya Produksi</span></a></li>
+                  <li><a title="Biaya Produksi" href="<?php echo site_url('biayaProduksi'); ?>"><span class="mini-sub-pro">Biaya Produksi</span></a></li>
                 <?php elseif($this->session->userdata('level') == "Owner"): ?>
                   <li><a title="Laba Rugi" href="<?php echo site_url('labaRugi'); ?>"><span class="mini-sub-pro">Laba Rugi</span></a></li>
                   <li><a title="Perubahan Modal" href=""><span class="mini-sub-pro">Perubahan Modal</span></a></li>

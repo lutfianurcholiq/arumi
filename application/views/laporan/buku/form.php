@@ -10,7 +10,7 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="basic-login-inner inline-basic-form">
-                        <form action="<?php echo $form; ?>" method="POST">
+                        <form action="<?php echo $url; ?>" method="POST">
                             <div class="form-group-inner">
                                 <div class="row">
                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">

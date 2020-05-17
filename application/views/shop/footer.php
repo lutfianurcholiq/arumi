@@ -42,7 +42,7 @@
             $('.dataTables').DataTable();
         })
         $('input.form-control.search-product').search(function(){
-        });
+        })
     </script>
 </body>
 

@@ -6,7 +6,7 @@ class pesananModel extends CI_Model {
         $this->db->select('id_pesanan, kode_pesanan, total, tanggal, status, id_pelanggan, nama_pelanggan');
         $this->db->from('pelanggan a');
         $this->db->join('pesanan b', 'a.id_pelanggan = b.pelanggan_id');
-        $this->db->where('status', 'Belum Dikirim');
+        $this->db->where('status', 'Belum Diolah');
 		return $this->db->get()->result_array();
     }
 
@@ -14,8 +14,10 @@ class pesananModel extends CI_Model {
         $this->db->select('id_pesanan, kode_pesanan, total, tanggal, status, id_pelanggan, nama_pelanggan');
         $this->db->from('pelanggan a');
         $this->db->join('pesanan b', 'a.id_pelanggan = b.pelanggan_id');
-        $this->db->where('status !=', 'Belum Dikirim');
+        $this->db->where('status !=', 'Belum Diolah');
         $this->db->where('status !=', 'Sudah Jadi');
+        $this->db->where('status !=', 'Belum Bayar');
+        $this->db->where('status !=', 'Menunggu');
 		return $this->db->get()->result_array();
     }
 
@@ -24,6 +26,14 @@ class pesananModel extends CI_Model {
         $this->db->from('pelanggan a');
         $this->db->join('pesanan b', 'a.id_pelanggan = b.pelanggan_id');
         $this->db->where('status', 'Sudah Jadi');
+		return $this->db->get()->result_array();
+    }
+
+    public function showPendingOrder() {
+        $this->db->select('id_pesanan, kode_pesanan, total, tanggal, status, id_pelanggan, nama_pelanggan, foto');
+        $this->db->from('pelanggan a');
+        $this->db->join('pesanan b', 'a.id_pelanggan = b.pelanggan_id');
+        $this->db->where('status', 'Menunggu');
 		return $this->db->get()->result_array();
     }
 
@@ -78,6 +88,18 @@ class pesananModel extends CI_Model {
             $this->db->set('status', 'Dikirim ke Komunitas');
             $this->db->update('pesanan');
         }
+    }
+
+    public function yes($tabel, $id) {
+        $this->db->set('status', 'Belum Diolah');
+        $this->db->where('id_pesanan', $id);
+        $this->db->update($tabel);
+    }
+
+    public function no($tabel, $id) {
+        $this->db->set('status', 'Belum Bayar');
+        $this->db->where('id_pesanan', $id);
+        $this->db->update($tabel);
     }
 
     public function getTotal($tabel, $id) {
