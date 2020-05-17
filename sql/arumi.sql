@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 07, 2020 at 08:09 AM
+-- Generation Time: May 17, 2020 at 03:42 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.5.34
 
@@ -65,7 +65,7 @@ CREATE TABLE `bahan` (
 --
 
 INSERT INTO `bahan` (`id_bahan`, `kode_bahan`, `nama_bahan`, `satuan`, `harga`, `keterangan`) VALUES
-(1, 'BHN', 'Tepung Terigu', 'kg', 5000, 'Bahan Baku'),
+(1, 'BHN', 'Tepung Terigu', 'gram', 5000, 'Bahan Baku'),
 (2, 'BHN', 'Telur', 'butir', 2000, 'Bahan Baku'),
 (3, 'BHN', 'Mentega', 'bungkus', 5000, 'Bahan Baku'),
 (4, 'BHN', 'Beras Ketan', 'gram', 5000, 'Bahan Baku'),
@@ -103,22 +103,7 @@ INSERT INTO `biaya` (`id_biaya`, `kode_coa`, `nama_biaya`, `keterangan`) VALUES
 (6, '517', 'Biaya Produksi', 'Pembayaran biaya tenaga kerja (produksi)'),
 (7, '531', 'Biaya Produksi', 'Biaya Produksi'),
 (8, '532', 'Biaya Produksi', 'Biaya produksi'),
-(9, '533', 'Biaya Produksi', 'Biaya Produksi'),
-(10, '533', 'Biaya Produksi', 'Biaya Produksi');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `biaya_produksi`
---
-
-CREATE TABLE `biaya_produksi` (
-  `id_biaya` int(11) NOT NULL,
-  `produksi_id` int(11) NOT NULL,
-  `bbb` int(11) NOT NULL,
-  `btkl` int(11) NOT NULL,
-  `bop` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+(9, '533', 'Biaya Produksi', 'Biaya Produksi');
 
 -- --------------------------------------------------------
 
@@ -174,7 +159,8 @@ INSERT INTO `coa` (`id_coa`, `kode_coa`, `nama_coa`, `header_coa`) VALUES
 (16, '312', 'Prive', '3'),
 (17, '501', 'Harga Pokok Penjualan', '5'),
 (18, '533', 'Barang dalam proses-BP', '5'),
-(19, '114', 'Persediaan Bahan Penolong', '1');
+(19, '114', 'Persediaan Bahan Penolong', '1'),
+(20, '102', 'Persediaan Barang Dagang', '1');
 
 -- --------------------------------------------------------
 
@@ -265,9 +251,7 @@ CREATE TABLE `detail_pesanan` (
 --
 
 INSERT INTO `detail_pesanan` (`pesanan_id`, `produk_id`, `pelanggan_id`, `harga`, `jumlah`, `subtotal`) VALUES
-(1, 1, 1, 75000, 1, 75000),
-(2, 1, 2, 75000, 1, 75000),
-(2, 5, 2, 15000, 4, 60000);
+(1, 1, 2, 75000, 1, 75000);
 
 -- --------------------------------------------------------
 
@@ -284,20 +268,6 @@ CREATE TABLE `jurnal` (
   `nominal` int(11) NOT NULL,
   `user` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `jurnal`
---
-
-INSERT INTO `jurnal` (`no`, `transaksi_id`, `coa_id`, `tanggal`, `posisi`, `nominal`, `user`) VALUES
-(1, 1, '111', '2020-05-06', 'Debit', 5000000, 'rina'),
-(2, 1, '311', '2020-05-06', 'Kredit', 5000000, 'rina'),
-(3, 1, '111', '2020-05-06', 'Debit', 75000, 'lutfi'),
-(4, 1, '411', '2020-05-06', 'Kredit', 75000, 'lutfi'),
-(5, 2, '111', '2020-05-06', 'Debit', 135000, 'lutfi'),
-(6, 2, '411', '2020-05-06', 'Kredit', 135000, 'lutfi'),
-(7, 1, '312', '2020-05-06', 'Debit', 40000, 'rina'),
-(8, 1, '111', '2020-05-06', 'Kredit', 40000, 'rina');
 
 -- --------------------------------------------------------
 
@@ -357,13 +327,6 @@ CREATE TABLE `modal` (
   `keterangan` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `modal`
---
-
-INSERT INTO `modal` (`id_modal`, `nominal`, `tanggal`, `keterangan`) VALUES
-(1, 5000000, '2020-05-06', 'Setoran awal');
-
 -- --------------------------------------------------------
 
 --
@@ -417,16 +380,9 @@ CREATE TABLE `pesanan` (
   `tanggal` date NOT NULL,
   `total` int(11) NOT NULL,
   `status` text NOT NULL,
+  `foto` text NOT NULL,
   `komunitas_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `pesanan`
---
-
-INSERT INTO `pesanan` (`id_pesanan`, `kode_pesanan`, `pelanggan_id`, `tanggal`, `total`, `status`, `komunitas_id`) VALUES
-(1, 'PSN', 1, '2020-05-06', 75000, 'Belum Dikirim', 0),
-(2, 'PSN', 2, '2020-05-06', 135000, 'Belum Dikirim', 0);
 
 -- --------------------------------------------------------
 
@@ -440,13 +396,6 @@ CREATE TABLE `prive` (
   `tanggal` date NOT NULL,
   `keterangan` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `prive`
---
-
-INSERT INTO `prive` (`id_prive`, `nominal`, `tanggal`, `keterangan`) VALUES
-(1, 40000, '2020-05-06', '');
 
 -- --------------------------------------------------------
 
@@ -491,7 +440,23 @@ CREATE TABLE `produksi` (
   `pelanggan_id` int(11) NOT NULL,
   `mulai` date NOT NULL,
   `selesai` date NOT NULL,
-  `status` text NOT NULL
+  `status` text NOT NULL,
+  `bahan_baku` int(11) NOT NULL,
+  `tenaga_kerja` int(11) NOT NULL,
+  `bahan_penolong` int(11) NOT NULL,
+  `oh` int(11) NOT NULL,
+  `hpp` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rasa`
+--
+
+CREATE TABLE `rasa` (
+  `id_rasa` int(11) NOT NULL,
+  `rasa` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -535,12 +500,6 @@ ALTER TABLE `bahan`
 -- Indexes for table `biaya`
 --
 ALTER TABLE `biaya`
-  ADD PRIMARY KEY (`id_biaya`);
-
---
--- Indexes for table `biaya_produksi`
---
-ALTER TABLE `biaya_produksi`
   ADD PRIMARY KEY (`id_biaya`);
 
 --
