@@ -24,7 +24,7 @@
                         ?>
                     </select>
                     <b>Rasa</b>
-                    <select class="js-example-basic-single" name="jumlah" style="width: 50%">
+                    <select class="js-example-basic-single" name="" style="width: 50%">
                         <option value="">Pilih rasa</option>
                         <?php
                             for ($qty= $hasil['min'] ; $qty <= $hasil['max'] ; $qty++) { 
