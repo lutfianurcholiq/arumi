@@ -18,5 +18,5 @@ $autoload['model'] = array('modelKu', 'pelangganModel', 'coaModel', 'bahanModel'
                             'bomModel', 'produksiModel', 
                             'addOperasionalModel', 'listOperasionalModel', 'hppModel',
                             'modalModel', 'priveModel',                
-                            'jurnalModel', 'bukuModel', 'labaRugiModel', 'biayaProduksiModel'
+                            'jurnalModel', 'bukuModel', 'labaRugiModel', 'biayaProduksiModel', 'perubahanModalModel'
                         );
