@@ -10,7 +10,7 @@ class modal extends CI_Controller {
 	}
 	
 	public function index() {
-		$data['judul'] = ucwords('modal');
+		$data['judul'] = ucwords('setoran modal');
 		$data['menu']  = ucwords('transaksi');
 		$data['form']  = site_url('modal/create');
 		$data['hasil'] = $this->modalModel->show('modal');
@@ -43,7 +43,7 @@ class modal extends CI_Controller {
 			redirect('modal');
 		}
 		else {
-			$data['judul'] = ucwords('setor modal');
+			$data['judul'] = ucwords('setoran modal');
 			$data['menu']  = ucwords('transaksi');
 			$data['url']   = site_url('modal/create');
 			$data['tabel'] = site_url('modal');
