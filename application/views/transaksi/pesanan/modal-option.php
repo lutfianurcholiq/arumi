@@ -10,7 +10,7 @@
     </div>
     <div class="modal-footer footer-modal-admin info-md">
         <a href="<?php echo site_url('pesanan/own/'.$data['id_pesanan']) ?>">Sendiri</a>
-        <a href="<?php echo site_url('pesanan/throwing/'.$data['id_pesanan']) ?>">Lempar</a>
+        <a href="<?php echo site_url('pesanan/throwing/'.$data['id_pesanan']) ?>">Ditawarkan</a>
     </div>
 <?php 
         $this->libs->modalClose();
