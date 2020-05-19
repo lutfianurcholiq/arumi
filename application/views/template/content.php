@@ -74,7 +74,7 @@
                   <li><a title="Biaya Produksi" href="<?php echo site_url('biayaProduksi'); ?>"><span class="mini-sub-pro">Biaya Produksi</span></a></li>
                 <?php elseif($this->session->userdata('level') == "Owner"): ?>
                   <li><a title="Laba Rugi" href="<?php echo site_url('labaRugi'); ?>"><span class="mini-sub-pro">Laba Rugi</span></a></li>
-                  <li><a title="Perubahan Modal" href=""><span class="mini-sub-pro">Perubahan Modal</span></a></li>
+                  <li><a title="Perubahan Modal" href="<?php echo site_url('perubahanModal'); ?>"><span class="mini-sub-pro">Perubahan Modal</span></a></li>
                   <li><a title="Arus Kas" href=""><span class="mini-sub-pro">Arus Kas</span></a></li>
                 <?php endif; ?>
               </ul>
