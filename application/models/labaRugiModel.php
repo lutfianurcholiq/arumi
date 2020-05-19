@@ -1,12 +1,12 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 class labaRugiModel extends CI_Model {
 
-	public function showPendapatan($bulan, $tahun) {
-		$query 	= " SELECT IF(SUM(nominal) IS NOT NULL, SUM(nominal), 0) AS pendapatan 
+    public function showPendapatan($bulan, $tahun) {
+        $query   = " SELECT IF(SUM(nominal) IS NOT NULL, SUM(nominal), 0) AS pendapatan 
                       FROM jurnal 
                      WHERE coa_id = '411' AND MONTH(tanggal) = '$bulan' AND YEAR(tanggal) = '$tahun' ";
-		return $this->db->query($query)->row_array();
+        return $this->db->query($query)->row_array();
     }
 
     public function showBeban($bulan, $tahun) {
@@ -22,13 +22,13 @@ class labaRugiModel extends CI_Model {
                     JOIN biaya c ON a.kode_coa = c.kode_coa
                    WHERE nama_biaya = 'Biaya Operasional' OR nama_biaya = 'Biaya Administrasi & Umum'
                     ) A";
-		return $this->db->query($query)->result_array();
+        return $this->db->query($query)->result_array();
     }
 
     public function showHpp($bulan, $tahun) {
-        $query 	= " SELECT IF(SUM(nominal) IS NOT NULL, SUM(nominal), 0) AS hpp 
+        $query   = " SELECT IF(SUM(nominal) IS NOT NULL, SUM(nominal), 0) AS hpp 
                       FROM jurnal 
                      WHERE coa_id = '501' AND MONTH(tanggal) = '$bulan' AND YEAR(tanggal) = '$tahun' ";
-		return $this->db->query($query)->row_array();
+        return $this->db->query($query)->row_array();
     }
 }
