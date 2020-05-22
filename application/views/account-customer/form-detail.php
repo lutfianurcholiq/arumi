@@ -15,32 +15,49 @@
         <form action="<?php echo $url ?>" method="post">
             <div class="row">
                 <div class="col-md-12">
-                    <b>Qty</b>
-                    <select class="js-example-basic-single" name="jumlah" style="width: 50%">
-                        <?php
-                            for ($qty= $hasil['min'] ; $qty <= $hasil['max'] ; $qty++) { 
-                                echo " <option value='$qty'>$qty</option>";
-                            }
-                        ?>
-                    </select>
-                    <b>Rasa</b>
-                    <select class="js-example-basic-single" name="" style="width: 50%">
-                        <option value="">Pilih rasa</option>
-                        <?php
-                            for ($qty= $hasil['min'] ; $qty <= $hasil['max'] ; $qty++) { 
-                                echo " <option value='$qty'>Belum</option>";
-                            }
-                        ?>
-                    </select>
-                    <input type="hidden" name="produk_id" value="<?php echo $this->uri->segment(3) ?>" readonly>
+                        <b>Qty</b>
+                        <select class="js-example-basic-single" name="jumlah" style="width: 50%">
+                            <?php
+                                for ($qty = $hasil['min']; $qty <= $hasil['max']; $qty++) {
+                                    echo " <option value='$qty'>$qty</option>";
+                                }
+                            ?>
+                        </select>
+                        <b>Pilih Rasa</b>
+                        <select class="js-example-basic-single" id="rasa" name="" style="width: 50%" onchange="choose()">
+                            <option selected data-harga="0">Pilih rasa</option>
+                            <!-- <option>Original</option> -->
+                            <?php
+                                $id_produk = $hasil['id_produk'];
+                                $sql = "SELECT rasa, harga_rasa
+                                                FROM rasa a 
+                                                JOIN produk_rasa b ON a.id_rasa = b.rasa_id
+                                                WHERE b.produk_id = '$id_produk'";
+                                $rasa = $this->db->query($sql)->result_array();
+                                foreach ($rasa as $r) {
+                                    echo " <option data-harga=".rp($r['harga_rasa'])." >" . $r['rasa'] . "</option>";
+                                }
+                            ?>
+                        </select>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <b>Harga Rasa</b>
+                                <input type="text" id="hargavalue" class="form-control" readonly>
+                            </div>
+                            <!-- <div class="col-md-6 mb-3">
+                                <b>Harga Kue</b>
+                                <input type="text" name="form-control" value="Tes" readonly>
+                            </div> -->
+                        </div>
+                        <input type="hidden" name="produk_id" value="<?php echo $this->uri->segment(3) ?>" readonly>
+                    </div>
                 </div>
-            </div>
-            <div class="cart-fav-box d-flex align-items-center">
-                <button type="submit" class="btn essence-btn">Tambah</button>
-                <div class="product-favourite ml-4">
-                    <a href="<?php echo site_url('pelangganBeranda') ?>" class="favme fa fa-home"></a>
+                <div class="cart-fav-box d-flex align-items-center">
+                    <button type="submit" class="btn essence-btn">Tambah</button>
+                    <div class="product-favourite ml-4">
+                        <a href="<?php echo site_url('pelangganBeranda') ?>" class="favme fa fa-home"></a>
+                    </div>
                 </div>
-            </div>
         </form>
     </div>
 </section>
