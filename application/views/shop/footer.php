@@ -30,6 +30,7 @@
     <script src="<?php echo base_url("shop-assets/js/popper.min.js"); ?>"></script>
     <script src="<?php echo base_url("shop-assets/js/bootstrap.min.js"); ?>"></script>
     <script src="<?php echo base_url("shop-assets/js/e-search.js"); ?>"></script>
+    <script src="<?php echo base_url("assets/js/input/auto-choose.js"); ?>"></script>
     <!-- dataTable JS  -->
     <script src="<?= base_url('shop-assets/js/dataTables/jquery.dataTables.js'); ?>"></script>
     <script src="<?= base_url('shop-assets/js/dataTables/dataTables.bootstrap4.js'); ?>"></script>

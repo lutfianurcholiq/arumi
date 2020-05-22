@@ -31,6 +31,7 @@
                   <?php elseif($this->session->userdata('level') == "Karyawan"): ?>
                     <li><a title="Produk" href="<?php echo site_url('produk'); ?>"><span class="mini-sub-pro">Produk</span></a></li>
                     <li><a title="Pelanggan" href="<?php echo site_url('pelanggan'); ?>"><span class="mini-sub-pro">Pelanggan</span></a></li>
+                    <li><a title="Rasa" href="<?php echo site_url('rasa'); ?>"><span class="mini-sub-pro">Rasa</span></a></li>
                   <?php endif; ?>
               </ul>
             </li>
