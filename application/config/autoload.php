@@ -13,9 +13,9 @@ $autoload['config'] = array();
 
 $autoload['language'] = array();
 
-$autoload['model'] = array('modelKu', 'pelangganModel', 'coaModel', 'bahanModel', 'karyawanModel', 'produkModel', 'biayaModel', 'komunitasModel',
+$autoload['model'] = array('modelKu', 'pelangganModel', 'coaModel', 'bahanModel', 'karyawanModel', 'produkModel', 'biayaModel', 'komunitasModel', 'rasaModel',
                             'pemesananModel', 'listPesananModel', 'pesananModel', 'bayarModel',
-                            'bomModel', 'produksiModel', 
+                            'bomModel', 'produksiModel', 'bumbuModel', 'addRasaModel',
                             'addOperasionalModel', 'listOperasionalModel', 'hppModel',
                             'modalModel', 'priveModel',                
                             'jurnalModel', 'bukuModel', 'labaRugiModel', 'biayaProduksiModel', 'perubahanModalModel'
