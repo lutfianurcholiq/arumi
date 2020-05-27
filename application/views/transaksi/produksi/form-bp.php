@@ -9,7 +9,7 @@
                 <option selected="" disabled="">Contoh: Daun Pisang</option>
                 <?php
                     foreach ($bahan as $data) { if ($data['produksi_id'] == NULL) {
-                            echo "<option value = " . $data['id_bahan'] . ">" . $data['nama_bahan'] . "</option>";
+                            echo "<option value = " . $data['id_bahan'] . ">" . $data['nama_bahan'] . " (" . $data['satuan'] . ")</option>";
                         }
                     }
                 ?>

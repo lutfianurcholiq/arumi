@@ -34,9 +34,9 @@ class produksiModel extends CI_Model {
     }
 
     public function showBahan($id) {
-        $query = "	SELECT id_bahan, kode_bahan, nama_bahan, produksi_id 
+        $query = "	SELECT id_bahan, kode_bahan, nama_bahan, satuan, produksi_id 
 					FROM ( 
-						SELECT id_bahan, kode_bahan, nama_bahan, 
+						SELECT id_bahan, kode_bahan, satuan, nama_bahan, 
 							(SELECT b.produksi_id FROM detail_bp b WHERE a.id_bahan = b.bahan_id AND b.produksi_id = '$id' 
 							) AS produksi_id 
 						FROM bahan a
