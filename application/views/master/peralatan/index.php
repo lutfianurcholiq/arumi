@@ -10,19 +10,18 @@
     <div class="datatable-dashv1-list custom-datatable-overright">
         <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="false" data-show-refresh="false" data-key-events="false" data-show-toggle="false" data-resizable="true" data-cookie="false" data-cookie-id-table="saveId" data-show-export="false" data-click-to-select="true" data-toolbar="#toolbar">
             <?php
-                $thead = ["no", "id", "nama", "whatsapp", "alamat", "aksi"];
+                $thead = ["no", "kode", "nama", "harga", "aksi"];
                 $this->libs->thead($thead);
             ?>
             <tbody>
                 <?php foreach ($hasil as $data) : ?>
                     <tr>
-                        <td><?php echo $data['id_pelanggan']; ?></td>
-                        <td><?php echo $data['kode_pelanggan'] . "-" . jumlahAngka($data['id_pelanggan']); ?></td>
-                        <td><?php echo $data['nama_pelanggan']; ?></td>
-                        <td><?php echo noHp($data['no_wa']); ?></td>
-                        <td><?php echo $data['alamat']; ?></td>
+                        <td><?php echo $data['id_peralatan']; ?></td>
+                        <td><?php echo $data['kode_peralatan'] . "-" . jumlahAngka($data['id_peralatan']); ?></td>
+                        <td><?php echo $data['nama_peralatan']; ?></td>
+                        <td><?php echo rp($data['harga']); ?></td>
                         <td>
-                            <button type="button" class="btn btn-default" onclick="window.location.href='<?= site_url('pelanggan/update/' . $data['id_pelanggan']); ?>'">
+                            <button type="button" class="btn btn-default" onclick="window.location.href='<?= site_url('peralatan/update/' . $data['id_peralatan']); ?>'">
                                 <i class="fa fa-pencil" aria-hidden="true"></i>
                             </button>
                         </td>

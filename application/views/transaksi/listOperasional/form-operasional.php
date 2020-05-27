@@ -25,7 +25,7 @@
                 <?php echo form_error('nominal'); ?>
             <?php $this->libs->inputClose(); ?>
 
-        <?php $this->libs->buttonSubmit01($tabel); ?>
+            <?php $this->libs->buttonSubmit01($tabel); ?>
         </form>
     </div>
 <?php $this->libs->rowClose(); ?>

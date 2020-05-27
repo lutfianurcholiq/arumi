@@ -43,7 +43,7 @@ class listOperasional extends CI_Controller {
 			$data['tabel']  = site_url('addOperasional');
 			$data['hasil']  = $this->listOperasionalModel->show($id);
             $data['coa']    = $this->listOperasionalModel->showCoa($id);
-            $data['beban']  = $this->addOperasionalModel->getOne('operasional', $id);
+            $data['beban']  = $this->addOperasionalModel->getOne('operasional', $id); # di view "List Operasional OP-002" / buat di form-operasional.php
 			$this->load->view('template/header', $data);
 			$this->template->load('template/content', 'transaksi/listOperasional/index', $data);	
 			$this->load->view('transaksi/listOperasional/modal-selesai', $data);	

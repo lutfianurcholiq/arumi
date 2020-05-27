@@ -23,6 +23,7 @@
                 <li><a title="COA" href="<?php echo site_url('coa'); ?>"><span class="mini-sub-pro">COA</span></a></li>
                   <?php if($this->session->userdata('level') == "Owner"): ?>
                     <li><a title="Kelompok Biaya" href="<?php echo site_url('biaya'); ?>"><span class="mini-sub-pro">Kelompok Biaya</span></a></li>
+                    <li><a title="Peralatan" href="<?php echo site_url('peralatan'); ?>"><span class="mini-sub-pro">Peralatan</span></a></li>
                   <?php elseif($this->session->userdata('level') == "Produksi"): ?>
                     <li><a title="Bahan" href="<?php echo site_url('bahan'); ?>"><span class="mini-sub-pro">Bahan</span></a></li>
                     <li><a title="Karyawan" href="<?php echo site_url('karyawan'); ?>"><span class="mini-sub-pro">Karyawan</span></a></li>
@@ -50,11 +51,12 @@
                     <li><a title="Jadwal Produksi" href="<?php echo site_url('produksi'); ?>"><span class="mini-sub-pro">Jadwal Produksi</span></a></li>
                   <?php endif; ?>
                 <?php elseif($this->session->userdata('level') == "Owner"): ?>
-                  <li><a title="Pembayaran" href="<?php echo site_url('pembayaran'); ?>"><span class="mini-sub-pro">Pembayaran</span></a></li>
                   <li><a title="Setoran Modal" href="<?php echo site_url('modal'); ?>"><span class="mini-sub-pro">Setoran Modal</span></a></li>
-                  <li><a title="HPPenjualan" href="<?php echo site_url('hpp'); ?>"><span class="mini-sub-pro">HPPenjualan</span></a></li>
                   <li><a title="Prive" href="<?php echo site_url('prive'); ?>"><span class="mini-sub-pro">Prive</span></a></li>
+                  <li><a title="Pembayaran" href="<?php echo site_url('pembayaran'); ?>"><span class="mini-sub-pro">Pembayaran</span></a></li>
+                  <li><a title="HPPenjualan" href="<?php echo site_url('hpp'); ?>"><span class="mini-sub-pro">HPPenjualan</span></a></li>
                   <li><a title="Operasional" href="<?php echo site_url('addOperasional'); ?>"><span class="mini-sub-pro">Operasional</span></a></li>
+                  <li><a title="Beli Peralatan" href="<?php echo site_url('beliPeralatan'); ?>"><span class="mini-sub-pro">Beli Peralatan</span></a></li>
                 <?php endif; ?>
               </ul>
             </li>
@@ -76,7 +78,7 @@
                 <?php elseif($this->session->userdata('level') == "Owner"): ?>
                   <li><a title="Laba Rugi" href="<?php echo site_url('labaRugi'); ?>"><span class="mini-sub-pro">Laba Rugi</span></a></li>
                   <li><a title="Perubahan Modal" href="<?php echo site_url('perubahanModal'); ?>"><span class="mini-sub-pro">Perubahan Modal</span></a></li>
-                  <li><a title="Arus Kas" href=""><span class="mini-sub-pro">Arus Kas</span></a></li>
+                  <li><a title="Arus Kas" href="<?php echo site_url('arusKas'); ?>"><span class="mini-sub-pro">Arus Kas</span></a></li>
                 <?php endif; ?>
               </ul>
             </li>
