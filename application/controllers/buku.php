@@ -4,7 +4,7 @@ class buku extends CI_Controller {
 	
 	public function __construct() {
 		parent:: __construct();
-		if ($this->session->userdata('level') != 'Owner') {
+		if ($this->session->userdata('level') != 'Owner' AND $this->session->userdata('level') != 'Produksi') {
 			redirect('welcome/blok');
 		} 
 	}
