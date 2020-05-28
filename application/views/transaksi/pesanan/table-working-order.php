@@ -16,8 +16,8 @@
                         <?php if ($data['status'] == 'Dikirim ke Komunitas') : ?>
                             <td><?php echo $data['status']; ?></td>
                             <td>
-                                <button type="button" class="btn btn-default" onclick="window.location.href='<?= site_url('pesanan/checklist/' . $data['id_pesanan']); ?>'">
-                                    <i class="fa fa-edit" aria-hidden="true"></i>
+                                <button type="button" class="btn btn-default" data-toggle="modal" data-target="#InformationproModalftblack<?php echo $data['id_pesanan'] ?>">
+                                    <i class="fas fa-hand-holding-heart" aria-hidden="true"></i>
                                 </button>
                             </td>
                         <?php elseif ($data['status'] == 'Diproduksi') : ?>

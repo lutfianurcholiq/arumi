@@ -107,4 +107,10 @@ class pesananModel extends CI_Model {
         $this->db->where('pesanan_id', $id);
         return $this->db->get($tabel)->row_array();
     }
+
+    public function done($id_pesanan) {
+        $this->db->where('id_pesanan', $id_pesanan);
+        $this->db->set('status', ucwords('sudah jadi'));
+        $this->db->update('pesanan');
+    }
 }

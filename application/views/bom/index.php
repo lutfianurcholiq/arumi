@@ -17,7 +17,7 @@
                                     <i class="fa fa-plus" aria-hidden="true"></i>
                                 </button>
                                 &nbsp;&nbsp;
-                                <button type="button" class="btn btn-info" onclick="window.location.href='<?= site_url('bom/list/'.$data['id_produk']); ?>'">
+                                <button type="button" class="btn btn-info" onclick="window.location.href='<?= site_url('bom/info/'.$data['id_produk']); ?>'">
                                     <i class="fa fa-info" aria-hidden="true"></i>
                                 </button>
                             </td>

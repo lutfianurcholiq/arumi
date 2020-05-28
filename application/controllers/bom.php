@@ -39,19 +39,19 @@ class bom extends CI_Controller {
 	}
 
     public function create() {
-        $id = $this->uri->segment(3);
+        $id_produk = $this->uri->segment(3);
 		if($this->validasi('save')) {
-			$this->bomModel->database('detail_bb', $id, 'no_id_bahan');
-			redirect('bom/create/'.$id);
+			$this->bomModel->database('detail_bb', $id_produk, 'no_id_bahan');
+			redirect('bom/create/'.$id_produk);
 		}
 		else {
             $data['judul']   = ucwords('bahan baku');
             $data['menu']    = ucwords('bill of Material');
-            $data['url']     = site_url('bom/create/'.$id);
+            $data['url']     = site_url('bom/create/'.$id_produk);
             $data['tabel']   = site_url('bom');
-            $data['bahan']   = $this->bomModel->showBahan($id);
-            $data['produk']  = $this->produkModel->getOne('produk', $id);
-            $data['hasil']   = $this->bomModel->show($id);
+            $data['bahan']   = $this->bomModel->showBahan($id_produk);
+            $data['produk']  = $this->produkModel->getOne('produk', $id_produk);
+            $data['hasil']   = $this->bomModel->show($id_produk);
             $this->load->view('template/header', $data);
             $this->template->load('template/content', 'bom/bahan-baku', $data);
             $this->load->view('template/footer');
@@ -59,17 +59,17 @@ class bom extends CI_Controller {
     }
 
     public function update() {
-		$id = $this->uri->segment(3);
-		$no = $this->uri->segment(4);
+		$id_produk = $this->uri->segment(3);
+		$no 	   = $this->uri->segment(4);
 		if($this->validasi('edit')) {
-			$this->bomModel->database('detail_bb', $id, $no);
-			redirect('bom/create/'.$id);
+			$this->bomModel->database('detail_bb', $id_produk, $no);
+			redirect('bom/create/'.$id_produk);
 		}
 		else {
 			$data['judul']  = ucwords('bahan baku');
 			$data['menu']   = ucwords('transaksi');
-			$data['url']    = site_url('bom/update/'.$id.'/'.$no);
-			$data['tabel']  = site_url('bom/create/'.$id);
+			$data['url']    = site_url('bom/update/'.$id_produk.'/'.$no);
+			$data['tabel']  = site_url('bom/create/'.$id_produk);
 			$data['hasil']  = $this->bomModel->getOne($no);
 			$this->load->view('template/header', $data);
 			$this->template->load('template/content', 'bom/form-edit', $data);	
@@ -78,11 +78,23 @@ class bom extends CI_Controller {
 	}
 
 	public function delete() {
-		$id = $this->uri->segment(3);
+		$id_produk = $this->uri->segment(3);
 		$no = $this->uri->segment(4);
 		$this->bomModel->truncate('detail_bb', $no);
 		$message = ucfirst('bahan baku berhasil dihapus');
 		flashdata($message);
-		redirect('bom/create/'.$id);
+		redirect('bom/create/'.$id_produk);
 	}
+
+	public function info() {
+        $id_produk_produk 		 = $this->uri->segment(3);
+        $data['judul']   = ucwords('produk');
+		$data['menu']    = ucwords('bill of Material');
+		$data['tabel']   = site_url('bom');
+		$data['produk']  = $this->produkModel->getOne('produk', $id_produk_produk);
+		$data['hasil']   = $this->bomModel->show($id_produk_produk);
+        $this->load->view('template/header', $data);
+        $this->template->load('template/content', 'bom/detail', $data);
+        $this->load->view('template/footer');	
+    }
 }

@@ -35,7 +35,8 @@
                                     <?php $this->libs->inputClose(); ?>
 
                                     <?php $this->libs->inputOpen('10%', ''); ?>
-                                        <input class="form-control" type="text" value="<?php echo rp(potongan($total['subtotal'])); ?>" readonly>
+                                        <input class="form-control" type="text" value="<?php echo rp(potongan($total['subtotal'])) ?>" readonly>
+                                        <input class="form-control" type="hidden" name="nominal" value="<?php echo potongan($total['subtotal']) ?>" readonly>
                                     <?php $this->libs->inputClose(); ?>
 
                                     <?php $this->libs->inputOpen('harga komunitas', ''); ?>

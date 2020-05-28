@@ -18,6 +18,7 @@ class pesanan extends CI_Controller {
         $this->load->view('template/header', $data);
         $this->template->load('template/content', 'transaksi/pesanan/index', $data);
 		$this->load->view('transaksi/pesanan/modal-option');	
+		$this->load->view('transaksi/pesanan/modal-komunitas');	
         $this->load->view('template/footer');	
     }
 
@@ -64,7 +65,12 @@ class pesanan extends CI_Controller {
     public function throwing() {
         $id = $this->uri->segment(3);
         if($this->validasi('throwing')) {
+            $id          = $_POST['pesanan_id']; 
+            $nominal     = $_POST['nominal'];
 			$this->pesananModel->database('produksi', 'id_produksi', $id, 'throw');
+            # jurnal lempar produksi ke komunitas
+            $this->jurnalModel->generateJurnal('412', $id, 'Debit', $nominal, 'adel');
+            $this->jurnalModel->generateJurnal('111', $id, 'Kredit', $nominal, 'adel');
 			redirect('pesanan');
 		}
 		else {
@@ -81,5 +87,11 @@ class pesanan extends CI_Controller {
             $this->template->load('template/content', 'transaksi/pesanan/throwing', $data);
             $this->load->view('template/footer');
         }
+    }
+
+    public function receive() {
+        $id_pesanan = $this->uri->segment(3);
+        $this->pesananModel->done($id_pesanan);
+        redirect('pesanan');
     }
 }
