@@ -85,8 +85,10 @@ class produksiModel extends CI_Model {
             $this->db->update('bom');
         }
         elseif ($action == 'btkl') {
+            $oh = $nominal * 0.3;
             $this->db->set('status', 'Sudah Milih Karyawan');
             $this->db->set('tenaga_kerja', $nominal);
+            $this->db->set('oh', $oh);
             $this->db->update('produksi');
         }
         elseif ($action == 'bp') {

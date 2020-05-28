@@ -136,4 +136,15 @@ class produksi extends CI_Controller {
         $this->jurnalModel->generateJurnal('516', $id_produksi, 'Kredit', $nominal, 'adel');
         redirect('produksi');
     }
+
+    public function info() {
+        $id_produksi = $this->uri->segment(3);
+        $data['judul']   = ucwords('biaya produksi');
+		$data['menu']    = ucwords('produksi');
+		$data['tabel']   = site_url('produksi');
+		$data['hasil']   = $this->produksiModel->getOne('produksi', $id_produksi);
+        $this->load->view('template/header', $data);
+        $this->template->load('template/content', 'transaksi/produksi/detail', $data);	
+        $this->load->view('template/footer');
+    }
 }
