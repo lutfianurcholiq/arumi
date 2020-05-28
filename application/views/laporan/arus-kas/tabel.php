@@ -64,10 +64,10 @@
             <td>Arus Kas bersih dari Aktivitas Pendanaan </td>
             <td></td>
             <td class="bottom">
-                (<?php 
+                <?php 
                     $pendanaan = $kas_modal['modal'] - $kas_prive['prive']; 
                     echo rp($pendanaan);
-                ?>)
+                ?>
             </td>
         </tr>
         <tr>
@@ -75,7 +75,7 @@
             <td></td>
             <td>
                 <?php 
-                    $saldo = $operasi - $kas_peralatan['peralatan'] - $pendanaan;
+                    $saldo = ($operasi - $kas_peralatan['peralatan']) + $pendanaan;
                     echo rp($saldo);
                 ?>
             </td>

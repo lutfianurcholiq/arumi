@@ -50,4 +50,17 @@ class addOperasional extends CI_Controller {
 			$this->load->view('template/footer');
 		}
 	}
+
+	public function info() {
+		$id_operasional = $this->uri->segment(3);
+		$data['judul']  = ucwords('detail operasional');
+		$data['menu']   = ucwords('transaksi');
+		$data['icon']   = "fa fa-shopping-cart";
+		$data['tabel']  = site_url('addOperasional');
+		$data['hasil']  = $this->addOperasionalModel->getDetail($id_operasional);
+		$data['detail'] = $this->addOperasionalModel->getOne('operasional', $id_operasional);
+		$this->load->view('template/header', $data);
+		$this->template->load('template/content', 'transaksi/addOperasional/detail', $data);
+		$this->load->view('template/footer');	
+	}
 }
