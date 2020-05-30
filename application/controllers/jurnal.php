@@ -4,7 +4,7 @@ class jurnal extends CI_Controller {
 	
 	public function __construct() {
 		parent:: __construct();
-		if ($this->session->userdata('level') != 'Owner' AND $this->session->userdata('level') != 'Produksi') {
+		if ($this->session->userdata('level') != 'Owner' AND $this->session->userdata('level') != 'Produksi' AND $this->session->userdata('level') != 'Karyawan') {
 			redirect('welcome/blok');
 		} 
 	}

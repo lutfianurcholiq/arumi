@@ -24,30 +24,26 @@
                             ?>
                         </select>
                         <b>Pilih Rasa</b>
-                        <select class="js-example-basic-single" id="rasa" name="" style="width: 50%" onchange="choose()">
-                            <option selected data-harga="0">Pilih rasa</option>
-                            <!-- <option>Original</option> -->
+                        <select class="js-example-basic-single" id="rasa" name="id_rasa" style="width: 50%" onchange="choose()">
+                            <option selected data-harga="0" data-harga1="0">Original</option>
                             <?php
                                 $id_produk = $hasil['id_produk'];
-                                $sql = "SELECT rasa, harga_rasa
+                                $sql = "SELECT rasa, harga_rasa, id_rasa
                                                 FROM rasa a 
                                                 JOIN produk_rasa b ON a.id_rasa = b.rasa_id
                                                 WHERE b.produk_id = '$id_produk'";
                                 $rasa = $this->db->query($sql)->result_array();
                                 foreach ($rasa as $r) {
-                                    echo " <option data-harga=".rp($r['harga_rasa'])." >" . $r['rasa'] . "</option>";
+                                    echo " <option data-harga1=".rp($r['harga_rasa'])." data-harga=".$r['harga_rasa']." value=".$r['id_rasa']." >" . $r['rasa'] . "</option>";
                                 }
                             ?>
                         </select>
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <b>Harga Rasa</b>
-                                <input type="text" id="hargavalue" class="form-control" readonly>
+                                <input type="text" id="harga" class="form-control" readonly>
+                                <input type="hidden" id="hargavalue" name="harga" class="form-control" readonly>
                             </div>
-                            <!-- <div class="col-md-6 mb-3">
-                                <b>Harga Kue</b>
-                                <input type="text" name="form-control" value="Tes" readonly>
-                            </div> -->
                         </div>
                         <input type="hidden" name="produk_id" value="<?php echo $this->uri->segment(3) ?>" readonly>
                     </div>

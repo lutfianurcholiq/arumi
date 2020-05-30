@@ -1,7 +1,7 @@
 <?php $this->libs->rowOpen($judul, ucwords('tahap ketiga')); ?>
     <div class="alert-title">
         Anda sudah menyelesaikan tahap kedua
-    </div>
+    </div> <br>
     <div class="sparkline13-graph">
         <form action="<?php echo $url; ?>" method="POST">
 

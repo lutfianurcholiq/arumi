@@ -1,7 +1,7 @@
 <?php $this->libs->rowOpen($judul, ucwords('tahap kedua')); ?>
     <div class="alert-title">
         Anda sudah menyelesaikan tahap pertama
-    </div>
+    </div> <br>
     <div class="sparkline13-graph">
         <form action="<?php echo $url; ?>" method="POST">
 
@@ -23,7 +23,7 @@
                 <select class="form-control chosen-select" name="jumlah">
                     <option selected="" disabled="">Contoh: 2 hari</option>
                     <?php
-                        for ($qty = 2 ; $qty <= 5 ; $qty++) { 
+                        for ($qty = 1 ; $qty <= 5 ; $qty++) { 
                             echo " <option value='$qty'>$qty hari</option>";
                         }
                     ?>

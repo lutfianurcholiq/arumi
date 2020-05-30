@@ -16,31 +16,31 @@
             <td></td>
         </tr>
         <tr>
-            <td>Penjualan</td>
+            <td><?php echo space('Penjualan') ?></td>
             <td></td>
             <td></td>
             <td><?php echo rp($pendapatan['pendapatan']) ?></td>
         </tr>
         <tr>
-            <td>Retur Penjualan</td>
+            <td><?php echo space('Retur Penjualan') ?></td>
             <td></td>
             <td></td>
             <td><?php echo rp(0) ?></td>
         </tr>
         <tr>
-            <td>Potongan Penjualan</td>
+            <td><?php echo space('Potongan Penjualan') ?></td>
             <td></td>
             <td></td>
             <td><?php echo rp(0) ?></td>
         </tr>
         <tr>
-            <td>Beban Angkut Penjualan</td>
+            <td><?php echo space('Beban Angkut Penjualan') ?></td>
             <td></td>
             <td></td>
             <td class="bottom"><?php echo rp(0) ?></td>
         </tr>
         <tr>
-            <td>Penjualan Bersih</td>
+            <td><?php echo space('Penjualan Bersih') ?></td>
             <td></td>
             <td></td>
             <td><?php echo rp($pendapatan['pendapatan']) ?></td>
@@ -52,7 +52,7 @@
             <td></td>
         </tr>
         <tr>
-            <td>Harga Pokok Penjualan</td>
+            <td><?php echo space('Harga Pokok Penjualan') ?></td>
             <td></td>
             <td></td>
             <td class="bottom"><?php echo rp($hpp['hpp']) ?></td>
@@ -79,7 +79,7 @@
             foreach ($beban as $data) {
                 if ($data['nama_biaya'] == 'Biaya Operasional') {
                     echo "  <tr>
-                                <td>" . $data['nama_coa'] . "</td>
+                                <td>" . space($data['nama_coa']) . "</td>
                                 <td>" . rp($data['total']) . "</td>
                                 <td></td>
                                 <td></td>
@@ -89,7 +89,7 @@
             }
         ?>
         <tr>
-            <td>Total Biaya Operasional:</td>
+            <td><?php echo space('Total Biaya Operasional:') ?></td>
             <td class="top"></td>
             <td><?php echo rp($biaya_operasional) ?></td>
             <td></td>
@@ -105,7 +105,7 @@
             foreach ($beban as $data) {
                 if ($data['nama_biaya'] == 'Biaya Administrasi & Umum') {
                     echo "  <tr>
-                                <td>" . $data['nama_coa'] . "</td>
+                                <td>" . space($data['nama_coa']) . "</td>
                                 <td>" . rp($data['total']) . "</td>
                                 <td></td>
                                 <td></td>
@@ -116,7 +116,7 @@
             $total = $biaya_operasional + $biaya_adm;
         ?>
         <tr>
-            <td>Total Biaya Administrasi & Umum:</td>
+            <td><?php echo space('Total Biaya Administrasi & Umum:') ?></td>
             <td></td>
             <td class="bottom"><?php echo rp($biaya_adm) ?></td>
             <td></td>

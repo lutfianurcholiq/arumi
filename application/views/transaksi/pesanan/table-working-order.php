@@ -13,19 +13,26 @@
                         <td><?php echo $data['nama_pelanggan']; ?></td>
                         <td><?php echo rp($data['total']); ?></td>
                         <td><?php echo shortdate_indo($data['tanggal']); ?></td>
-                        <?php if ($data['status'] == 'Dikirim ke Komunitas') : ?>
-                            <td><?php echo $data['status']; ?></td>
+                        <td><?php echo $data['status']; ?></td>
+                        <?php if ($this->session->userdata('level') == "Produksi") : ?>
+                            <?php if ($data['status'] == 'Dikirim ke Komunitas') : ?>
+                                <td>
+                                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#InformationproModalftblack<?php echo $data['id_pesanan'] ?>">
+                                        <i class="fas fa-hand-holding-heart" aria-hidden="true"></i>
+                                    </button>
+                                </td>
+                            <?php elseif ($data['status'] == 'Diproduksi') : ?>
+                                <td>
+                                    <a href="<?php echo site_url('produksi'); ?>">
+                                        Lihat menu Jadwal Produksi
+                                    </a>
+                                </td>
+                            <?php endif; ?>
+                        <?php elseif ($this->session->userdata('level') == "Karyawan") : ?>
                             <td>
-                                <button type="button" class="btn btn-default" data-toggle="modal" data-target="#InformationproModalftblack<?php echo $data['id_pesanan'] ?>">
-                                    <i class="fas fa-hand-holding-heart" aria-hidden="true"></i>
+                                <button type="button" class="btn btn-sm btn-info" onclick="window.location.href='<?= site_url('pesanan/info/'.$data['id_pesanan']); ?>'">
+                                    <i class="fa fa-info" aria-hidden="true"></i>
                                 </button>
-                            </td>
-                        <?php elseif ($data['status'] == 'Diproduksi') : ?>
-                            <td><?php echo $data['status']; ?></td>
-                            <td>
-                                <a href="<?php echo site_url('produksi'); ?>">
-                                    Lihat menu Jadwal Produksi
-                                </a>
                             </td>
                         <?php endif; ?>
                     </tr>

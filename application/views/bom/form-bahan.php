@@ -3,14 +3,14 @@
         <form action="<?php echo $url; ?>" method="POST">
         <?php $this->libs->inputOpen('bahan', 'required'); ?>
             <select class="form-control chosen-select" name="id_bahan">
-            <option selected="" disabled="">Contoh: Mentega</option>
-            <?php
-            foreach ($bahan as $data) {
-                if ($data['produk_id'] == NULL) {
-                    echo "<option value = " . $data['id_bahan'] . ">" . $data['nama_bahan'] . "</option>";
-                }
-            }
-            ?>
+                <option selected="" disabled="">Contoh: Mentega</option>
+                <?php
+                    foreach ($bahan as $data) {
+                        if ($data['produk_id'] == NULL) {
+                            echo "<option value = " . $data['id_bahan'] . ">" . $data['nama_bahan'] . "</option>";
+                        }
+                    }
+                ?>
             </select>
             <?php echo form_error('id_bahan'); ?>
         <?php $this->libs->inputClose(); ?>

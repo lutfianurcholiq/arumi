@@ -21,7 +21,7 @@
                             <td><?php echo $data['nama_coa']; ?></td>
                             <td><?php echo $data['header_coa']; ?></td>
                             <td>
-                                <button type="button" class="btn btn-default" onclick="window.location.href='<?= site_url('coa/update/'.$data['id_coa']); ?>'">
+                                <button type="button" class="btn btn-default" onclick="window.location.href='<?= site_url('coa/update/'.$data['id_coa']) ?>'">
                                     <i class="fa fa-pencil" aria-hidden="true"></i>
                                 </button>
                             </td>

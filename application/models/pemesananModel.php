@@ -51,11 +51,13 @@ class pemesananModel extends CI_Model {
 
 	public function database($tabel, $action) {
 		$id_pelanggan = $this->session->userdata('pelanggan_id');
-		$harga = $this->getHarga();
+		$harga        = $this->getHarga();
+		$harga_custom = $harga + $_POST['harga']; #	ditambah harga rasa (meskipun original Rp. 0)
 
-		$this->db->set('harga', $harga);
+		$this->db->set('harga', $harga_custom);
 		$this->db->set('jumlah', $_POST['jumlah']);
-		$this->db->set('subtotal', $_POST['jumlah'] * $harga);
+		$this->db->set('rasa_id', $_POST['id_rasa']);
+		$this->db->set('subtotal', $_POST['jumlah'] * $harga_custom);
 		if ($action == 'save') {
 			$this->db->set('produk_id', $_POST['produk_id']);
 			$this->db->set('pelanggan_id', $id_pelanggan);

@@ -113,4 +113,33 @@ class pesananModel extends CI_Model {
         $this->db->set('status', ucwords('sudah jadi'));
         $this->db->update('pesanan');
     }
+
+    public function getOne($tabel, $id) { 
+		return $this->db->get_where($tabel, ['id_pesanan' => $id])->row_array();
+    }
+
+    public function selectDetail($id) {
+        $this->db->where('pesanan_id', $id);
+		return $this->db->get('detail_pesanan')->result_array();
+    }
+
+    public function getDetail($id) {
+        $detail = $this->selectDetail($id);
+        
+        foreach ($detail as $key => $data) {
+            if ($data['rasa_id'] == '0') {
+                $this->db->select('produk_id, a.harga, jumlah, subtotal, nama_produk, foto, rasa_id');
+                $this->db->from('produk a');
+                $this->db->join('detail_pesanan b', 'a.id_produk = b.produk_id');
+            }
+            else {
+                $this->db->select('produk_id, a.harga, jumlah, subtotal, nama_produk, foto, rasa, harga_rasa, rasa_id');
+                $this->db->from('produk a');
+                $this->db->join('detail_pesanan b', 'a.id_produk = b.produk_id');
+                $this->db->join('rasa c', 'b.rasa_id = c.id_rasa');
+            }
+        }
+        $this->db->where('pesanan_id', $id);
+		return $this->db->get()->result_array();
+    }
 }

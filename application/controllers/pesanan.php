@@ -46,7 +46,7 @@ class pesanan extends CI_Controller {
         $id = $this->uri->segment(3);
         if($this->validasi('own')) {
 			$this->pesananModel->database('produksi', 'id_produksi', $id, 'own');
-			redirect('pesanan');
+			redirect('produksi');
 		}
 		else {
             $data['judul']    = ucwords('detail pesanan');
@@ -93,5 +93,18 @@ class pesanan extends CI_Controller {
         $id_pesanan = $this->uri->segment(3);
         $this->pesananModel->done($id_pesanan);
         redirect('pesanan');
+    }
+
+    public function info() {
+        $id_pesanan     = $this->uri->segment(3);
+		$data['judul']  = ucwords('detail pesanan');
+		$data['menu']   = ucwords('transaksi');
+		$data['icon']   = "fa fa-shopping-cart";
+		$data['tabel']  = site_url('pesanan');
+		$data['hasil']  = $this->pesananModel->getDetail($id_pesanan);
+		$data['detail'] = $this->pesananModel->getOne('pesanan', $id_pesanan);
+		$this->load->view('template/header', $data);
+		$this->template->load('template/content', 'transaksi/pesanan/detail', $data);
+		$this->load->view('template/footer');
     }
 }

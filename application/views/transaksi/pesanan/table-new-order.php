@@ -20,7 +20,7 @@
                                     <i class="fa fa-hand-paper-o" aria-hidden="true"></i>
                                 </button>
                             <?php elseif ($this->session->userdata('level') == "Karyawan") : ?>
-                                <button type="button" class="btn btn-sm btn-info">
+                                <button type="button" class="btn btn-sm btn-info" onclick="window.location.href='<?= site_url('pesanan/info/'.$data['id_pesanan']); ?>'">
                                     <i class="fa fa-info" aria-hidden="true"></i>
                                 </button>
                             <?php endif; ?>
