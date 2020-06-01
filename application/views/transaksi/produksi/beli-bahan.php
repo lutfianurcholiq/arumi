@@ -19,7 +19,7 @@
     <div class="sparkline13-graph">
         <div class="datatable-dashv1-list custom-datatable-overright">
             <br>
-            <?php echo "<h5 style='color: cornflowerblue'>Bahan ".$p['nama_produk']."</h5>" ?>
+            <?php echo "<h5 style='color: cornflowerblue'>Bahan ".$p['nama_produk']." ".$p['rasa']."</h5>" ?>
             <table class="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="false" data-show-refresh="false" data-key-events="false" data-show-toggle="false" data-resizable="true" data-cookie="false" data-cookie-id-table="saveId" data-show-export="false" data-click-to-select="true" data-toolbar="#toolbar">
                 <?php
                     $thead = ["no", "bahan", "komposisi (BOM)", "pesanan", "beli", "harga", "subtotal"]; 

@@ -12,11 +12,13 @@ class produksiModel extends CI_Model {
     }
 
     public function showProduk($id_produksi) {
-        $this->db->select('nama_produk, c.bahan_id, c.produk_id');
+        $this->db->select('nama_produk, c.bahan_id, c.produk_id, rasa');
         $this->db->from('produksi a');
         $this->db->join('pesanan b', 'a.pesanan_id = b.id_pesanan');
         $this->db->join('bom c', 'b.id_pesanan = c.pesanan_id');
         $this->db->join('produk d', 'c.produk_id = d.id_produk');
+        $this->db->join('detail_pesanan e', 'b.id_pesanan = e.pesanan_id');
+        $this->db->join('rasa f', 'e.rasa_id = f.id_rasa');
         $this->db->where('id_produksi', $id_produksi);
         $this->db->group_by('c.produk_id');
         return $this->db->get()->result_array();

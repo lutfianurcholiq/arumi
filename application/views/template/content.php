@@ -32,7 +32,7 @@
                   <?php elseif($this->session->userdata('level') == "Karyawan"): ?>
                     <li><a title="Produk" href="<?php echo site_url('produk'); ?>"><span class="mini-sub-pro">Produk</span></a></li>
                     <li><a title="Pelanggan" href="<?php echo site_url('pelanggan'); ?>"><span class="mini-sub-pro">Pelanggan</span></a></li>
-                    <li><a title="Rasa" href="<?php echo site_url('rasa'); ?>"><span class="mini-sub-pro">Rasa</span></a></li>
+                    <li><a title="Topping" href="<?php echo site_url('rasa'); ?>"><span class="mini-sub-pro">Topping</span></a></li>
                   <?php endif; ?>
               </ul>
             </li>
@@ -72,7 +72,7 @@
                 <li><a title="Jurnal Umum" href="<?php echo site_url('jurnal'); ?>"><span class="mini-sub-pro">Jurnal Umum</span></a></li>
                 <li><a title="Buku Besar" href="<?php echo site_url('buku'); ?>"><span class="mini-sub-pro">Buku Besar</span></a></li>
                 <?php if($this->session->userdata('level') == "Karyawan"): ?>
-                  <li><a title="Penjualan" href="<?php echo site_url(''); ?>"><span class="mini-sub-pro">Penjualan</span></a></li>
+                  <li><a title="Penjualan" href="<?php echo site_url('laporanPenjualan'); ?>"><span class="mini-sub-pro">Penjualan</span></a></li>
                 <?php elseif($this->session->userdata('level') == "Produksi"): ?>
                   <li><a title="Biaya Produksi" href="<?php echo site_url('biayaProduksi'); ?>"><span class="mini-sub-pro">Biaya Produksi</span></a></li>
                 <?php elseif($this->session->userdata('level') == "Owner"): ?>

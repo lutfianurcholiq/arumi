@@ -1,8 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 class produksi extends CI_Controller { 
-    // harus nginputin nominal dari setiap step ke tabel produksi kolom bahan_baku,
-    // tenaga_kerja, bahan_penolong, oh
 
     public function __construct() {
         parent:: __construct();

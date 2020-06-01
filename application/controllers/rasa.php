@@ -10,7 +10,7 @@ class rasa extends CI_Controller {
 	}
 	
 	public function index() {
-		$data['judul'] = ucwords('rasa');
+		$data['judul'] = ucwords('topping');
 		$data['menu']  = ucwords('master data');
 		$data['form']  = site_url('rasa/create');
 		$data['hasil'] = $this->rasaModel->show('rasa');
@@ -45,7 +45,7 @@ class rasa extends CI_Controller {
 			redirect('rasa');
 		}
 		else {
-			$data['judul'] = ucwords('form tambah rasa');
+			$data['judul'] = ucwords('form tambah topping');
 			$data['menu']  = ucwords('master data');
 			$data['url']   = site_url('rasa/create');
 			$data['tabel'] = site_url('rasa');
@@ -62,7 +62,7 @@ class rasa extends CI_Controller {
 			redirect('rasa');
 		}
 		else {
-			$data['judul'] = ucwords('form ubah rasa');
+			$data['judul'] = ucwords('form ubah topping');
 			$data['menu']  = ucwords('master data');
 			$data['url']   = site_url('rasa/update/'.$id);
 			$data['tabel'] = site_url('rasa');

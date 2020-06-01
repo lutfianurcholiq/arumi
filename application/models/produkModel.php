@@ -6,17 +6,22 @@ class produkModel extends CI_Model {
 		return $this->db->get($tabel)->result_array();
 	}
 
-	public function database($tabel, $id, $action) {
+	public function database($tabel, $id, $action, $gambar) {
 		$this->db->set('nama_produk', $_POST['nama_produk']);
 		$this->db->set('satuan', $_POST['satuan']);
 		$this->db->set('harga', $_POST['harga']);
+		$this->db->set('min', $_POST['min']);
+		$this->db->set('max', $_POST['max']);
+		$this->db->set('deskripsi', $_POST['deskripsi']);
 		
 		if ($action == 'save') {
 			$this->db->set('id_produk', $this->modelKu->uuid($tabel, $id));
 			$this->db->set('kode_produk', 'Cookie');
+			$this->db->set('foto', $gambar);
 			$this->db->insert($tabel);
 		}
 		else {
+			$this->db->set('foto', $gambar);
 			$this->db->where('id_produk', $id); 
 			$this->db->update($tabel);
 		}

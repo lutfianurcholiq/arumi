@@ -25,7 +25,6 @@
                         </select>
                         <b>Pilih Rasa</b>
                         <select class="js-example-basic-single" id="rasa" name="id_rasa" style="width: 50%" onchange="choose()">
-                            <option selected data-harga="0" data-harga1="0">Original</option>
                             <?php
                                 $id_produk = $hasil['id_produk'];
                                 $sql = "SELECT rasa, harga_rasa, id_rasa
