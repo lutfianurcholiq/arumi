@@ -13,17 +13,6 @@ class modelKu extends CI_Model {
 	    	$kode	=	1;     
 	    }
 	    return $kode;  
-	  }
-
-	public function buatKodeTransaksi() {
-		$str = "";
-	    $characters = array_merge(range('0','9'));
-	    $max = count($characters) - 1;
-	    for ($i = 0; $i < 10; $i++) {
-	        $rand = mt_rand(0, $max);
-	        $str  .= $characters[$rand];
-	    }
-	    return $str;
 	}
 
 	public function getYear($tabel) {
