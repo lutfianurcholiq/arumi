@@ -3,6 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class rasaModel extends CI_Model {
 
 	public function show($tabel) { 
+		$this->db->where('id_rasa !=', '0');
 		return $this->db->get($tabel)->result_array();
 	}
 	public function database($tabel, $id, $action) {

@@ -83,9 +83,13 @@ class libs {
 		echo "	<thead>
 					<tr>";
         for ($i = 0; $i < $th; $i++) { 
-			if ($thead == 'no' || $thead == 'aksi') {
-				echo "<th style='width: 5%;'>".ucwords($thead[$i])."</th>";
-			} else {
+			if ($thead[$i] == 'no') {
+				echo "<th style='width: 5%; text-align: center;'>".ucwords($thead[$i])."</th>";
+			} 
+			elseif ($thead[$i] == 'aksi' OR $thead[$i] == 'header' OR $thead[$i] == 'kode coa') {
+				echo "<th style='width: 10%; text-align: center;'>".ucwords($thead[$i])."</th>";
+			} 
+			else {
 				echo "<th>".ucwords($thead[$i])."</th>";
 			}
         }

@@ -122,10 +122,10 @@
                     <div class="header-right-info">
                       <ul class="nav navbar-nav mai-top-nav header-right-menu">
                         <li class="nav-item">
-                          <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
+                          <a href="#" data-toggle="dropdown" role="button" aria-expanded="false">
                             <img src="<?= base_url('assets/img/product/pro4.jpg') ?>" alt="" />
                             <span class="admin-name"><?php echo $this->session->userdata('nama'); ?></span>
-                            <i class="fa fa-angle-down edu-icon edu-down-arrow"></i>
+                            <i class="fa fa-angle-down"></i>
                           </a>
                           <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
                             <li><a href="<?php echo site_url('welcome/logout') ?>"><span class="edu-icon edu-locked author-log-ic"></span>Log Out</a>

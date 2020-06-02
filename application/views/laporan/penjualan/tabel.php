@@ -1,6 +1,6 @@
 <div class="sparkline13-graph">
     <div class="datatable-dashv1-list custom-datatable-overright">
-        <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="false" data-show-refresh="false" data-key-events="false" data-show-toggle="false" data-resizable="true" data-cookie="false" data-cookie-id-table="saveId" data-show-export="false" data-click-to-select="true" data-toolbar="#toolbar">
+        <table class="table table-bordered table-hover dataTables">
             <?php
                 $thead = ["no", "tanggal", "kode pesanan", "kode produk", "nama produk", "harga", "qty", "subtotal"];
                 $this->libs->thead($thead);
@@ -13,16 +13,16 @@
                         <td><?php echo $data['kode_pesanan']."-".jumlahAngka($data['id_pesanan']) ?></td>
                         <td><?php echo $data['kode_produk']."-".jumlahAngka($data['id_produk']) ?></td>
                         <td><?php echo $data['nama_produk'] ?></td>
-                        <td><?php echo rp($data['harga']) ?></td>
+                        <td style="text-align: right;"><?php echo rp($data['harga']) ?></td>
                         <td><?php echo $data['jumlah'] ?></td>
-                        <td><?php echo rp($data['subtotal']) ?></td>
+                        <td style="text-align: right;"><?php echo rp($data['subtotal']) ?></td>
                     </tr>
                 <?php $total += $data['subtotal']; endforeach; ?>
-                <tr>
-                    <td colspan="7"><b>Total</b></td>
-                    <td><b><?php echo rp($total) ?></b></td>
-                </tr>
             </tbody>
+            <tr>
+                <td style="text-align: center;" colspan="7"><b>Total</b></td>
+                <td style="text-align: right;"><b><?php echo rp($total) ?></b></td>
+            </tr>
         </table>
     </div>
 </div>

@@ -2,13 +2,12 @@
   echo $this->session->flashdata('sukses');
   $this->libs->rowOpen($judul, $menu); 
 ?>
-
     <div class="add-product">
         <?php $this->libs->buttonAdd($form); ?>
-    </div>
+    </div> <br>
     <div class="sparkline13-graph">
         <div class="datatable-dashv1-list custom-datatable-overright">
-        <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="false" data-show-refresh="false" data-key-events="false" data-show-toggle="false" data-resizable="true" data-cookie="false" data-cookie-id-table="saveId" data-show-export="false" data-click-to-select="true" data-toolbar="#toolbar">
+        <table class="table table-bordered table-hover dataTables">
             <?php
                 $thead = ["no", "kode", "total", "tanggal", "keterangan", "status", "aksi"]; 
                 $this->libs->thead($thead);
@@ -18,11 +17,11 @@
                     <tr>
                         <td><?php echo $data['id_operasional']; ?></td>
                         <td><?php echo $data['kode_operasional']."-".jumlahAngka($data['id_operasional']); ?></td>
-                        <td><?php echo rp($data['total']); ?></td>
+                        <td style="text-align: right;"><?php echo rp($data['total']); ?></td>
                         <td><?php echo shortdate_indo($data['tanggal']); ?></td>
                         <td><?php echo $data['keterangan']; ?></td>
                         <td><?php echo $data['status']; ?></td>
-                        <td>
+                        <td style="text-align: center;">
                             <?php if ($data['status'] == 'Baru Dibuat') : ?>
                                 <button type="button" class="btn btn-default" onclick="window.location.href='<?= site_url('listOperasional/create/'.$data['id_operasional']); ?>'">
                                     <i class="fa fa-pencil" aria-hidden="true"></i>

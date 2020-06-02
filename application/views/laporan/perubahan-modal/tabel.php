@@ -40,13 +40,13 @@
         </tr>
         <tr>
             <td>Prive</td>
-            <td class="bottom"><?php echo rp($prive['prive'])."&nbsp&nbsp&nbsp&nbsp&nbsp-" ?></td>
+            <td class="bottom"><?php echo "(".rp($prive['prive']).")" ?></td>
             <td></td>
         </tr>
         <tr>
             <td>Kenaikan Modal</td>
             <td></td>
-            <td class="bottom"><?php echo rp($kenaikanModal)."&nbsp&nbsp&nbsp&nbsp&nbsp+" ?></td>
+            <td class="bottom"><?php echo rp($kenaikanModal) ?></td>
         </tr>
         <tr>
             <td>Modal Akhir</td>

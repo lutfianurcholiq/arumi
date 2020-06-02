@@ -10,7 +10,7 @@
 
 <div class="sparkline13-graph">
     <div class="datatable-dashv1-list custom-datatable-overright">
-        <table class="table border-table">
+        <table class="table table-bordered table-hover dataTables">
             <?php
                 $thead = ["tanggal", "keterangan", "reff", "debit", "kredit", "saldo"];
                 $this->libs->thead($thead);
@@ -32,10 +32,10 @@
                             $saldo -= $data['nominal'];
                         }
                     echo "
-                        <td>".$data['coa_id']."</td>
-                        <td>".rp($data['nominal'])."</td>
+                        <td style='text-align: center;'>".$data['coa_id']."</td>
+                        <td style='text-align: right;'>".rp($data['nominal'])."</td>
                         <td>-</td>
-                        <td>".rp($saldo)."</td>";
+                        <td style='text-align: right;'>".rp($saldo)."</td>";
                     }else{
                         if($akun['header_coa'] == 2 OR $akun['header_coa'] == 4 OR $akun['header_coa'] == 3){
                             $saldo += $data['nominal'];
@@ -48,10 +48,10 @@
                                 $saldo -= $data['nominal'];                    }
                             }
                         echo "
-                            <td>".$data['coa_id']."</td>
+                            <td style='text-align: center;'>".$data['coa_id']."</td>
                             <td>-</td>
-                            <td style='color: tomato;' >".rp($data['nominal'])."</td>
-                            <td style='color: tomato;' >".rp($saldo)."</td>
+                            <td style='color: red; text-align: right;' >".rp($data['nominal'])."</td>
+                            <td style='color: red; text-align: right;' >".rp($saldo)."</td>
                         </tr>";
                     }
                 } 

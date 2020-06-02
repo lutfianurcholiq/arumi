@@ -20,15 +20,9 @@
     <!-- metisMenu JS -->
     <script src="<?= base_url('assets/js/metisMenu/metisMenu.min.js') ?>"></script>
     <script src="<?= base_url('assets/js/metisMenu/metisMenu-active.js') ?>"></script>
-    <!-- data table JS -->
-    <script src="<?= base_url('assets/js/data-table/bootstrap-table.js') ?>"></script>
-    <script src="<?= base_url('assets/js/data-table/tableExport.js') ?>"></script>
-    <script src="<?= base_url('assets/js/data-table/data-table-active.js') ?>"></script>
-    <script src="<?= base_url('assets/js/data-table/bootstrap-table-editable.js') ?>"></script>
-    <script src="<?= base_url('assets/js/data-table/bootstrap-editable.js') ?>"></script>
-    <script src="<?= base_url('assets/js/data-table/bootstrap-table-resizable.js') ?>"></script>
-    <script src="<?= base_url('assets/js/data-table/colResizable-1.5.source.js') ?>"></script>
-    <script src="<?= base_url('assets/js/data-table/bootstrap-table-export.js') ?>"></script>
+    <!-- dataTable JS  -->
+    <script src="<?= base_url('shop-assets/js/dataTables/jquery.dataTables.js'); ?>"></script>
+    <script src="<?= base_url('shop-assets/js/dataTables/dataTables.bootstrap4.js'); ?>"></script>
     <!--  editable JS -->
     <script src="<?= base_url('assets/js/editable/jquery.mockjax.js') ?>"></script>
     <script src="<?= base_url('assets/js/editable/mock-active.js') ?>"></script>
@@ -62,6 +56,9 @@
     <script src="<?= base_url('assets/js/main.js') ?>"></script>
     <script>
         $(document).ready(function () {
+            $('.dataTables').DataTable();
+
+
             $('#pesan-sukses').fadeIn().delay(4000).fadeOut()
 
             var date = new Date();

@@ -50,6 +50,9 @@
     <link rel="stylesheet" href="<?= base_url('assets/css/datapicker/datepicker3.css') ?>">
     <!-- accordions CSS  -->
     <link rel="stylesheet" href="<?= base_url('assets/css/accordions.css') ?>">
+    <!-- Datatables CSS -->
+    <link rel="stylesheet" href="<?= base_url('shop-assets/js/dataTables/bootstrap.css'); ?>">
+    <link rel="stylesheet" href="<?= base_url('shop-assets/js/dataTables/dataTables.bootstrap4.css'); ?>">
     <!-- x-editor CSS -->
     <link rel="stylesheet" href="<?= base_url('assets/css/editor/select2.css') ?>">
     <link rel="stylesheet" href="<?= base_url('assets/css/editor/datetimepicker.css') ?>">

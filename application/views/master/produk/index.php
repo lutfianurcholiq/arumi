@@ -5,29 +5,29 @@
 
 <div class="add-product">
     <?php $this->libs->buttonAdd($form); ?>
-</div>
+</div> <br>
 <div class="sparkline13-graph">
     <div class="datatable-dashv1-list custom-datatable-overright">
-        <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="false" data-show-refresh="false" data-key-events="false" data-show-toggle="false" data-resizable="true" data-cookie="false" data-cookie-id-table="saveId" data-show-export="false" data-click-to-select="true" data-toolbar="#toolbar">
+        <table class="table table-bordered table-hover dataTables">
             <?php
                 $thead = ["no", "gambar", "kode", "nama", "satuan", "harga", "aksi"];
                 $this->libs->thead($thead);
             ?>
             <tbody>
-                <?php foreach ($hasil as $data) : ?>
+                <?php $no = 1; foreach ($hasil as $data) : ?>
                     <tr>
-                        <td><?php echo $data['id_produk']; ?></td>
-                        <td><img src="<?php echo base_url($data['foto']); ?>" alt=""></td>
-                        <td><?php echo $data['kode_produk'] . "-" . jumlahAngka($data['id_produk']); ?></td>
-                        <td><?php echo $data['nama_produk']; ?></td>
-                        <td><?php echo $data['satuan']; ?></td>
-                        <td><?php echo rp($data['harga']); ?></td>
-                        <td>
-                            <button type="button" class="btn btn-default" onclick="window.location.href='<?= site_url('produk/update/' . $data['id_produk']); ?>'">
+                        <td style="text-align: center;"><?php echo $no++ ?></td>
+                        <td style="text-align: center;"><img src="<?php echo base_url($data['foto']) ?>" alt=""></td>
+                        <td><?php echo $data['kode_produk'] . "-" . jumlahAngka($data['id_produk']) ?></td>
+                        <td><?php echo $data['nama_produk'] ?></td>
+                        <td><?php echo $data['satuan'] ?></td>
+                        <td style="text-align: right;"><?php echo rp($data['harga']) ?></td>
+                        <td style="text-align: center;">
+                            <button type="button" class="btn btn-default" onclick="window.location.href='<?= site_url('produk/update/' . $data['id_produk']) ?>'">
                                 <i class="fa fa-pencil" aria-hidden="true"></i>
                             </button>
                             &nbsp; &nbsp;
-                            <button type="button" class="btn btn-default" onclick="window.location.href='<?= site_url('addRasa/create/' . $data['id_produk']); ?>'">
+                            <button type="button" class="btn btn-default" onclick="window.location.href='<?= site_url('addRasa/create/' . $data['id_produk']) ?>'">
                                 <i class="fas fa-mortar-pestle" aria-hidden="true"></i>
                             </button>
                         </td>
