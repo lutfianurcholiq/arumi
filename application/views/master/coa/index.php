@@ -10,13 +10,12 @@
         <div class="datatable-dashv1-list custom-datatable-overright">
             <table class="table table-bordered table-hover dataTables">
                 <?php
-                    $thead = ["no", "kode coa", "nama", "header", "aksi"]; 
+                    $thead = ["kode coa", "nama", "header", "aksi"]; 
                     $this->libs->thead($thead);
                 ?>
                 <tbody>
                     <?php $no = 1; foreach ($hasil as $data) : ?>
                         <tr>
-                            <td style="text-align: center;"><?php echo $no++ ?></td>
                             <td><?php echo $data['kode_coa'] ?></td>
                             <td><?php echo $data['nama_coa'] ?></td>
                             <td style="text-align: center"><?php echo $data['header_coa'] ?></td>

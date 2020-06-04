@@ -1,16 +1,10 @@
-<?php
-    echo $this->session->flashdata('sukses');
-    $this->libs->rowOpen($judul, $menu);
-?>
-
-<div class="add-product">
-    <?php $this->libs->buttonAdd($form); ?>
-</div> <br>
+<?php $this->libs->rowOpen($judul, $menu) ?>
+<br>
 <div class="sparkline13-graph">
     <div class="datatable-dashv1-list custom-datatable-overright">
         <table class="table table-bordered table-hover dataTables">
             <?php
-                $thead = ["no", "id", "nama", "whatsapp", "alamat", "aksi"];
+                $thead = ["no", "id", "nama", "whatsapp", "alamat"];
                 $this->libs->thead($thead);
             ?>
             <tbody>
@@ -21,11 +15,6 @@
                         <td><?php echo $data['nama_pelanggan'] ?></td>
                         <td><?php echo noHp($data['no_wa']) ?></td>
                         <td><?php echo $data['alamat'] ?></td>
-                        <td style="text-align: center;">
-                            <button type="button" class="btn btn-default" onclick="window.location.href='<?= site_url('pelanggan/update/' . $data['id_pelanggan']) ?>'">
-                                <i class="fa fa-pencil" aria-hidden="true"></i>
-                            </button>
-                        </td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>

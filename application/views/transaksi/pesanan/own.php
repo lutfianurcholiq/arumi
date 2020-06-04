@@ -1,5 +1,5 @@
-<div class="edu-accordion-area mg-b-15">
-    <div class="container-fluid">
+<!-- <div class="edu-accordion-area mg-b-15">    
+    <div class="container-fluid"> -->
         <?php $this->libs->rowOpen($judul, ''); ?>
             <div class="admin-pro-accordion-wrap shadow-inner responsive-mg-b-30">
                 <div class="alert-title">
@@ -16,7 +16,7 @@
                             </div>
                         </a>
                         <div id="jadwalkan" class="panel-collapse panel-ic collapse in">
-                            <div class="panel-body admin-panel-content">
+                            <div class="panel-body admin-panel-content" style="background-color: ghostwhite;">
                                 <form action="<?php echo $url ?>" method="POST">
                                     <?php $this->libs->inputOpen('mulai produksi', 'required'); ?>
                                         <input class="form-control" id="calendar" type="text" name="mulai_produksi" data-provide="datepicker" placeholder="Pilih tanggal produksi">
@@ -35,17 +35,17 @@
                             <a data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $data['produk_id'] ?>">
                                 <div class="panel-heading accordion-head">
                                     <h4 class="panel-title" style="color: white">
-                                        <?php echo $data['nama_produk']; ?>
+                                        <?php echo $data['nama_produk']." ".$data['rasa'] ?>
                                     </h4>
                                 </div>
                             </a>
                             <div id="collapse<?php echo $data['produk_id'] ?>" class="panel-collapse panel-ic collapse">
-                                <div class="panel-body admin-panel-content">
+                                <div class="panel-body admin-panel-content" style="background-color: ghostwhite;">
                                     <p><?php echo "Qty: ".$data['jumlah']." ".$data['satuan'] ?></p>
                                     <p><?php echo "Harga (per produk): ".rp($data['harga']) ?></p>
                                     <p><?php echo "Total: ".rp($data['subtotal']) ?></p>
                                     <p>Bill of Material: </p>
-                                    <table class="table">
+                                    <table class="table table-bordered table-hover" style="background-color: white;">
                                         <?php
                                             $thead = ["no", "bahan", "jumlah"]; 
                                             $this->libs->thead($thead);
@@ -58,9 +58,9 @@
                                             $bom = $this->db->get()->result_array();
                                         ?>
                                         <tbody>
-                                            <?php $no = 0; foreach ($bom as $b) : $no++; ?>
+                                            <?php $no = 1; foreach ($bom as $b) : ?>
                                                 <tr>
-                                                    <td><?php echo $no; ?></td>
+                                                    <td style="text-align: center;"><?php echo $no++ ?></td>
                                                     <td><?php echo $b['nama_bahan'] ?></td>
                                                     <td><?php echo $b['jumlah']." ".$b['satuan']  ?></td>
                                                 </tr>
@@ -75,5 +75,5 @@
                 </div>
             </div>
         <?php $this->libs->rowClose(); ?>
-    </div>
-</div>
+    <!-- </div>
+</div> -->

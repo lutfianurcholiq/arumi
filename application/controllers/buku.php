@@ -18,14 +18,15 @@ class buku extends CI_Controller {
 		if($this->validasi() == FALSE) {
             $data['kode']	= '111';
             $data['bulan']	= short_bulan(date('m'));
-            $data['taun']   = date('Y');
+            $data['year']   = date('Y');
         } 
         else {
             $data['kode']   = $_POST['coa'];
             $data['bulan']  = $_POST['bulan'];
-            $data['taun']   = $_POST['tahun'];
-        }
-        $data['hasil']  = $this->bukuModel->show($data['kode'], $data['bulan'], $data['taun']);
+            $data['year']   = $_POST['tahun'];
+		}
+		$data['saldo']	= $this->bukuModel->getSaldoAwal($data['kode'], $data['bulan'], $data['year']);
+        $data['hasil']  = $this->bukuModel->show($data['kode'], $data['bulan'], $data['year']);
         $data['akun']   = $this->bukuModel->getOne($data['kode'], 'coa');
 		$this->load->view('template/header', $data);
 		$this->template->load('template/content', 'laporan/buku/index', $data);

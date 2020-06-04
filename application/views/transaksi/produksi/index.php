@@ -18,7 +18,7 @@
                         <td><?php echo $data['kode_pelanggan'] . "-" . jumlahAngka($data['id_pelanggan']) . " " . $data['nama_pelanggan'] ?></td>
                         <td><?php echo shortdate_indo($data['mulai']) ?></td>
                         <td><?php echo shortdate_indo($data['selesai']) ?></td>
-                        <td>
+                        <td style="text-align: center;">
                             <?php if ($data['status'] == 'Belum Dibeli') : ?>
                                 <button type="button" class="btn btn-default" onclick="window.location.href='<?= site_url('produksi/bbb/' . $data['id_produksi']) ?>'">
                                     <i class="fa fa-calendar-check" aria-hidden="true"></i>

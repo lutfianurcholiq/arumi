@@ -3,6 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class coaModel extends CI_Model {
 
 	public function show($tabel) { 
+		$this->db->order_by('kode_coa', 'ASC');
 		return $this->db->get($tabel)->result_array();
 	}
 	public function database($tabel, $id, $action) {

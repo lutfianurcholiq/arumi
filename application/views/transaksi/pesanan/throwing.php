@@ -56,7 +56,7 @@
                             <a data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $data['produk_id'] ?>">
                                 <div class="panel-heading accordion-head">
                                     <h4 class="panel-title" style="color: white">
-                                        <?php echo $data['nama_produk']; ?>
+                                        <?php echo $data['nama_produk']." ".$data['rasa'] ?>
                                     </h4>
                                 </div>
                             </a>

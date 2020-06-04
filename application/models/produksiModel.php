@@ -75,6 +75,7 @@ class produksiModel extends CI_Model {
 
     public function chanceStatus($id, $nominal, $action) {
         $id_pesanan = $this->getID($id);
+        date_default_timezone_set("Asia/Jakarta");
 
         $this->db->where('id_produksi', $id);
         if ($action == 'bbb') {
@@ -85,6 +86,24 @@ class produksiModel extends CI_Model {
             $this->db->where('produksi_id', $id);
             $this->db->set('status', 'Sudah Dibeli');
             $this->db->update('bom');
+
+            $keterangan = "User Produksi sudah melakukan Tahap Pertama.";
+            $this->db->set('no', $this->modelKu->uuid('timeline', 'no'));
+            $this->db->set('pesanan_id', $id_pesanan);
+            $this->db->set('kode_pesanan', 'PSN');
+            $this->db->set('tanggal', date('Y-m-d'));
+            $this->db->set('jam', date('H:i:s'));
+            $this->db->set('keterangan', $keterangan);
+            $this->db->insert('timeline');
+
+            $keterangan = "Pesanan sedang di Tahap Kedua (memilih karyawan).";
+            $this->db->set('no', $this->modelKu->uuid('timeline', 'no'));
+            $this->db->set('pesanan_id', $id_pesanan);
+            $this->db->set('kode_pesanan', 'PSN');
+            $this->db->set('tanggal', date('Y-m-d'));
+            $this->db->set('jam', date('H:i:s'));
+            $this->db->set('keterangan', $keterangan);
+            $this->db->insert('timeline');
         }
         elseif ($action == 'btkl') {
             $oh = $nominal * 0.3;
@@ -92,6 +111,24 @@ class produksiModel extends CI_Model {
             $this->db->set('tenaga_kerja', $nominal);
             $this->db->set('oh', $oh);
             $this->db->update('produksi');
+
+            $keterangan = "User Produksi sudah melakukan Tahap Kedua.";
+            $this->db->set('no', $this->modelKu->uuid('timeline', 'no'));
+            $this->db->set('pesanan_id', $id_pesanan);
+            $this->db->set('kode_pesanan', 'PSN');
+            $this->db->set('tanggal', date('Y-m-d'));
+            $this->db->set('jam', date('H:i:s'));
+            $this->db->set('keterangan', $keterangan);
+            $this->db->insert('timeline');
+
+            $keterangan = "Pesanan sedang di Tahap Ketiga (memilih bahan penolong).";
+            $this->db->set('no', $this->modelKu->uuid('timeline', 'no'));
+            $this->db->set('pesanan_id', $id_pesanan);
+            $this->db->set('kode_pesanan', 'PSN');
+            $this->db->set('tanggal', date('Y-m-d'));
+            $this->db->set('jam', date('H:i:s'));
+            $this->db->set('keterangan', $keterangan);
+            $this->db->insert('timeline');
         }
         elseif ($action == 'bp') {
             $this->db->set('status', 'Sudah Jadi');
@@ -102,6 +139,24 @@ class produksiModel extends CI_Model {
             $this->db->where('id_pesanan', $id_pesanan);
             $this->db->set('status', 'Sudah Jadi');
             $this->db->update('pesanan');
+
+            $keterangan = "User Produksi sudah menyelesaikan Tahap Ketiga.";
+            $this->db->set('no', $this->modelKu->uuid('timeline', 'no'));
+            $this->db->set('pesanan_id', $id_pesanan);
+            $this->db->set('kode_pesanan', 'PSN');
+            $this->db->set('tanggal', date('Y-m-d'));
+            $this->db->set('jam', date('H:i:s'));
+            $this->db->set('keterangan', $keterangan);
+            $this->db->insert('timeline');
+
+            $keterangan = "Pesanan siap diantar.";
+            $this->db->set('no', $this->modelKu->uuid('timeline', 'no'));
+            $this->db->set('pesanan_id', $id_pesanan);
+            $this->db->set('kode_pesanan', 'PSN');
+            $this->db->set('tanggal', date('Y-m-d'));
+            $this->db->set('jam', date('H:i:s'));
+            $this->db->set('keterangan', $keterangan);
+            $this->db->insert('timeline');
         }
     }
 

@@ -55,7 +55,7 @@
             <td><?php echo space('Harga Pokok Penjualan') ?></td>
             <td></td>
             <td></td>
-            <td class="bottom"><?php echo rp($hpp['hpp']) ?></td>
+            <td class="bottom">(<?php echo rp($hpp['hpp']) ?>)</td>
         </tr>
         <tr>
             <td><b>Laba Kotor</b></td>
@@ -125,7 +125,7 @@
             <td><b>Total Biaya Operasional dan Administrasi Umum:</b></td>
             <td></td>
             <td></td>
-            <td class="bottom"><?php echo rp($total) ?></td>
+            <td class="bottom">(<?php echo rp($total) ?>)</td>
         </tr>
         <tr>
             <td><b>Laba Bersih</b></td>

@@ -36,9 +36,10 @@ class pemesananModel extends CI_Model {
 
 	public function showInvoice($id_pesanan) {
 		$id_pelanggan = $this->session->userdata('pelanggan_id');
-		$this->db->select('id_produk, kode_produk, nama_produk, satuan, b.harga, jumlah, subtotal');
+		$this->db->select('id_produk, kode_produk, nama_produk, satuan, a.harga, jumlah, subtotal, rasa, harga_rasa');
 		$this->db->from('produk a');
 		$this->db->join('detail_pesanan b', 'a.id_produk = b.produk_id');
+        $this->db->join('rasa c', 'b.rasa_id = c.id_rasa');
 		$this->db->where('pesanan_id', $id_pesanan);
 		$this->db->where('pelanggan_id', $id_pelanggan);
 		return $this->db->get()->result_array();

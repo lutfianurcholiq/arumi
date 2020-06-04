@@ -19,7 +19,7 @@
                             <td style="text-align: right;"><?php echo rp($data['total']) ?></td>
                             <td><?php echo shortdate_indo($data['tanggal']) ?></td>
                             <td><?php echo $data['status'] ?></td>
-                            <td>
+                            <td style="text-align: center;">
                                 <button type="button" class="btn btn-default" data-toggle="modal" data-target="#InformationproModalftblack<?= $data['id_pesanan'] ?>">
                                     <i class="fa fa-edit" aria-hidden="true"></i>
                                 </button>

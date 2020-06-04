@@ -26,7 +26,7 @@
                         </div>
                         <div class="form-group col-lg-12">
                             <label>Username <span class='text-danger'>*</span></label>
-                            <input class="form-control" name="username" placeholder="Contoh: Uchiha_Madara">
+                            <input class="form-control" name="username" placeholder="Contoh: sicantik_jolie98">
                             <?php echo form_error('username'); ?>
                         </div>
                         <div class="form-group col-lg-6">

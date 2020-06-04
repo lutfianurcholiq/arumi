@@ -20,6 +20,8 @@
     <!-- metisMenu JS -->
     <script src="<?= base_url('assets/js/metisMenu/metisMenu.min.js') ?>"></script>
     <script src="<?= base_url('assets/js/metisMenu/metisMenu-active.js') ?>"></script>
+    <!-- timeline JS  -->
+    <script src="<?= base_url('assets/js/timeline/timeline.js'); ?>"></script>
     <!-- dataTable JS  -->
     <script src="<?= base_url('shop-assets/js/dataTables/jquery.dataTables.js'); ?>"></script>
     <script src="<?= base_url('shop-assets/js/dataTables/dataTables.bootstrap4.js'); ?>"></script>

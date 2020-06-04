@@ -11,6 +11,8 @@
     <link rel="shortcut icon" type="image/x-icon" href="<?= base_url('assets/img/logo/logosn.png') ?>">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
+    <!-- Timeline CSS -->
+    <link rel="stylesheet" href="<?= base_url('assets/js/timeline/timeline.css'); ?>">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="<?= base_url('assets/css/bootstrap.min.css') ?>">
     <!-- icon CSS -->
@@ -50,9 +52,6 @@
     <link rel="stylesheet" href="<?= base_url('assets/css/datapicker/datepicker3.css') ?>">
     <!-- accordions CSS  -->
     <link rel="stylesheet" href="<?= base_url('assets/css/accordions.css') ?>">
-    <!-- Datatables CSS -->
-    <link rel="stylesheet" href="<?= base_url('shop-assets/js/dataTables/bootstrap.css'); ?>">
-    <link rel="stylesheet" href="<?= base_url('shop-assets/js/dataTables/dataTables.bootstrap4.css'); ?>">
     <!-- x-editor CSS -->
     <link rel="stylesheet" href="<?= base_url('assets/css/editor/select2.css') ?>">
     <link rel="stylesheet" href="<?= base_url('assets/css/editor/datetimepicker.css') ?>">
@@ -83,9 +82,9 @@
     <!-- modernizr JS -->
     <script src="<?= base_url('assets/fonts/fontawesome5.js') ?>" crossorigin="anonymous"></script>
     <script src="<?= base_url('assets/js/vendor/modernizr-2.8.3.min.js') ?>"></script>
-    <script>
-        var base_url = '<?= base_url() ?>'
-    </script>
+    <!-- Datatables CSS -->
+    <!-- <link rel="stylesheet" href="<?= base_url('shop-assets/js/dataTables/bootstrap.css'); ?>"> -->
+    <link rel="stylesheet" href="<?= base_url('shop-assets/js/dataTables/dataTables.bootstrap4.css'); ?>">
 </head>
 
 <body>

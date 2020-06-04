@@ -3,7 +3,7 @@
         <center>
             <h4><?php echo $judul." ".$akun['nama_coa'] ?></h4>
             <h4>Arumi</h4>
-            <h5><?php echo "Periode bulan " . bulan($bulan) . " tahun " . $taun; ?></h5>
+            <h5><?php echo "Periode bulan " . bulan($bulan) . " tahun " . $year; ?></h5>
         </center>
         <div id="toolbar"> </div>
     </div>
@@ -16,47 +16,56 @@
                 $this->libs->thead($thead);
             ?>
             <tbody>
-            <?php
-                $saldo = 0;
+                <?php
 
-                foreach($hasil as $data){
-                    echo "
-                    <tr>
-                        <td>".shortdate_indo($data['tanggal'])."</td>
-                        <td>".$data['nama_coa']."</td>";
-                    if($data['posisi'] == 'Debit'){
-                        if($akun['header_coa'] == 1 OR $akun['header_coa'] == 5 OR $akun['header_coa'] == 6){
-                            $saldo += $data['nominal'];
-                        }
-                        else{
-                            $saldo -= $data['nominal'];
-                        }
-                    echo "
-                        <td style='text-align: center;'>".$data['coa_id']."</td>
-                        <td style='text-align: right;'>".rp($data['nominal'])."</td>
-                        <td>-</td>
-                        <td style='text-align: right;'>".rp($saldo)."</td>";
-                    }else{
-                        if($akun['header_coa'] == 2 OR $akun['header_coa'] == 4 OR $akun['header_coa'] == 3){
-                            $saldo += $data['nominal'];
-                        }
-                        else{
-                            if ($saldo == 0) {
-                                $saldo = $data['nominal'];   
+                    echo "  <tr>
+                                <td>01-".$bulan."-".$year."</td>
+                                <td>Saldo Awal</td>
+                                <td style='text-align: center'>-</td>
+                                <td style='text-align: right'>-</td>
+                                <td style='text-align: right'>-</td>
+                                <td style='text-align: right'>".rp($saldo['total'])."</td>
+                            </tr>";
+
+                    foreach($hasil as $data){
+                        echo "
+                        <tr>
+                            <td>".shortdate_indo($data['tanggal'])."</td>
+                            <td>".$data['nama_coa']."</td>";
+                        if($data['posisi'] == 'Debit'){
+                            if($akun['header_coa'] == 1 OR $akun['header_coa'] == 5 OR $akun['header_coa'] == 6) {
+                                $saldo['total'] += $data['nominal'];
                             }
-                            else {
-                                $saldo -= $data['nominal'];                    }
+                            else{
+                                $saldo['total'] -= $data['nominal'];
                             }
                         echo "
                             <td style='text-align: center;'>".$data['coa_id']."</td>
-                            <td>-</td>
-                            <td style='color: red; text-align: right;' >".rp($data['nominal'])."</td>
-                            <td style='color: red; text-align: right;' >".rp($saldo)."</td>
-                        </tr>";
-                    }
-                } 
-            ?>  
+                            <td style='text-align: right;'>".rp($data['nominal'])."</td>
+                            <td style='text-align: right'>-</td>
+                            <td style='text-align: right;'>".rp($saldo['total'])."</td>";
+                        }
+                        else{
+                            if($akun['header_coa'] == 2 OR $akun['header_coa'] == 4 OR $akun['header_coa'] == 3 OR $akun['header_coa'] == 1) {
+                                $saldo['total'] -= $data['nominal'];
+                            }
+                            else{
+                                $saldo['total'] += $data['nominal']; 
+                            }
+                            echo "
+                                <td style='text-align: center;'>".$data['coa_id']."</td>
+                                <td style='text-align: right'>-</td>
+                                <td style='color: red; text-align: right;' >".rp($data['nominal'])."</td>
+                                <td style='text-align: right;' >".rp($saldo['total'])."</td>
+                            </tr>";
+                        }
+                    } 
+                ?>  
             </tbody>
+            <tr>
+				<td style="text-align: center;" colspan="5"><b>Saldo Akhir</b></td>
+				<td style="text-align: right;"><b><?= rp($saldo['total']); ?></b></td>
+			</tr>
         </table>
     </div>
 </div>

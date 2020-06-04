@@ -94,6 +94,11 @@ class produksi extends CI_Controller {
         # jurnal biaya tenaga kerja
         $this->jurnalModel->generateJurnal('532', $id_produksi, 'Debit', $nominal, 'adel');
         $this->jurnalModel->generateJurnal('515', $id_produksi, 'Kredit', $nominal, 'adel');
+
+        # jurnal BOP 30% dari BTK
+        $nominal_bop = $nominal * 0.3; # nominal OH atau BOP
+        $this->jurnalModel->generateJurnal('533', $id_produksi, 'Debit', $nominal_bop, 'adel');
+        $this->jurnalModel->generateJurnal('516', $id_produksi, 'Kredit', $nominal_bop, 'adel');
         redirect('produksi/bp/'.$id_produksi);
     }
 
@@ -126,12 +131,11 @@ class produksi extends CI_Controller {
         $id_produksi = $this->uri->segment(3); 
         $nominal     = $this->uri->segment(4);
         $this->produksiModel->chanceStatus($id_produksi, $nominal, 'bp');
-        # jurnal pembelian bahan penolong
-        $this->jurnalModel->generateJurnal('114', $id_produksi, 'Debit', $nominal, 'adel');
-        $this->jurnalModel->generateJurnal('111', $id_produksi, 'Kredit', $nominal, 'adel');
-        # jurnal pemakaian bahan penolong
-        $this->jurnalModel->generateJurnal('533', $id_produksi, 'Debit', $nominal, 'adel');
-        $this->jurnalModel->generateJurnal('516', $id_produksi, 'Kredit', $nominal, 'adel');
+        if ($nominal != 0) {
+            # jurnal pembelian bahan penolong
+            $this->jurnalModel->generateJurnal('114', $id_produksi, 'Debit', $nominal, 'adel');
+            $this->jurnalModel->generateJurnal('111', $id_produksi, 'Kredit', $nominal, 'adel');
+        }
         redirect('produksi');
     }
 

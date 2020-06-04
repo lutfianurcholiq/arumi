@@ -4,7 +4,7 @@ class pesanan extends CI_Controller {
 
     public function __construct() {
         parent:: __construct();
-        if ($this->session->userdata('level') != 'Produksi' AND $this->session->userdata('level') != 'Karyawan') {
+        if ($this->session->userdata('level') != 'Produksi') {
     	    redirect('welcome/blok');
     	} 
     }
@@ -95,16 +95,4 @@ class pesanan extends CI_Controller {
         redirect('pesanan');
     }
 
-    public function info() {
-        $id_pesanan     = $this->uri->segment(3);
-		$data['judul']  = ucwords('detail pesanan');
-		$data['menu']   = ucwords('transaksi');
-		$data['icon']   = "fa fa-shopping-cart";
-		$data['tabel']  = site_url('pesanan');
-		$data['hasil']  = $this->pesananModel->getDetail($id_pesanan);
-		$data['detail'] = $this->pesananModel->getOne('pesanan', $id_pesanan);
-		$this->load->view('template/header', $data);
-		$this->template->load('template/content', 'transaksi/pesanan/detail', $data);
-		$this->load->view('template/footer');
-    }
 }

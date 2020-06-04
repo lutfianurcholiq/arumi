@@ -20,7 +20,7 @@
         <div class="datatable-dashv1-list custom-datatable-overright">
             <br>
             <?php echo "<h5 style='color: cornflowerblue'>Bahan ".$p['nama_produk']." ".$p['rasa']."</h5>" ?>
-            <table class="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="false" data-show-refresh="false" data-key-events="false" data-show-toggle="false" data-resizable="true" data-cookie="false" data-cookie-id-table="saveId" data-show-export="false" data-click-to-select="true" data-toolbar="#toolbar">
+            <table class="table table-bordered table-hover dataTables">
                 <?php
                     $thead = ["no", "bahan", "komposisi (BOM)", "pesanan", "beli", "harga", "subtotal"]; 
                     $this->libs->thead($thead);
@@ -52,15 +52,15 @@
                         <td><?php echo $b['jumlah']." ".$b['satuan'] ?></td>
                         <td><?php echo $b['qty']." ".$b['satuan_produk'] ?></td>
                         <td><?php echo $b['beli']." ".$b['satuan'] ?></td>
-                        <td><?php echo rp($b['harga']) ?></td>
-                        <td><?php echo rp($b['subtotal']) ?></td>
+                        <td style="text-align: right;"><?php echo rp($b['harga']) ?></td>
+                        <td style="text-align: right;"><?php echo rp($b['subtotal']) ?></td>
                     </tr>
                     <?php endforeach; ?>
-                    <tr>
-                        <td colspan="6"><b><?php echo "Total ".$p['nama_produk'] ?></b></td>
-                        <td><b><?php echo rp($total) ?></b></td>
-                    </tr>
                 </tbody>
+                <tr>
+                    <td style="text-align: center;" colspan="6"><b><?php echo "Total ".$p['nama_produk'] ?></b></td>
+                    <td style="text-align: right;"><b><?php echo rp($total) ?></b></td>
+                </tr>
             </table>
         </div>
     </div>

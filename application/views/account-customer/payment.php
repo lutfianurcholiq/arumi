@@ -1,5 +1,5 @@
 <section class="new_arrivals_area section-padding-80 clearfix">
-    <div class="breadcumb_area bg-img" style="background-image: url(shop-assets/img/bg-img/breadcumb.jpg);">
+    <div class="breadcumb_area bg-img" style="background-image: url(./shop-assets/img/bg-img/breadcumb.jpg);">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
@@ -15,7 +15,7 @@
         <div class="container">
             <div class="row">
                 <?php if ($order['status'] == "Belum Bayar") : ?>
-                <div class="col-12 col-md-6">
+                <div class="col-12 col-md-4">
                     <div class="checkout_details_area mt-50 clearfix">
                         <div class="cart-page-heading mb-30">
                             <h5>Alamat Pengiriman:</h5>

@@ -2,7 +2,7 @@
     <div class="datatable-dashv1-list custom-datatable-overright">
         <table class="table table-bordered table-hover dataTables">
             <?php
-                $thead = ["no", "pesanan", "pelanggan", "total", "tanggal pesanan", "status", "aksi"];
+                $thead = ["no", "pesanan", "pelanggan", "total", "tanggal pesanan", "status"];
                 $this->libs->thead($thead);
             ?>
             <tbody>
@@ -15,15 +15,10 @@
                         <td><?php echo shortdate_indo($data['tanggal']) ?></td>
                         <td>
                             <?php
-                            if ($data['status'] == 'Sudah Jadi') {
-                                echo "Siap Antar";
-                            }
+                                if ($data['status'] == 'Sudah Jadi') {
+                                    echo "Siap Antar";
+                                }
                             ?>
-                        </td>
-                        <td>
-                            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#InformationproModalftblack">
-                                <i class="fa fa-hand-paper-o" aria-hidden="true"></i>
-                            </button>
                         </td>
                     </tr>
                 <?php endforeach; ?>

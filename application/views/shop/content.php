@@ -53,6 +53,7 @@
                                 <h6><?php echo $data['nama_produk'] ?></h6>
                                 <p class="size"><?php echo "Jumlah: ".$data['jumlah'] ?></p>
                                 <p class="color"><?php echo "Harga: ".rp($data['harga']) ?></p>
+                                <p class="color"><?php echo $data['rasa'].": ".rp($data['harga_rasa']) ?></p>
                                 <p class="price"><?php echo "Subtotal: ".rp($data['subtotal']) ?></p>
                             </div>
                         </a>
