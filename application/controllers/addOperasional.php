@@ -12,7 +12,6 @@ class addOperasional extends CI_Controller {
 	public function index() {
 		$data['judul'] = ucwords('operasional');
 		$data['menu']  = ucwords('transaksi');
-		$data['icon']  = "fa fa-shopping-cart";
 		$data['form']  = site_url('addOperasional/create');
 		$data['hasil'] = $this->addOperasionalModel->show('operasional');
 		$this->load->view('template/header', $data);
@@ -42,7 +41,6 @@ class addOperasional extends CI_Controller {
 		else {
 			$data['judul']   = ucwords('operasional');
 			$data['menu']    = ucwords('transaksi');
-			$data['icon']    = "fa fa-shopping-cart";
 			$data['url']     = site_url('addOperasional/create');
 			$data['tabel']   = site_url('addOperasional');
 			$this->load->view('template/header', $data);
@@ -55,7 +53,6 @@ class addOperasional extends CI_Controller {
 		$id_operasional = $this->uri->segment(3);
 		$data['judul']  = ucwords('detail operasional');
 		$data['menu']   = ucwords('transaksi');
-		$data['icon']   = "fa fa-shopping-cart";
 		$data['tabel']  = site_url('addOperasional');
 		$data['hasil']  = $this->addOperasionalModel->getDetail($id_operasional);
 		$data['detail'] = $this->addOperasionalModel->getOne('operasional', $id_operasional);

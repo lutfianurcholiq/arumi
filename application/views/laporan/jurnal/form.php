@@ -1,10 +1,5 @@
 <?php $this->libs->rowOpen('', ''); ?>
 <div class="sparkline10-list mt-b-30">
-    <div class="sparkline10-hd">
-        <div class="main-sparkline10-hd">
-            <h1>Bla bla bla</h1>
-        </div>
-    </div>
     <div class="sparkline10-graph">
         <div class="basic-login-form-ad">
             <div class="row">

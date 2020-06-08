@@ -2,7 +2,7 @@
 		<div class="error-page-int">
 			<div class="text-center m-b-md custom-login">
 				<h3>Haloo, Selamat Datang</h3>
-				<p>bla bla bla!</p>
+				<p>Arumi Cake</p>
 			</div>
 			<div class="content-error">
 				<div class="hpanel">

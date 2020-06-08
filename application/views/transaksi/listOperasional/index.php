@@ -28,7 +28,7 @@
                                 <button type="button" class="btn btn-default btn-sm" onclick="window.location.href='<?= site_url('listOperasional/update/'.$this->uri->segment(3).'/'.$data['no']) ?>'" >
                                     <i class="fa fa-edit" aria-hidden="true"></i>
                                 </button>
-                                &nbsp:
+                                &nbsp;
                                 <button type="button" class="btn btn-danger btn-sm" onclick="window.location.href='<?= site_url('listOperasional/delete/'.$this->uri->segment(3).'/'.$data['no']) ?>'">
                                     <i class="fa fa-close" aria-hidden="true"></i>
                                 </button>

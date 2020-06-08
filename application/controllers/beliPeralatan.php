@@ -12,7 +12,6 @@ class beliPeralatan extends CI_Controller {
 	public function index() {
 		$data['judul'] = ucwords('peralatan');
 		$data['menu']  = ucwords('transaksi');
-		$data['icon']  = "fa fa-shopping-cart";
 		$data['form']  = site_url('beliPeralatan/create');
 		$data['hasil'] = $this->beliPeralatanModel->show('transaksi_peralatan');
 		$this->load->view('template/header', $data);
@@ -42,12 +41,23 @@ class beliPeralatan extends CI_Controller {
 		else {
 			$data['judul']   = ucwords('peralatan');
 			$data['menu']    = ucwords('transaksi');
-			$data['icon']    = "fa fa-shopping-cart";
 			$data['url']     = site_url('beliPeralatan/create');
 			$data['tabel']   = site_url('beliPeralatan');
 			$this->load->view('template/header', $data);
 			$this->template->load('template/content', 'transaksi/beliPeralatan/add');
 			$this->load->view('template/footer');
 		}
+	}
+
+	public function info() {
+		$id = $this->uri->segment(3);
+		$data['judul']  = ucwords('detail peralatan');
+		$data['menu']   = ucwords('transaksi');
+		$data['tabel']  = site_url('beliPeralatan');
+		$data['hasil']  = $this->beliPeralatanModel->getDetail($id);
+		$data['detail'] = $this->beliPeralatanModel->getOne('transaksi_peralatan', $id);
+		$this->load->view('template/header', $data);
+		$this->template->load('template/content', 'transaksi/beliPeralatan/detail', $data);
+		$this->load->view('template/footer');	
 	}
 }

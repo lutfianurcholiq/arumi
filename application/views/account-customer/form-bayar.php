@@ -33,13 +33,17 @@
             <input type="hidden" name="id_pesanan" value="<?php echo $order['id_pesanan'] ?>" readonly> 
             <input type="hidden" name="total" value="<?php echo $order['total'] ?>" readonly>
             <div class="col-12 mb-3">
-                <label for="company"><b>Upload Bukti Bayar</b> <span style="color: red; font-weight: bold">*</span></label>
+                <p>Transfer BNI: xxxxxxxxxx</p>
+                <label for="company">
+                    <b>Upload Bukti Bayar</b> <span style="color: red; font-weight: bold">*</span>
+                    (.jpg/.jpeg/.png)
+                </label>
                 <input type="file" class="form-control" name="foto">
                 <?php echo form_error('foto') ?>
-                <br> 
+                <p>Pastikan bukti bayar yang Anda upload benar dan jelas.</p>
                 <button type="submit" class="btn essence-btn"> Bayar</button>
             </div>
         </form>
-        <p>Bayar sekarang kemudian pesanan anda akan ditangani<br>oleh bagian produksi Arumi Cake.</p>
+        <p>Bayar sekarang kemudian pesanan anda akan ditangani<br>oleh Karyawan Arumi Cake.</p>
     </div>
 </div>

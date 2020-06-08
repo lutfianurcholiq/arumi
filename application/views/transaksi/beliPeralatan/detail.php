@@ -1,5 +1,5 @@
 <?php 
-    $info = $detail['kode_operasional']."-".jumlahAngka($detail['id_operasional']);
+    $info = $detail['kode']."-".jumlahAngka($detail['id']);
     $this->libs->rowOpen($info, $judul); 
 ?>
 
@@ -17,7 +17,7 @@
                 <?php $no = 0; $total = 0; foreach ($hasil as $data) : $no++ ?>
                     <tr>
                         <td><?php echo $no; ?></td>
-                        <td><?php echo $data['nama_coa']; ?></td>
+                        <td><?php echo $data['nama_peralatan']; ?></td>
                         <td><?php echo shortdate_indo($data['tanggal']); ?></td>
                         <td style="text-align: right;"><?php echo rp($data['nominal']); ?></td>
                     </tr>

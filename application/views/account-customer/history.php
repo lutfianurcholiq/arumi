@@ -37,7 +37,7 @@
                         </td>
                         <td align="center">
                             <?php if ($data['status'] == 'Belum Bayar') : ?>
-                                <button type="button" class="btn btn-xs btn-success" onclick="window.location.href='<?= site_url('bayar/pay/'.$data['id_pesanan']); ?>'">
+                                <button type="button" class="btn btn-xs btn-warning" onclick="window.location.href='<?= site_url('bayar/pay/'.$data['id_pesanan']); ?>'">
                                     <i class="fa fa-credit-card" aria-hidden="true"></i> 
                                 </button>
                             <?php elseif ($data['status'] == 'Menunggu') : ?>

@@ -24,15 +24,15 @@
                             <div class="row">
                                 <div class="col-12 mb-3">
                                     <label for="company">Nama Penerima</label>
-                                    <input type="text" class="form-control" value="<?php echo $this->session->userdata('nama') ?>">
+                                    <input type="text" class="form-control" value="<?php echo $this->session->userdata('nama') ?>" readonly>
                                 </div>
                                 <div class="col-12 mb-3">
                                     <label for="company">No WA</label>
-                                    <input type="text" class="form-control" value="<?php echo noHp($this->session->userdata('no_wa')) ?>">
+                                    <input type="text" class="form-control" value="<?php echo noHp($this->session->userdata('no_wa')) ?>" readonly>
                                 </div>
                                 <div class="col-12 mb-3">
                                     <label for="street_address">Alamat</label>
-                                    <textarea class="form-control"><?php echo $this->session->userdata('alamat') ?></textarea>
+                                    <textarea class="form-control" readonly><?php echo $this->session->userdata('alamat') ?></textarea>
                                 </div>
                             </div>
                         </form>
