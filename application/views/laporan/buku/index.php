@@ -3,7 +3,7 @@
         <center>
             <h4><?php echo $judul." ".$akun['nama_coa'] ?></h4>
             <h4>Arumi</h4>
-            <h5><?php echo "Periode bulan " . bulan($bulan) . " tahun " . $year; ?></h5>
+            <h5><?php echo "Periode Bulan " . bulan($bulan) . " Tahun " . $year; ?></h5>
         </center>
         <div id="toolbar"> </div>
     </div>
@@ -46,7 +46,7 @@
                             <td style='text-align: right;'>".rp($saldo['total'])."</td>";
                         }
                         else{
-                            if($akun['header_coa'] == 2 OR $akun['header_coa'] == 4 OR $akun['header_coa'] == 3 OR $akun['header_coa'] == 1) {
+                            if($akun['header_coa'] == 2 OR $akun['header_coa'] == 1) {
                                 $saldo['total'] -= $data['nominal'];
                             }
                             else{
