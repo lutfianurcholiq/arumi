@@ -10,7 +10,7 @@ class pembayaran extends CI_Controller {
     }
 
     public function index() {
-        $data['judul']     = ucwords('pembayaran');
+        $data['judul']     = ucwords('verifikasi pembayaran');
 		$data['menu']      = ucwords('transaksi');
         $data['hasil']     = $this->pesananModel->showPendingOrder();
         $this->load->view('template/header', $data);
