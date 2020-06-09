@@ -2,7 +2,7 @@
     $menu = $beban['kode_operasional']. "-" . jumlahAngka($beban['id_operasional']); 
     $this->libs->rowOpen($menu, ucwords('list operasional')); 
 ?>
-
+<br>
     <div class="sparkline13-graph">
         <form action="<?php echo $url; ?>" method="POST">
         

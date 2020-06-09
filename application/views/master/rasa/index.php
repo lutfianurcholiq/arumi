@@ -2,7 +2,6 @@
     echo $this->session->flashdata('sukses');
     $this->libs->rowOpen($judul, $menu);
 ?>
-
 <div class="add-product">
     <?php $this->libs->buttonAdd($form); ?>
 </div> <br>
@@ -23,7 +22,7 @@
                             <button type="button" class="btn btn-default" onclick="window.location.href='<?= site_url('rasa/update/' . $data['id_rasa']); ?>'">
                                 <i class="fa fa-pencil" aria-hidden="true"></i>
                             </button>
-                            &nbsp; &nbsp;
+                            &nbsp; 
                             <button type="button" class="btn btn-default" onclick="window.location.href='<?= site_url('bumbu/create/' . $data['id_rasa']); ?>'">
                                 <i class="fas fa-mortar-pestle" aria-hidden="true"></i>
                             </button>

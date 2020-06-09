@@ -15,7 +15,7 @@
                             <td><?php echo $data['nama_pelanggan'] ?></td>
                             <td style="text-align: right"><?php echo rp($data['total']) ?></td>
                             <td style="text-align: center">
-                                <button type="button" class="btn btn-default" onclick="window.location.href='<?= site_url('pesananLutfi/timeline/'.$data['id_pesanan']) ?>'">
+                                <button type="button" class="btn btn-info" onclick="window.location.href='<?= site_url('pesananLutfi/timeline/'.$data['id_pesanan']) ?>'">
                                     <i class="fa fa-info" aria-hidden="true"></i>
                                 </button>
                             </td>

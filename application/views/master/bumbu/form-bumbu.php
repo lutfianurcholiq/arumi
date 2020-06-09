@@ -1,4 +1,5 @@
 <?php $this->libs->rowOpen($rasa['rasa'], $judul); ?>
+<br>
     <div class="sparkline13-graph">
         <form action="<?php echo $url; ?>" method="POST">
             <?php $this->libs->inputOpen('bahan', 'required'); ?>

@@ -1,4 +1,5 @@
 <?php $this->libs->rowOpen($judul, $menu); ?>
+<br>
     <div class="sparkline13-graph">
         <form action="<?php echo $url; ?>" method="POST" enctype="multipart/form-data">
             <?php $this->libs->inputOpen('nama produk', 'required'); ?>
@@ -16,7 +17,7 @@
                 <?php echo form_error('harga'); ?>
             <?php $this->libs->inputClose(); ?>
 
-            <?php $this->libs->inputOpen('min', 'required'); ?>
+            <?php $this->libs->inputOpen('min', ''); ?>
                 <input class="form-control" type="text" name="min" placeholder="Contoh: 1" onkeypress="return numeric(event)" value="1">
                 <?php echo form_error('min'); ?>
             <?php $this->libs->inputClose(); ?>

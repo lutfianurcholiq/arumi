@@ -1,4 +1,5 @@
 <?php $this->libs->rowOpen($judul, $menu); ?>
+<br>
     <div class="sparkline13-graph">
         <form action="<?php echo $url; ?>" method="POST">
             <?php $this->libs->inputOpen('kas bulan ini', ''); ?>
@@ -12,7 +13,7 @@
             <?php $this->libs->inputClose(); ?>
 
             <?php $this->libs->inputOpen('keterangan', ''); ?>
-                <textarea class="form-control" type="text" name="keterangan" rows="3" placeholder="Contoh: Nyona Adel mengambil uang untuk keperluan biaya kuliah anaknya"></textarea>
+                <textarea class="form-control" type="text" name="keterangan" rows="3" placeholder="Contoh: Nona Miranda mengambil uang untuk keperluan biaya kuliah anaknya"></textarea>
             <?php $this->libs->inputClose(); ?>
 
             <?php $this->libs->buttonSubmit($tabel); ?>

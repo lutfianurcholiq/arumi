@@ -28,7 +28,7 @@
                                         <i class="fa fa-pencil" aria-hidden="true"></i>
                                     </button>
                                 <?php elseif ($data['status'] == 'Sudah Dibayar') : ?>
-                                    <button type="button" class="btn btn-default" onclick="window.location.href='<?= site_url('beliPeralatan/info/'.$data['id']) ?>'">
+                                    <button type="button" class="btn btn-info" onclick="window.location.href='<?= site_url('beliPeralatan/info/'.$data['id']) ?>'">
                                         <i class="fa fa-info" aria-hidden="true"></i>
                                     </button>
                                 <?php endif; ?>
