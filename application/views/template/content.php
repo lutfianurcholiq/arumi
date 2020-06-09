@@ -46,7 +46,7 @@
               </a>
               <ul class="submenu-angle" aria-expanded="true">
                 <?php if($this->session->userdata('level') == "Karyawan"): ?>
-                  <li><a title="Pesanan" href="<?php echo site_url('pesananLutfi'); ?>"><span class="mini-sub-pro">Pesanan</span></a></li>
+                  <li><a title="Pesanan" href="<?php echo site_url('pesananLutfi'); ?>"><span class="mini-sub-pro">Monitor Pesanan</span></a></li>
                 <?php elseif($this->session->userdata('level') == "Produksi"): ?>
                     <li><a title="Pesanan" href="<?php echo site_url('pesanan'); ?>"><span class="mini-sub-pro">Pesanan</span></a></li>
                     <li><a title="Jadwal Produksi" href="<?php echo site_url('produksi'); ?>"><span class="mini-sub-pro">Jadwal Produksi</span></a></li>
