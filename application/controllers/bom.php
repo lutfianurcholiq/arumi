@@ -67,9 +67,10 @@ class bom extends CI_Controller {
 		}
 		else {
 			$data['judul']  = ucwords('bahan baku');
-			$data['menu']   = ucwords('transaksi');
+			$data['menu']   = ucwords('bill of material');
 			$data['url']    = site_url('bom/update/'.$id_produk.'/'.$no);
 			$data['tabel']  = site_url('bom/create/'.$id_produk);
+            $data['produk'] = $this->produkModel->getOne('produk', $id_produk);
 			$data['hasil']  = $this->bomModel->getOne($no);
 			$this->load->view('template/header', $data);
 			$this->template->load('template/content', 'bom/form-edit', $data);	
