@@ -46,14 +46,14 @@
               </a>
               <ul class="submenu-angle" aria-expanded="true">
                 <?php if($this->session->userdata('level') == "Karyawan"): ?>
-                  <li><a title="Pesanan" href="<?php echo site_url('pesananLutfi'); ?>"><span class="mini-sub-pro">Monitor Pesanan</span></a></li>
+                  <li><a title="Monitor Pesanan" href="<?php echo site_url('pesananLutfi'); ?>"><span class="mini-sub-pro">Monitor Pesanan</span></a></li>
                 <?php elseif($this->session->userdata('level') == "Produksi"): ?>
                     <li><a title="Pesanan" href="<?php echo site_url('pesanan'); ?>"><span class="mini-sub-pro">Pesanan</span></a></li>
                     <li><a title="Jadwal Produksi" href="<?php echo site_url('produksi'); ?>"><span class="mini-sub-pro">Jadwal Produksi</span></a></li>
                 <?php elseif($this->session->userdata('level') == "Owner"): ?>
                   <li><a title="Setoran Modal" href="<?php echo site_url('modal'); ?>"><span class="mini-sub-pro">Setoran Modal</span></a></li>
                   <li><a title="Prive" href="<?php echo site_url('prive'); ?>"><span class="mini-sub-pro">Prive</span></a></li>
-                  <li><a title="Pembayaran" href="<?php echo site_url('pembayaran'); ?>"><span class="mini-sub-pro">Pembayaran</span></a></li>
+                  <li><a title="Verifikasi Pembayaran" href="<?php echo site_url('pembayaran'); ?>"><span class="mini-sub-pro">Verifikasi Pembayaran</span></a></li>
                   <li><a title="HPPenjualan" href="<?php echo site_url('hpp'); ?>"><span class="mini-sub-pro">HPPenjualan</span></a></li>
                   <li><a title="Operasional" href="<?php echo site_url('addOperasional'); ?>"><span class="mini-sub-pro">Operasional</span></a></li>
                   <li><a title="Beli Peralatan" href="<?php echo site_url('beliPeralatan'); ?>"><span class="mini-sub-pro">Beli Peralatan</span></a></li>
