@@ -23,6 +23,10 @@
                                 <button type="button" class="btn btn-default" onclick="window.location.href='<?= site_url('hpp/create/'.$data['id_pesanan']) ?>'">
                                     <i class="fa fa-edit" aria-hidden="true"></i>
                                 </button>
+                                &nbsp;
+                                <button type="button" class="btn btn-info" onclick="window.location.href='<?= site_url('hpp/create/'.$data['id_pesanan']) ?>'">
+                                    <i class="fa fa-info" aria-hidden="true"></i>
+                                </button>
                             </td>
                             
                         </tr>
