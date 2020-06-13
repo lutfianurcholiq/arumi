@@ -13,21 +13,21 @@
                 $this->libs->thead($thead);
             ?>
             <tbody>
-                <?php foreach ($hasil as $data) : ?>
+                <?php $no= 1; foreach ($hasil as $data) : ?>
                     <tr>
-                        <td><?php echo $data['id_operasional']; ?></td>
-                        <td><?php echo $data['kode_operasional']."-".jumlahAngka($data['id_operasional']); ?></td>
-                        <td style="text-align: right;"><?php echo rp($data['total']); ?></td>
-                        <td><?php echo shortdate_indo($data['tanggal']); ?></td>
-                        <td><?php echo $data['keterangan']; ?></td>
-                        <td><?php echo $data['status']; ?></td>
-                        <td style="text-align: center;">
+                        <td><?php echo $no++ ?></td>
+                        <td><?php echo $data['kode_operasional']."-".jumlahAngka($data['id_operasional']) ?></td>
+                        <td style="text-align: right;"><?php echo rp($data['total']) ?></td>
+                        <td><?php echo shortdate_indo($data['tanggal']) ?></td>
+                        <td><?php echo $data['keterangan'] ?></td>
+                        <td><?php echo $data['status'] ?></td>
+                        <td style="text-align: center">
                             <?php if ($data['status'] == 'Baru Dibuat') : ?>
-                                <button type="button" class="btn btn-default" onclick="window.location.href='<?= site_url('listOperasional/create/'.$data['id_operasional']); ?>'">
+                                <button type="button" class="btn btn-default" onclick="window.location.href='<?= site_url('listOperasional/create/'.$data['id_operasional']) ?>'">
                                     <i class="fa fa-pencil" aria-hidden="true"></i>
                                 </button>
                             <?php elseif ($data['status'] == 'Sudah Dibayar') : ?>
-                                <button type="button" class="btn btn-info" onclick="window.location.href='<?= site_url('addOperasional/info/'.$data['id_operasional']); ?>'">
+                                <button type="button" class="btn btn-info" onclick="window.location.href='<?= site_url('addOperasional/info/'.$data['id_operasional']) ?>'">
                                     <i class="fa fa-info" aria-hidden="true"></i>
                                 </button>
                             <?php endif; ?>
