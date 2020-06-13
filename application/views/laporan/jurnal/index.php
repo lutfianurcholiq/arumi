@@ -29,14 +29,14 @@
                         <td><?php echo shortdate_indo($data['tanggal']) ?></td>
                         <td><?php echo $data['nama_coa'] ?></td>
                         <td><?php echo $data['coa_id'] ?></td>
-                        <td><?php echo rp($data['nominal']) ?></td>
+                        <td style="text-align: right;"><?php echo rp($data['nominal']) ?></td>
                         <td> </td>
                     <?php $debit += $data['nominal'];  else : ?>
                         <td></td>
                         <td><?php echo space($data['nama_coa']) ?></td>
                         <td><?php echo $data['coa_id'] ?></td>
                         <td> </td>
-                        <td><?php echo rp($data['nominal']) ?></td>
+                        <td style="text-align: right;"><?php echo rp($data['nominal']) ?></td>
                     <?php $kredit += $data['nominal']; endif; echo "</tr>"; endforeach; ?>
                 </tbody>
             </table>
