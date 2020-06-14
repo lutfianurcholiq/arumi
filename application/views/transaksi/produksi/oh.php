@@ -1,0 +1,1 @@
+<p>Diambil dari 30% Tenaga Kerja</p>
