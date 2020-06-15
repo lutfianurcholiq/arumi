@@ -25,6 +25,7 @@ class labaRugi extends CI_Controller {
         $data['pendapatan']  = $this->labaRugiModel->showPendapatan($data['bulan'], $data['taun']);
         $data['beban']       = $this->labaRugiModel->showBeban($data['bulan'], $data['taun']);
         $data['hpp']         = $this->labaRugiModel->showHpp($data['bulan'], $data['taun']);
+        $data['lain']        = $this->labaRugiModel->showPendapatanLainLain($data['bulan'], $data['taun']);
 		$this->load->view('template/header', $data);
 		$this->template->load('template/content', 'laporan/laba-rugi/index', $data);
 		$this->load->view('template/footer');	
