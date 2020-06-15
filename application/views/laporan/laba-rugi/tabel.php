@@ -125,7 +125,19 @@
             <td><b>Total Biaya Operasional dan Administrasi Umum:</b></td>
             <td></td>
             <td></td>
-            <td class="bottom">(<?php echo rp($total) ?>)</td>
+            <td>(<?php echo rp($total) ?>)</td>
+        </tr>
+        <tr>
+            <td><b>Pendapatan lain-lain:</b></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><?php echo space('Pendapatan Alih Produksi') ?></td>
+            <td></td>
+            <td></td>
+            <td class="bottom"><?php echo rp($lain['pendapatan_lain']) ?></td>
         </tr>
         <tr>
             <td><b>Laba Bersih</b></td>
@@ -133,7 +145,7 @@
             <td></td>
             <td>
                 <?php 
-                    $labaBersih = $labaKotor - $total; 
+                    $labaBersih = ($labaKotor - $total) + $lain['pendapatan_lain']; 
                     echo rp($labaBersih); 
                 ?> 
             </td>
