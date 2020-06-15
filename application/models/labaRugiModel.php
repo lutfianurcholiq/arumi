@@ -31,4 +31,11 @@ class labaRugiModel extends CI_Model {
                      WHERE coa_id = '501' AND MONTH(tanggal) = '$bulan' AND YEAR(tanggal) = '$tahun' ";
         return $this->db->query($query)->row_array();
     }
+
+    public function showPendapatanLainLain($bulan, $tahun) {
+        $query   = " SELECT IF(SUM(nominal) IS NOT NULL, SUM(nominal), 0) AS pendapatan_lain 
+                      FROM jurnal 
+                     WHERE coa_id = '412' AND MONTH(tanggal) = '$bulan' AND YEAR(tanggal) = '$tahun' ";
+        return $this->db->query($query)->row_array();
+    }
 }
