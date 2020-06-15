@@ -33,7 +33,7 @@
                             <td>".shortdate_indo($data['tanggal'])."</td>
                             <td>".$data['nama_coa']."</td>";
                         if($data['posisi'] == 'Debit'){
-                            if($akun['header_coa'] == 1 OR $akun['header_coa'] == 5 OR $akun['header_coa'] == 6) {
+                            if($akun['header_coa'] == 1 OR $akun['header_coa'] == 5 OR $akun['header_coa'] == 6 OR $akun['kode_coa'] == '312') {
                                 $saldo['total'] += $data['nominal'];
                             }
                             else{
@@ -46,11 +46,11 @@
                             <td style='text-align: right;'>".rp($saldo['total'])."</td>";
                         }
                         else{
-                            if($akun['header_coa'] == 2 OR $akun['header_coa'] == 1) {
-                                $saldo['total'] -= $data['nominal'];
+                            if($akun['header_coa'] == 2 OR $akun['header_coa'] == 4 OR $akun['kode_coa'] == '311') {
+                                $saldo['total'] += $data['nominal'];
                             }
                             else{
-                                $saldo['total'] += $data['nominal']; 
+                                $saldo['total'] -= $data['nominal']; 
                             }
                             echo "
                                 <td style='text-align: center;'>".$data['coa_id']."</td>
