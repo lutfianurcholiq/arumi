@@ -2,7 +2,7 @@
     <div class="datatable-dashv1-list custom-datatable-overright">
         <table class="table table-bordered table-hover dataTables">
             <?php
-                $thead = ["no", "pesanan", "pelanggan", "total", "tanggal pesanan", "status"];
+                $thead = ["no", "pesanan", "pelanggan", "total", "tanggal pesanan", "status", "aksi"];
                 $this->libs->thead($thead);
             ?>
             <tbody>
@@ -20,6 +20,19 @@
                                 }
                             ?>
                         </td>
+                        <?php if ($data['komunitas_id'] == '0') : ?>
+                            <td style="text-align: center;">
+                                <button type="button" class="btn btn-info" onclick="window.location.href='<?= site_url('pesanan/info/'.$data['id_pesanan']) ?>'">
+                                    <i class="fas fa-info" aria-hidden="true"></i>
+                                </button>
+                            </td>
+                        <?php else : ?>
+                            <td style="text-align: center;">
+                                <button type="button" class="btn btn-info" onclick="window.location.href='<?= site_url('pesanan/infoKomunitas/'.$data['id_pesanan']) ?>'">
+                                    <i class="fas fa-info" aria-hidden="true"></i>
+                                </button>
+                            </td>
+                        <?php endif; ?>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
