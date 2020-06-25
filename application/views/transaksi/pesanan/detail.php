@@ -1,11 +1,16 @@
 <?php 
-    $info = $detail['kode_pesanan']."-".jumlahAngka($detail['id_pesanan']);
-    $this->libs->rowOpen($info, $judul); 
+    $text = $info['kode_pesanan']."-".jumlahAngka($info['id_pesanan']);
+    $this->libs->rowOpen($text, $judul); 
 ?>
 
     <div class="add-product">
         <a href="<?php echo $tabel; ?>" class="Primary mg-b-10"><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;&nbsp;Kembali</a>
     </div> <br>
+    <div class="product-status-wrap">
+        <div class="details-blog-dt blog-sig-details-dt courses-info mobile-sm-d-n">
+            <span><a href="#"><i class="fa fa-user"></i> <b>Pelanggan:</b> <?php echo $info['nama_pelanggan'] ?></a></span>
+        </div>
+    </div>
     <div class="sparkline13-graph">
         <div class="datatable-dashv1-list custom-datatable-overright">
         <table class="table table-bordered table-hover dataTables">
@@ -17,7 +22,7 @@
                 <?php $no = 1; $total = 0; foreach ($hasil as $data) : ?>
                     <tr>
                         <td style="text-align: center;"><?php echo $no++ ?></td>
-                        <td><?php echo $data['nama_produk'] ?></td>
+                        <td><?php echo $data['nama_produk']." ".$data['rasa'] ?></td>
                         <td style="text-align: right;"><?php echo rp($data['harga']) ?></td>
                         <td><?php echo $data['jumlah'] ?></td>
                         <td style="text-align: right;"><?php echo rp($data['subtotal']) ?></td>
