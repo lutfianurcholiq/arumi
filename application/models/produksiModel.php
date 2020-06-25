@@ -215,4 +215,10 @@ class produksiModel extends CI_Model {
         $this->db->where('no', $no);
         $this->db->delete($tabel);
     }
+
+    public function getBahan($id) {
+        $this->db->from('produksi a');
+        $this->db->join('detail_pesanan b', 'a.pesanan_id = b.pesanan_id');
+        $this->db->join('detail_pesanan b', 'a.pesanan_id = b.pesanan_id');
+    }
 }
