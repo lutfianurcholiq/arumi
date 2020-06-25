@@ -51,7 +51,7 @@
                                     <i class="fa fa-close"></i>
                                 </span>
                                 <h6><?php echo $data['nama_produk'] ?></h6>
-                                <p class="size"><?php echo "Jumlah: ".$data['jumlah'] ?></p>
+                                <p class="size"><?php echo "Jumlah: ".$data['jumlah']." ".$data['satuan'] ?></p>
                                 <p class="color"><?php echo "Harga: ".rp($data['harga']) ?></p>
                                 <p class="color"><?php echo $data['rasa'].": ".rp($data['harga_rasa']) ?></p>
                                 <p class="price"><?php echo "Subtotal: ".rp($data['subtotal']) ?></p>
@@ -69,7 +69,7 @@
                     <img src="<?php echo base_url('shop-assets/img/shop.gif') ?>">
                     <h2>Yuk pesan kue biar keranjangmu ga kosong.</h2>
                 <?php else : ?>
-                    <h2>Pesanan mu</h2>
+                    <h2>Pesanan Anda: </h2>
                     <ul class="summary-table">
                         <li><span>pemesan:</span> <span><?php echo $this->session->userdata('nama') ?></span></li>
                         <li><span>total:</span> <span><?php echo rp($total) ?></span></li>
