@@ -29,7 +29,7 @@ class pesananModel extends CI_Model {
     }
 
     public function showFinishOrder() {
-        $this->db->select('id_pesanan, kode_pesanan, total, tanggal, status, id_pelanggan, nama_pelanggan');
+        $this->db->select('id_pesanan, kode_pesanan, total, tanggal, status, id_pelanggan, nama_pelanggan, komunitas_id');
         $this->db->from('pelanggan a');
         $this->db->join('pesanan b', 'a.id_pelanggan = b.pelanggan_id');
         $this->db->where('status', 'Sudah Jadi');
@@ -200,6 +200,14 @@ class pesananModel extends CI_Model {
     public function getPesanan($id) { 
         $this->db->from('pesanan a');
         $this->db->join('pelanggan b', 'b.id_pelanggan = a.pelanggan_id');
+        $this->db->where('id_pesanan', $id);
+		return $this->db->get()->row_array();
+    }
+
+    public function getKomunitas($id) { 
+        $this->db->from('pesanan a');
+        $this->db->join('pelanggan b', 'b.id_pelanggan = a.pelanggan_id');
+        $this->db->join('komunitas c', 'c.id_komunitas = a.komunitas_id');
         $this->db->where('id_pesanan', $id);
 		return $this->db->get()->row_array();
     }
