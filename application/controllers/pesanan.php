@@ -66,11 +66,15 @@ class pesanan extends CI_Controller {
         $id = $this->uri->segment(3);
         if($this->validasi('throwing')) {
             $id          = $_POST['pesanan_id']; 
-            $nominal     = $_POST['nominal'];
+            $nominal1    = $_POST['nominal1'];
+            $nominal2    = $_POST['nominal2'];
 			$this->pesananModel->database('produksi', 'id_produksi', $id, 'throw');
             # jurnal lempar produksi ke komunitas
-            $this->jurnalModel->generateJurnal('412', $id, 'Debit', $nominal, 'adel');
-            $this->jurnalModel->generateJurnal('111', $id, 'Kredit', $nominal, 'adel');
+            $this->jurnalModel->generateJurnal('111', $id, 'Debit', $nominal1, 'adel');
+            $this->jurnalModel->generateJurnal('411', $id, 'Kredit', $nominal1, 'adel');
+
+            $this->jurnalModel->generateJurnal('519', $id, 'Debit', $nominal2, 'adel');
+            $this->jurnalModel->generateJurnal('111', $id, 'Kredit', $nominal2, 'adel');
 			redirect('pesanan');
 		}
 		else {
@@ -93,6 +97,30 @@ class pesanan extends CI_Controller {
         $id_pesanan = $this->uri->segment(3);
         $this->pesananModel->done($id_pesanan);
         redirect('pesanan');
+    }
+
+    public function info() { # detail pesanan yang diolah sendiri
+        $id_pesanan = $this->uri->segment(3);
+        $data['judul']  = ucwords('detail pesanan');
+		$data['menu']   = ucwords('pesanan');
+		$data['tabel']  = site_url('pesanan');
+		$data['info']   = $this->pesananModel->getPesanan($id_pesanan);
+		$data['hasil']  = $this->pesananModel->getDetail($id_pesanan);
+        $this->load->view('template/header', $data);
+        $this->template->load('template/content', 'transaksi/pesanan/detail', $data);	
+        $this->load->view('template/footer');
+    }
+
+    public function infoKomunitas() { # detail pesanan yang ditawarkan ke komunitas
+        $id_pesanan = $this->uri->segment(3);
+        $data['judul']  = ucwords('detail pesanan');
+		$data['menu']   = ucwords('pesanan');
+		$data['tabel']  = site_url('pesanan');
+		$data['info']   = $this->pesananModel->getKomunitas($id_pesanan);
+		$data['hasil']  = $this->pesananModel->getDetail($id_pesanan);
+        $this->load->view('template/header', $data);
+        $this->template->load('template/content', 'transaksi/pesanan/detail-komunitas', $data);	
+        $this->load->view('template/footer');
     }
 
 }
