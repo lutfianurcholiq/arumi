@@ -128,24 +128,12 @@
             <td>(<?php echo rp($total) ?>)</td>
         </tr>
         <tr>
-            <td><b>Pendapatan lain-lain:</b></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td><?php echo space('Pendapatan Alih Produksi') ?></td>
-            <td></td>
-            <td></td>
-            <td class="bottom"><?php echo rp($lain['pendapatan_lain']) ?></td>
-        </tr>
-        <tr>
             <td><b>Laba Bersih</b></td>
             <td></td>
             <td></td>
             <td>
                 <?php 
-                    $labaBersih = ($labaKotor - $total) + $lain['pendapatan_lain']; 
+                    $labaBersih = $labaKotor - $total; 
                     echo rp($labaBersih); 
                 ?> 
             </td>
