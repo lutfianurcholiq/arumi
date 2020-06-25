@@ -88,6 +88,9 @@ class libs {
 			} 
 			elseif ($thead[$i] == 'aksi' OR $thead[$i] == 'header' OR $thead[$i] == 'kode coa') {
 				echo "<th style='width: 10%; text-align: center;'>".ucwords($thead[$i])."</th>";
+			}
+			elseif ($thead[$i] == 'debit' OR $thead[$i] == 'reff') {
+				echo "<th style='text-align: center;'>".ucwords($thead[$i])."</th>";
 			} 
 			else {
 				echo "<th>".ucwords($thead[$i])."</th>";
