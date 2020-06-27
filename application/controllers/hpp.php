@@ -41,8 +41,8 @@ class hpp extends CI_Controller {
             $nominal     = $_POST['nominal'];
             $this->hppModel->database('produksi', $id_produksi);
             #jurnal hpp
-            $this->jurnalModel->generateJurnal('501', $id_produksi, 'Debit', $nominal, 'rina');
-            $this->jurnalModel->generateJurnal('102', $id_produksi, 'Kredit', $nominal, 'rina');
+            $this->jurnalModel->generateJurnal('501', $id_produksi, 'Debit', $nominal, 'lutfi');
+            $this->jurnalModel->generateJurnal('102', $id_produksi, 'Kredit', $nominal, 'lutfi');
 			redirect('hpp');
 		}
 		else {
