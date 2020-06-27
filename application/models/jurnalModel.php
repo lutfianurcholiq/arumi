@@ -8,6 +8,11 @@ class jurnalModel extends CI_Model {
 		$this->db->join('coa b', 'a.coa_id = b.kode_coa');
 		$this->db->where('tanggal >=', $tanggal_awal);
 		$this->db->where('tanggal <=', $tanggal_akhir);
+		// if ($this->session->userdata('level') == "Karyawan") {
+		// 	$this->db->where('user', 'lutfi');
+		// } elseif ($this->session->userdata('level') == "Produksi") {
+		// 	$this->db->where('user', 'adel');
+		// }
 		$this->db->order_by('a.no', 'ASC');
 		return $this->db->get()->result_array();
 	}
