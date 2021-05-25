@@ -16,7 +16,7 @@
         <div class="datatable-dashv1-list custom-datatable-overright">
         <table class="table table-bordered table-hover dataTables">
             <?php
-                $thead = ["no", "produk", "harga", "jumlah", "subtotal"]; 
+                $thead = ["no", "produk", "harga", "jumlah", "satuan",  "subtotal"]; 
                 $this->libs->thead($thead);
             ?>
             <tbody>
@@ -25,7 +25,8 @@
                         <td style="text-align: center;"><?php echo $no++ ?></td>
                         <td><?php echo $data['nama_produk']." ".$data['rasa'] ?></td>
                         <td style="text-align: right;"><?php echo rp($data['harga']) ?></td>
-                        <td><?php echo $data['jumlah'] ?></td>
+                        <td style="text-align: right;"><?php echo $data['jumlah'];?></td>
+                        <td><?php echo $data['satuan'];?></td>
                         <td style="text-align: right;"><?php echo rp($data['subtotal']) ?></td>
                     </tr>
                 <?php
@@ -34,7 +35,7 @@
                 ?>
             </tbody>
                 <tr>
-                    <td colspan="4" style="text-align: center;"><b>Total</b></td>
+                    <td colspan="5" style="text-align: center;"><b>Total</b></td>
                     <td style="text-align: right;"><b><?php echo rp($total) ?></b></td>
                 </tr>
         </table>

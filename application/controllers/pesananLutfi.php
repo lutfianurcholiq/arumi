@@ -21,7 +21,8 @@ class pesananLutfi extends CI_Controller {
     public function timeline() {
         $id_pesanan      = $this->uri->segment(3);
         $data['judul']   = ucwords('timeline');
-		$data['menu']    = ucwords('pesanan');
+        $data['menu']    = ucwords('pesanan');
+        $data['tabel']   = site_url('pesananLutfi');
 		$data['pesanan'] = $this->pesananModel->getPesanan($id_pesanan);
 		$data['hasil']   = $this->pesananModel->showTimeline('timeline', $id_pesanan);
         $this->load->view('template/header', $data);

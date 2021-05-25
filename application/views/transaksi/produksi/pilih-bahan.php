@@ -14,11 +14,11 @@
                 $this->libs->thead($thead);
             ?>
             <tbody>
-            <?php $no = 0; foreach ($hasil as $data) : $no++; ?>
+            <?php $no = 0; $total = 0; foreach ($hasil as $data) : $no++; ?>
                 <tr>
                     <td><?php echo $no; ?></td>
                     <td><?php echo $data['nama_bahan']; ?></td>
-                    <td><?php echo $data['jumlah']; ?></td>
+                    <td><?php echo $data['jumlah']." ".$data['satuan']; ?></td>
                     <td style="text-align: right;"><?php echo rp($data['harga_bahan']); ?></td>
                     <td style="text-align: right;"><?php echo rp($data['subtotal']); ?></td>
                     <td style="text-align: center;">
@@ -27,8 +27,13 @@
                         </button>
                     </td>
                 </tr>
-            <?php endforeach; ?>
+            <?php $total += $data['subtotal']; endforeach; ?>
             </tbody>
+                <tr>
+                    <td style="text-align: center;" colspan="4"><b>Total Seluruh Bahan Penolong</b></td>
+                    <td style="text-align: right;"><b><?php echo rp($total) ?></b></td>
+                    <td></td>
+                </tr>
         </table>
         </div>
     </div>

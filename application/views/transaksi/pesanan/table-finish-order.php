@@ -15,8 +15,10 @@
                         <td><?php echo shortdate_indo($data['tanggal']) ?></td>
                         <td>
                             <?php
-                                if ($data['status'] == 'Sudah Jadi') {
-                                    echo "Siap Antar";
+                                if ($data['komunitas_id'] == '0') {
+                                    echo "Dikerjakan sendiri";
+                                }else{
+                                    echo "Dikerjakan Komunitas";
                                 }
                             ?>
                         </td>

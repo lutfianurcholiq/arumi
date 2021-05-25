@@ -2,21 +2,27 @@
     <div class="datatable-dashv1-list custom-datatable-overright">
         <table class="table table-bordered table-hover dataTables">
             <?php
-                $thead = ["no", "karyawan", "gaji", "jumlah hari masuk", "subtotal"];
+               $thead = ["no", "nama karyawan", "jumlah hari", "gaji","SubGaji"];
                 $this->libs->thead($thead);
             ?>
             <tbody>
-                <!-- <?php foreach ($hasil as $data) : ?>
+                <?php $no = 1; foreach ($btk as $data) : ; 
+                    $total = 0;
+                    $total += $data['tenaga_kerja'];?>
                     <tr>
-                        <td><?php echo $data['id_operasional']; ?></td>
-                        <td><?php echo $data['kode_operasional'] . "-" . jumlahAngka($data['id_operasional']); ?></td>
-                        <td style="text-align: right;"><?php echo rp($data['total']); ?></td>
-                        <td><?php echo shortdate_indo($data['tanggal']); ?></td>
-                        <td><?php echo $data['keterangan']; ?></td>
-                        <td><?php echo $data['status']; ?></td>
+                        <td style="text-align: center;"><?php echo $no++ ?></td>
+                        <td><?php echo $data['nama_karyawan'] ?></td>
+                        <td><?php echo $data['hari_masuk'] ?></td>
+                        <td style="text-align: right;"><?php echo rp($data['gaji']) ?></td>
+                        <td style="text-align: right;"><?php echo rp($data['subgaji']) ?></td>
+                        </td>
                     </tr>
-                <?php endforeach; ?> -->
+                <?php endforeach; ?>
             </tbody>
+            <tr>
+                <td colspan="4" style="text-align: center;"><b>Total</b></td>
+                <td style="text-align: right;"><b><?php echo rp($total);?></b></td>
+            </tr>
         </table>
     </div>
 </div>

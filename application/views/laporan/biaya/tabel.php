@@ -6,6 +6,7 @@
         border-top: 1px solid black;
     }
 </style>
+    
 
 <table class="table border-table">
     <tbody>

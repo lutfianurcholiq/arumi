@@ -1,6 +1,9 @@
 <?php $this->libs->rowOpen($judul, ucwords('tahap ketiga')); ?>
     <div class="alert-title">
         Anda sudah menyelesaikan tahap kedua
+        <?php foreach($produk as $data){?>
+            <h5 style="color: royalblue; text-align: right;" >Pesanan : &nbsp;<?php echo $data['nama_produk']." ".$data['rasa'];?></h5>
+        <?php }?> 
     </div> <br>
     <div class="sparkline13-graph">
         <form action="<?php echo $url; ?>" method="POST">

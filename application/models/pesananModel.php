@@ -198,8 +198,12 @@ class pesananModel extends CI_Model {
     }
 
     public function getPesanan($id) { 
+        $this->db->select('*, d.nama_produk, e.rasa');
         $this->db->from('pesanan a');
         $this->db->join('pelanggan b', 'b.id_pelanggan = a.pelanggan_id');
+        $this->db->join('detail_pesanan c', 'a.id_pesanan = c.pesanan_id');
+        $this->db->join('produk d', 'c.produk_id = d.id_produk');
+        $this->db->join('rasa e', 'c.rasa_id = e.id_rasa');
         $this->db->where('id_pesanan', $id);
 		return $this->db->get()->row_array();
     }
@@ -213,7 +217,7 @@ class pesananModel extends CI_Model {
     }
 
     public function getDetail($id) {
-        $this->db->select('produk_id, a.harga, jumlah, subtotal, nama_produk, foto, rasa, harga_rasa, rasa_id');
+        $this->db->select('produk_id, a.harga, jumlah, subtotal, nama_produk, foto, rasa, a.satuan, harga_rasa, rasa_id');
         $this->db->from('produk a');
         $this->db->join('detail_pesanan b', 'a.id_produk = b.produk_id');
         $this->db->join('rasa c', 'b.rasa_id = c.id_rasa');

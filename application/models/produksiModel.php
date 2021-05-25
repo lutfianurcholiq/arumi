@@ -62,7 +62,47 @@ class produksiModel extends CI_Model {
         $this->db->where('b.produksi_id', $id);
         $this->db->where('keterangan', 'Bahan Penolong');
 		return $this->db->get()->result_array();
-	}
+    }
+    
+    public function showBb($id)
+    {
+        $this->db->select('e.nama_bahan, d.jumlah, e.satuan, d.harga, a.oh, c.nama_produk, a.bahan_baku');
+        $this->db->from('produksi a');
+        $this->db->join('detail_pesanan b', 'a.pesanan_id = b.pesanan_id');
+        $this->db->join('produk c', 'c.id_produk = b.produk_id');
+        $this->db->join('detail_bb d', 'd.produk_id = c.id_produk');
+        $this->db->join('bahan e', 'e.id_bahan = d.bahan_id');
+        $this->db->where('id_produksi', $id);
+        return $this->db->get()->result_array();
+    }
+
+    public function showBtk($id)
+    {
+        $this->db->select('c.nama_karyawan, b.hari_masuk, c.gaji, b.subgaji, a.tenaga_kerja');
+        $this->db->from('produksi a');
+        $this->db->join('detail_btkl b', 'b.produksi_id = a.id_produksi');
+        $this->db->join('karyawan c', 'b.karyawan_id = c.id_karyawan');
+        $this->db->where('id_produksi', $id);
+        return $this->db->get()->result_array();
+    }
+
+    public function showBap($id)
+    {
+        $this->db->select('nama_bahan, satuan, c.harga, b.jumlah, a.bahan_penolong');
+        $this->db->from('produksi a');
+        $this->db->join('detail_bp b', 'a.id_produksi = b.produksi_id');
+        $this->db->join('bahan c', 'b.bahan_id = c.id_bahan');
+        $this->db->where('id_produksi', $id);
+        return $this->db->get()->result_array();
+    }
+
+    public function showOh($id)
+    {
+        $this->db->select('oh');
+        $this->db->from('produksi');
+        $this->db->where('id_produksi', $id);
+        return $this->db->get()->result_array();
+    }
 
     public function getOne($tabel, $id) { 
 		return $this->db->get_where($tabel, ['id_produksi' => $id])->row_array();

@@ -20,7 +20,7 @@
         </div>
         <div id="TabPlan" class="tab-pane custon-tab-style1">
             <?php $this->load->view('transaksi/pesanan/table-finish-order') ?>
-        </div>
+        </div>      
     </div>
 </div>
 <?php $this->libs->rowClose(); ?>

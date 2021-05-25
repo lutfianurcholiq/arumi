@@ -29,7 +29,7 @@
                 </div>
 			</div>
 			<div class="text-center login-footer">
-				<p>Copyright © <?php echo date('Y') ?>. All rights reserved. Template by <a href="https://www.instagram.com/haibilll/">Colorlib</a></p>
+				<p>Copyright © <?php echo date('Y') ?>. All rights reserved. Template by <a href="#">Colorlib</a></p>
 			</div>
 		</div>   
   </div>

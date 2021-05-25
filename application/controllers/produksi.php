@@ -99,6 +99,10 @@ class produksi extends CI_Controller {
         $nominal_bop = $nominal * 0.3; # nominal OH atau BOP
         $this->jurnalModel->generateJurnal('533', $id_produksi, 'Debit', $nominal_bop, 'adel');
         $this->jurnalModel->generateJurnal('516', $id_produksi, 'Kredit', $nominal_bop, 'adel');
+
+        # jurnal pembalik BOP
+        $this->jurnalModel->generateJurnal('516', $id_produksi, 'Debit', $nominal_bop, 'adel');
+        $this->jurnalModel->generateJurnal('520', $id_produksi, 'Kredit', $nominal_bop, 'adel');
         redirect('produksi/bp/'.$id_produksi);
     }
 
@@ -114,6 +118,7 @@ class produksi extends CI_Controller {
         $data['tabel'] = site_url('produksi');
         $data['hasil'] = $this->produksiModel->showBp($id_produksi);
         $data['bahan'] = $this->produksiModel->showBahan($id_produksi);
+        $data['produk'] = $this->produksiModel->showProduk($id_produksi);
         $this->load->view('template/header', $data);
         $this->template->load('template/content', 'transaksi/produksi/pilih-bahan', $data);	
         $this->load->view('transaksi/produksi/modal-bp', $data);	
@@ -135,6 +140,10 @@ class produksi extends CI_Controller {
             # jurnal pembelian bahan penolong
             $this->jurnalModel->generateJurnal('114', $id_produksi, 'Debit', $nominal, 'adel');
             $this->jurnalModel->generateJurnal('111', $id_produksi, 'Kredit', $nominal, 'adel');
+
+            #jurnal mencatat pemakaian bahan penolong
+            $this->jurnalModel->generateJurnal('534', $id_produksi, 'Debit', $nominal, 'adel');
+            $this->jurnalModel->generateJurnal('114', $id_produksi, 'Kredit', $nominal, 'adel');
         }
         redirect('produksi');
     }
@@ -144,7 +153,12 @@ class produksi extends CI_Controller {
         $data['judul']   = ucwords('biaya produksi');
 		$data['menu']    = ucwords('produksi');
 		$data['tabel']   = site_url('produksi');
-		$data['hasil']   = $this->produksiModel->getOne('produksi', $id_produksi);
+        $data['hasil']   = $this->produksiModel->getOne('produksi', $id_produksi);
+        $data['bb']      = $this->produksiModel->showBb($id_produksi);
+        $data['btk']     = $this->produksiModel->showBtk($id_produksi);
+        $data['bap']     = $this->produksiModel->showBap($id_produksi);
+        $data['Oh']      = $this->produksiModel->showOh($id_produksi);
+        $data['produk']  = $this->produksiModel->showProduk($id_produksi);
         $this->load->view('template/header', $data);
         $this->template->load('template/content', 'transaksi/produksi/detail', $data);	
         $this->load->view('template/footer');

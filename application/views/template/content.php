@@ -157,7 +157,7 @@
         <div class="row">
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="footer-copy-right">
-              <p>Arumi © <?php echo date('Y'); ?>. Template by <a href="https://www.instagram.com/haibilll/">Colorlib</a></p>
+              <p>Arumi © <?php echo date('Y'); ?>. Template by <a href="https://www.instagram.com/lutfian.n/">Colorlib</a></p>
             </div>
           </div>
         </div>

@@ -50,7 +50,7 @@
                                             $thead = ["no", "bahan", "jumlah"]; 
                                             $this->libs->thead($thead);
                                             $produk_id = $data['produk_id'];
-                                            $this->db->select('*');
+                                            $this->db->select('*, a.satuan');
                                             $this->db->from('bahan a');
                                             $this->db->join('detail_bb b', 'a.id_bahan = b.bahan_id');
                                             $this->db->join('produk c', 'b.produk_id = c.id_produk');
@@ -62,7 +62,7 @@
                                                 <tr>
                                                     <td style="text-align: center;"><?php echo $no++ ?></td>
                                                     <td><?php echo $b['nama_bahan'] ?></td>
-                                                    <td><?php echo $b['jumlah']." ".$b['satuan']  ?></td>
+                                                    <td><?php echo $b['jumlah']." (".$b['satuan'].")" ?></td>
                                                 </tr>
                                             <?php endforeach; ?>
                                         </tbody>

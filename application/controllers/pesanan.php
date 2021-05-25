@@ -66,12 +66,12 @@ class pesanan extends CI_Controller {
         $id = $this->uri->segment(3);
         if($this->validasi('throwing')) {
             $id          = $_POST['pesanan_id']; 
-            $nominal1    = $_POST['nominal1'];
+            //$nominal1    = $_POST['nominal1'];
             $nominal2    = $_POST['nominal2'];
 			$this->pesananModel->database('produksi', 'id_produksi', $id, 'throw');
             # jurnal lempar produksi ke komunitas
-            $this->jurnalModel->generateJurnal('111', $id, 'Debit', $nominal1, 'adel');
-            $this->jurnalModel->generateJurnal('411', $id, 'Kredit', $nominal1, 'adel');
+            //$this->jurnalModel->generateJurnal('111', $id, 'Debit', $nominal1, 'adel');
+            //$this->jurnalModel->generateJurnal('411', $id, 'Kredit', $nominal1, 'adel');
 
             $this->jurnalModel->generateJurnal('519', $id, 'Debit', $nominal2, 'adel');
             $this->jurnalModel->generateJurnal('111', $id, 'Kredit', $nominal2, 'adel');
